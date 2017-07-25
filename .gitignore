@@ -11,3 +11,6 @@ dist/
 # Dependency managers
 node_modules/
 npm-debug.log
+
+# Configs
+config.js
