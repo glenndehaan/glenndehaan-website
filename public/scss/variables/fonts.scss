@@ -1,0 +1,28 @@
+// paths
+$path-to-font: '../fonts';
+
+// =============================== Geomanist
+// regular
+@font-face {
+  font-family: 'geomanistregular';
+  src: url('#{$path-to-font}/geomanist-regular-webfont.woff2') format('woff2'),
+  url('#{$path-to-font}/geomanist-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+// bold
+@font-face {
+  font-family: 'geomanistbold';
+  src: url('#{$path-to-font}/geomanist-bold-webfont.woff2') format('woff2'),
+  url('#{$path-to-font}/geomanist-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+$font-type-copy: 'geomanistregular', sans-serif;
+$font-type-title: 'geomanistbold', sans-serif;
+
+
+// font sizes
+$font-size-base: 1.4rem;

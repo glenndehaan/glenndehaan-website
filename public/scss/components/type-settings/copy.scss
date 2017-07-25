@@ -1,0 +1,18 @@
+// for general body copy (size || color)
+// sizes: small, regular, accent
+.copy {
+  @include font(regular);
+  font-size: $font-size-base;
+}
+
+.copy-accent {
+  @include font(regular);
+  font-size: 1.8rem;
+}
+
+.copy-small {
+  @include font(regular);
+  font-size: 1.2rem;
+  line-height: 1.4em;
+}
+

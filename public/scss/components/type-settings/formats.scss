@@ -1,0 +1,25 @@
+// 1. caps
+// 2. alignment
+
+// =============== force caps
+.v-caps {
+  text-transform: uppercase;
+}
+
+// =============== alignment
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+
+.nowrap {
+  white-space: nowrap;
+}

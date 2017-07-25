@@ -1,6 +1,34 @@
-//todo remove me!!
-@import "__glenn/glenn";
+// imports
+@import
 
-/**
-  Put Ben's awesome styling HERE
- */
+  // Variables
+'variables/dimensions',
+'variables/breakpoints',
+'variables/fonts',
+'variables/colors',
+
+  // mixins
+'mixins/mediaqueries',
+'mixins/typography',
+'mixins/helpers',
+
+  // global
+'global/normalize',
+'global/base',
+'global/utils',
+
+  //============================ components
+
+  // header
+'components/header/header-bar',
+'components/header/nav',
+
+  // grid
+'components/grid/grid',
+'components/grid/grid-item',
+
+
+  // type settings
+'components/type-settings/formats',
+'components/type-settings/copy',
+'components/type-settings/titles';

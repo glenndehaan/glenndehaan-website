@@ -1,0 +1,59 @@
+// basic formats for titles
+// 1. sizes
+// 2. colors
+
+// ============== 1. sizes
+.title-regular {
+  @include font(title);
+  font-size: 2.0rem;
+  line-height: 1.25em;
+
+  @include breakpoint($medium-up){
+    font-size: 2.2rem;
+  }
+
+  @include breakpoint($xlarge-up){
+    font-size: 2.4rem;
+  }
+}
+
+.title-medium {
+  @include font(title);
+  font-size: 2.5rem;
+  line-height: 1.2em;
+  letter-spacing: 0.03em;
+
+  @include breakpoint($medium-up){
+    font-size: 3.0rem;
+  }
+
+  @include breakpoint($xlarge-up){
+    font-size: 3.5rem;
+  }
+}
+
+.title-large {
+  @include font(title);
+  font-size: 3.8rem;
+  line-height: 1.1em;
+
+  @include breakpoint($medium-up){
+    font-size: 4.15rem;
+  }
+
+  @include breakpoint($xlarge-up){
+    font-size: 4.5rem;
+  }
+}
+
+
+// ============== 2. colors
+.title-black {
+  color: $black;
+}
+
+.title-white {
+  @include font(title, true);
+  color: $white;
+}
+
