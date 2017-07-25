@@ -1,0 +1,43 @@
+.timeline-header {
+  padding: 30px;
+  margin-bottom: 60px;
+  background-color: rgba($black, 0.2);
+}
+
+.timeline-title {
+  max-width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 30px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 60px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 30px;
+    width: 2px;
+    background-color: rgba($black, 0.2);
+  }
+}
+
+.timeline-item {
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+
+  img {
+    display: block;
+    width: 10px;
+    height: auto;
+  }
+}

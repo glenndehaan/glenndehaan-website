@@ -1,0 +1,40 @@
+$header-height: 60px;
+
+.header {
+  display: flex;
+  background-color: white;
+}
+
+// a
+.home-anchor {
+  display: block;
+  height: $header-height;
+}
+
+// h1
+.page-title {
+  position: relative;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  @include font(regular);
+  font-size: 1.8rem;
+  color: $black;
+}
+
+// figure
+.logo {
+  width: $header-height - 20;
+  height: $header-height - 20;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+// img
+.page-title img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}

@@ -13,15 +13,38 @@ export class Header extends Component {
      */
     render() {
         return (
-            <header>
-                <nav>
-                    <Link to="/"><img src="images/icon/logo_144x144.png" height="40px" alt="logo" /> Glenn de Haan</Link>
-                    <Link to="/projects">Projects</Link>
-                    <Link to="/programming">Programming</Link>
-                    <Link to="/about">About</Link>
-                    <a href="https://github.com/glenndehaan" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/glenndehaan/" target="_blank">LinkedIn</a>
+            <header className="header">
+
+                <Link className="home-anchor" to="/">
+                    <h1 className="page-title">
+                        <figure className="logo">
+                            <img src="images/design/glenn-de-haan.jpg" alt="logo" />
+                        </figure>
+                        Glenn de Haan
+                    </h1>
+                </Link>
+
+                <nav className="nav-page">
+                    <Link className="page-anchor" to="/projects">
+                        Projects
+                    </Link>
+                    <Link className="page-anchor" to="/programming">
+                        Programming
+                    </Link>
+                    <Link className="page-anchor" to="/about">
+                        About
+                    </Link>
                 </nav>
+
+                <nav className="nav-social">
+                    <a className="social-anchor" href="https://github.com/glenndehaan" target="_blank">
+                        <span>GitHub</span>
+                    </a>
+                    <a className="social-anchor" href="https://www.linkedin.com/in/glenndehaan/" target="_blank">
+                        <span>LinkedIn</span>
+                    </a>
+                </nav>
+
             </header>
         )
     }

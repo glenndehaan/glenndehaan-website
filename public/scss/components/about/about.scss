@@ -1,0 +1,46 @@
+.portrait {
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.contacts {
+  display: flex;
+}
+
+.contact-anchor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: auto;
+  flex-grow: 2;
+  height: 60px;
+  padding-top: 0.6rem;
+  color: $black;
+  @include font(bold);
+
+  &.tel {
+    background-color: rgba($black, 0.1);
+  }
+  &.mail {
+    background-color: rgba($black, 0.15);
+  }
+}
+
+.about-copy {
+  padding: 30px;
+
+  @include breakpoint($medium-up) {
+    padding: 60px;
+  }
+}
+
+.about-copy p {
+
+  &:not(last-child) {
+    margin-bottom: 1rem;
+  }
+}

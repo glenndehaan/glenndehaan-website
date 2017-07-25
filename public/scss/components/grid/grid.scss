@@ -1,0 +1,8 @@
+.grid {
+
+  @include breakpoint($medium-up) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+

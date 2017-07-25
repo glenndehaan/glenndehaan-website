@@ -1,0 +1,56 @@
+$spacing: 1.5rem;
+
+.nav-page {
+  display: flex;
+  align-items: center;
+
+  @include breakpoint($large-down) {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $white;
+    box-shadow: 0 0 30px rgba($black, 0.15);
+  }
+
+  @include breakpoint($large-up) {
+    margin-right: $spacing;
+    margin-left: auto;
+  }
+}
+
+.page-anchor {
+  display: flex;
+  align-items: center;
+  height: $header-height;
+  padding-right: $spacing;
+  padding-left: $spacing;
+  color: $black;
+  font-size: 1.8rem;
+
+  @include breakpoint($large-down) {
+    flex-basis: 33.33%;
+    justify-content: center;
+  }
+}
+
+
+
+.nav-social {
+  display: flex;
+  background-color: rgba($black, 0.15);
+
+  @include breakpoint($large-down) {
+    margin-left: auto;
+  }
+}
+
+.social-anchor {
+  position: relative;
+  width: $header-height;
+  height: $header-height;
+
+  span {
+    @include hideType();
+  }
+}

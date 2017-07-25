@@ -1,0 +1,13 @@
+.cols-two {
+
+  @include breakpoint($medium-up) {
+    display: flex;
+  }
+}
+
+.col-item {
+
+  @include breakpoint($medium-up) {
+    flex-basis: 50%;
+  }
+}
