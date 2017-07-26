@@ -38,6 +38,7 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "react-router": "^4.1.2",
     "react-router-dom": "^4.1.2",
+    "react-router-v4-transition": "^0.1.8",
     "sass-loader": "^6.0.6",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.4.1",

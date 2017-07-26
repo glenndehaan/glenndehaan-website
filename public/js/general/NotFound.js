@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {mainIntro, pageIntro, pageOutro} from './animations/pageTransitions';
 
 /**
  * Presentational part of the component
@@ -11,7 +12,36 @@ export class NotFound extends Component {
      */
     constructor(props) {
         super(props);
-        this.element = null;
+        this.domElements = {
+            mainContainer: null
+        };
+    }
+
+    /**
+     * Initial load
+     * @param callback
+     */
+    componentWillAppear(callback) {
+        //do something when the component will appear
+        mainIntro(callback, this.domElements);
+    }
+
+    /**
+     * On load
+     * @param callback
+     */
+    componentWillEnter(callback) {
+        //do something when the component will appear
+        pageIntro(callback, this.domElements);
+    }
+
+    /**
+     * On leave
+     * @param callback
+     */
+    componentWillLeave(callback) {
+        //do something when the component will appear
+        pageOutro(callback, this.domElements);
     }
 
     /**
@@ -21,7 +51,7 @@ export class NotFound extends Component {
      */
     render() {
         return (
-            <main className="page not-found" ref={(c) => this.element = c}>
+            <main style={{opacity: 0}} className="page not-found" ref={(c) => this.domElements.mainContainer = c}>
                 <h1 className="page-title">404</h1>
                 <div className="page-subtitle">Pagina niet gevonden!</div>
             </main>

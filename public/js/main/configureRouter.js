@@ -1,5 +1,6 @@
 import React from 'react';
 import {Router, Route, Switch} from 'react-router';
+import {TransitionSwitch} from 'react-router-v4-transition';
 
 import createHistory from 'history/createBrowserHistory';
 
@@ -25,14 +26,14 @@ export default () => {
             <div>
                 <Header />
                 <div className="container">
-                    <Switch>
+                    <TransitionSwitch parallel={false}>
                         <Route exact path="/" component={Index}/>
                         <Route exact path="/projects" component={Projects}/>
                         <Route exact path="/programming" component={Programming}/>
                         <Route exact path="/about" component={About}/>
                         <Route path="notfound" component={NotFound}/>
                         <Route path="*" component={NotFound}/>
-                    </Switch>
+                    </TransitionSwitch>
                 </div>
             </div>
         </Router>
