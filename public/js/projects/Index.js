@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
 /**
  * Presentational part of the component
@@ -11,7 +12,36 @@ export default class Projects extends Component {
      */
     constructor(props) {
         super(props);
-        this.mainContainer = null;
+        this.domElements = {
+            mainContainer: null
+        };
+    }
+
+    /**
+     * Initial load
+     * @param callback
+     */
+    componentWillAppear(callback) {
+        //do something when the component will appear
+        mainIntro(callback, this.domElements);
+    }
+
+    /**
+     * On load
+     * @param callback
+     */
+    componentWillEnter(callback) {
+        //do something when the component will appear
+        pageIntro(callback, this.domElements);
+    }
+
+    /**
+     * On leave
+     * @param callback
+     */
+    componentWillLeave(callback) {
+        //do something when the component will appear
+        pageOutro(callback, this.domElements);
     }
 
     /**
@@ -21,7 +51,7 @@ export default class Projects extends Component {
      */
     render() {
         return (
-            <main ref={c => this.mainContainer = c}>
+            <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
                 Projects index
             </main>
         );
