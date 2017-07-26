@@ -21,6 +21,10 @@ import {NotFound} from "../general/NotFound";
 export default () => {
     const history = createHistory();
 
+    history.listen((location, action) => {
+        site.events.emit('historyChange', location.pathname);
+    });
+
     return (
         <Router history={history}>
             <div>

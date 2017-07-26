@@ -9,6 +9,40 @@ import GithubIcon from './svg/GithubIcon';
  */
 export class Header extends Component {
     /**
+     * Constructor
+     * @param props
+     */
+    constructor(props) {
+        super(props);
+        this.domElements = {
+            menuLinks: []
+        };
+
+        this.state = {
+            homeLink: false,
+            projectsLink: false,
+            programmingLink: false,
+            aboutLink: false
+        };
+
+        site.events.on('historyChange', e => this.updateActiveLink(e) );
+    }
+
+    updateActiveLink(path){
+        for(let item = 0; item < this.domElements.menuLinks.length; item++){
+            if(this.domElements.menuLinks[item].link === path){
+                this.setState({[this.domElements.menuLinks[item].name]: true});
+            }else{
+                this.setState({[this.domElements.menuLinks[item].name]: false});
+            }
+        }
+    }
+
+    componentDidMount(){
+        this.updateActiveLink(window.location.pathname);
+    }
+
+    /**
      * React's Render function, should return a single child element
      * @see https://facebook.github.io/react/docs/react-component.html#render
      * @return {XML}
@@ -17,7 +51,7 @@ export class Header extends Component {
         return (
             <header className="header">
 
-                <Link className="home-anchor" to="/">
+                <Link className={["home-anchor", this.state.homeLink ? 'is-active' : ''].join(' ')} to="/" ref={(c) => this.domElements.menuLinks.push({link: '/', element: c, name: 'homeLink'})}>
                     <h1 className="page-title">
                         <figure className="logo">
                             <img src="images/design/glenn-de-haan.jpg" alt="logo" />
@@ -27,13 +61,13 @@ export class Header extends Component {
                 </Link>
 
                 <nav className="nav-page">
-                    <Link className="page-anchor" to="/projects">
+                    <Link className={["page-anchor", this.state.projectsLink ? 'is-active' : ''].join(' ')} to="/projects" ref={(c) => this.domElements.menuLinks.push({link: '/projects', element: c, name: 'projectsLink'})}>
                         Projects
                     </Link>
-                    <Link className="page-anchor is-active" to="/programming">
+                    <Link className={["page-anchor", this.state.programmingLink ? 'is-active' : ''].join(' ')} to="/programming" ref={(c) => this.domElements.menuLinks.push({link: '/programming', element: c, name: 'programmingLink'})}>
                         Programming
                     </Link>
-                    <Link className="page-anchor" to="/about">
+                    <Link className={["page-anchor", this.state.aboutLink ? 'is-active' : ''].join(' ')} to="/about" ref={(c) => this.domElements.menuLinks.push({link: '/about', element: c, name: 'aboutLink'})}>
                         About
                     </Link>
                 </nav>

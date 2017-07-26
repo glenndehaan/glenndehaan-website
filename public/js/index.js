@@ -5,6 +5,7 @@ import 'core-js/fn/object/assign';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
+import mitt from 'mitt';
 
 import config from './main/config';
 import {loadState, saveState} from './main/storage';
@@ -14,6 +15,7 @@ import Root from './main/Root'
 
 const render = Component => {
     updateGithubData();
+    site.events = mitt();
 
     ReactDOM.render(
         <AppContainer>
@@ -44,6 +46,7 @@ window.addEventListener('online', () => {
 window.addEventListener('offline', () => {
     config.network = navigator.onLine;
 });
+window.site = {};
 
 render(Root);
 
