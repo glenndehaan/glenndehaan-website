@@ -1,3 +1,7 @@
+.col-person {
+  background-color: $white;
+}
+
 .portrait {
 
   img {
@@ -19,14 +23,19 @@
   flex-grow: 2;
   height: 60px;
   padding-top: 0.6rem;
-  color: $white;
-  @include font(bold, true);
+  color: $black;
+  @include font(bold, false);
+  transition: color 0.25s;
 
   &.tel {
-    background-color: $orange;
+    background-color: rgba($black, 0.05);
   }
   &.mail {
-    background-color: $red;
+    background-color: rgba($black, 0.1);
+  }
+
+  &:hover {
+    color: $red;
   }
 }
 

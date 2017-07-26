@@ -30,7 +30,7 @@ export class Header extends Component {
                     <Link className="page-anchor" to="/projects">
                         Projects
                     </Link>
-                    <Link className="page-anchor" to="/programming">
+                    <Link className="page-anchor is-active" to="/programming">
                         Programming
                     </Link>
                     <Link className="page-anchor" to="/about">

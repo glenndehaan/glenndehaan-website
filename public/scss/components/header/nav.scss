@@ -20,6 +20,7 @@ $spacing: 1.5rem;
 }
 
 .page-anchor {
+  position: relative;
   display: flex;
   align-items: center;
   height: $header-height;
@@ -27,6 +28,14 @@ $spacing: 1.5rem;
   padding-left: $spacing;
   color: $black;
   font-size: 1.8rem;
+  overflow: hidden;
+  transition: color 0.25s;
+  will-change: color;
+
+  &:hover,
+  &.is-active {
+    color: $red;
+  }
 
   @include breakpoint($large-down) {
     flex-basis: 33.33%;
@@ -55,10 +64,10 @@ $spacing: 1.5rem;
   }
 
   &:nth-child(1) {
-    background-color: $red;
+    background-color: rgba($black, 0.1);
   }
 
   &:nth-child(2) {
-    background-color: $orange;
+    background-color: rgba($black, 0.15);
   }
 }

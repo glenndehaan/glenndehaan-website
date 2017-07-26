@@ -1,18 +1,19 @@
 .grid-item {
   background-color: $white;
+  background-size: cover;
   color: $black;
 
   &:nth-child(5n + 1) {
-    background-color: rgba($black, 0.02);
+    background-image: linear-gradient(rgba($black, 0.02), rgba($black, 0.02));
   }
   &:nth-child(5n + 2) {
-    background-color: rgba($black, 0.04);
+    background-image: linear-gradient(rgba($black, 0.04), rgba($black, 0.04));
   }
   &:nth-child(5n + 3) {
-    background-color: rgba($black, 0.06);
+    background-image: linear-gradient(rgba($black, 0.06), rgba($black, 0.06));
   }
   &:nth-child(5n + 4) {
-    background-color: rgba($black, 0.08);
+    background-image: linear-gradient(rgba($black, 0.08), rgba($black, 0.08));
   }
 }
 
@@ -22,7 +23,8 @@
   @include hyphen();
 }
 
-.item-copy {}
+.item-copy {
+}
 
 .grid-item .item-anchor {
   position: relative;
@@ -35,18 +37,18 @@
     width: 3em;
     height: 3px;
     margin-bottom: 0.6em;
-    background-image: linear-gradient(23deg, $orange, $red);
+    background-image: linear-gradient(90deg, $orange, $red);
     background-size: cover;
     transform-origin: 0 50%;
     transform: scaleX(1) translateX(-33%);
     transition: transform 0.25s;
   }
-
-  &:hover {
-    color: $red;
-  }
 }
 
-.grid-item:hover .item-anchor:before {
-  transform: scaleX(2) translateX(0%);
+.grid-item:hover .item-anchor {
+  color: $red;
+
+  &:before {
+    transform: scaleX(2.3) translateX(0%);
+  }
 }

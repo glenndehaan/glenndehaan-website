@@ -23,7 +23,7 @@ export default class About extends Component {
     render() {
         return (
             <main className="cols-two" ref={c => this.mainContainer = c}>
-                <div className="col-item">
+                <div className="col-item col-person">
                     <figure className="portrait">
                         <img src="images/design/glenn-de-haan.jpg" alt="logo" />
                     </figure>
@@ -47,24 +47,23 @@ export default class About extends Component {
                 <div className="col-item col-timeline">
                     <header className="timeline-header">
                         <h2 className="timeline-title title-regular title-white">
-                            certification & education
+                            Certification & Education
                         </h2>
                     </header>
                     <div className="timeline">
                         {config.certification.map((item, key) => (
                             <div className="timeline-item" key={key}>
-                                {/*<img src={item.logo} />*/}
-                                <h3 className="item-title title-regular">{item.name}</h3>
-                                <p>Provider: {item.provider}</p>
-                                <a className="item-anchor" href={item.certificate} target="_blank">View certificate</a>
+                                <h3 className="item-title title-regular title-white">{item.name}</h3>
+                                <p className="copy-white">Provider: {item.provider}</p>
+                                <a className="item-anchor copy-white" href={item.certificate} target="_blank">View certificate</a>
                             </div>
                         ))}
 
                         {config.education.map((item, key) => (
                             <div className="timeline-item" key={key}>
                                 {/*<img src={item.logo} />*/}
-                                <h3 className="item-title title-regular">{item.name}</h3>
-                                <p>Study: {item.study}</p>
+                                <h3 className="item-title title-regular title-white">{item.name}</h3>
+                                <p className="copy-white">Study: {item.study}</p>
                             </div>
                         ))}
                     </div>

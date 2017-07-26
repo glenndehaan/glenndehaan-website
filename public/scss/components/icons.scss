@@ -3,12 +3,19 @@
   width: 30px;
   height: 30px;
   margin: auto;
+  opacity: 0.6;
+  transition: opacity 0.25s;
+  will-change: opacity;
 
   * {
-    fill: $white;
+    fill: $black;
   }
 
   &.icon-linkedin {
     transform: scale(0.8) translateY(-4%);
   }
+}
+
+.social-anchor:hover .icon {
+  opacity: 1.0;
 }

@@ -30,8 +30,8 @@ export default class Programming extends Component {
                             <header className="item-header">
                                 <h2 className="item-title title-medium">{item.name}</h2>
                             </header>
-                            <p className="item-copy">{item.description !== null ? item.description : 'Still trying to find a description'}</p>
-                            <div className="item-anchor">View on GitHub</div>
+                            <p className="item-copy copy-grey">{item.description !== null ? item.description : 'Still trying to find a description'}</p>
+                            <div className="item-anchor copy-grey">View on GitHub</div>
                         </a>
                     ))}
                 </div>

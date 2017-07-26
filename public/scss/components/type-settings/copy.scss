@@ -16,3 +16,11 @@
   line-height: 1.4em;
 }
 
+.copy-grey {
+  color: rgba($black, 0.4);
+}
+
+.copy-white {
+  color: $white;
+  @include font(regular, true);
+}
