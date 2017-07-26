@@ -56,7 +56,7 @@ export default class Programming extends Component {
                 <h3 className="visually-hidden">Programming</h3>
                 <div className="grid">
                     {config.programming.map((item, key) => (
-                        <a className="grid-item" href={item.url} target="_blank" key={key}>
+                        <a className="grid-item" href={item.html_url} target="_blank" key={key}>
                             <header className="item-header">
                                 <h2 className="item-title title-medium">{item.name}</h2>
                             </header>
