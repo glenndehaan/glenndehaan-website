@@ -1,0 +1,14 @@
+.social-anchor .icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: auto;
+
+  * {
+    fill: rgba($black, 0.5);
+  }
+
+  &.icon-linkedin {
+    transform: scale(0.8) translateY(-4%);
+  }
+}

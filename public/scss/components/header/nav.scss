@@ -38,7 +38,6 @@ $spacing: 1.5rem;
 
 .nav-social {
   display: flex;
-  background-color: rgba($black, 0.15);
 
   @include breakpoint($large-down) {
     margin-left: auto;
@@ -49,8 +48,17 @@ $spacing: 1.5rem;
   position: relative;
   width: $header-height;
   height: $header-height;
+  display: flex;
 
   span {
     @include hideType();
+  }
+
+  &:nth-child(1) {
+    background-color: rgba($black, 0.15);
+  }
+
+  &:nth-child(2) {
+    background-color: rgba($black, 0.25);
   }
 }

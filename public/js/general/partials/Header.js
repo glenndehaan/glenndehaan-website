@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import LinkedinIcon from '../../svg/LinkedinIcon';
+import GithubIcon from '../../svg/GithubIcon';
 
 /**
  * Presentational part of the component
@@ -38,9 +40,11 @@ export class Header extends Component {
 
                 <nav className="nav-social">
                     <a className="social-anchor" href="https://github.com/glenndehaan" target="_blank">
+                        <GithubIcon/>
                         <span>GitHub</span>
                     </a>
                     <a className="social-anchor" href="https://www.linkedin.com/in/glenndehaan/" target="_blank">
+                        <LinkedinIcon/>
                         <span>LinkedIn</span>
                     </a>
                 </nav>

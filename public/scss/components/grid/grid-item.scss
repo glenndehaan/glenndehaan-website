@@ -1,21 +1,4 @@
 .grid-item {
-  display: flex;
-  min-height: 35vh;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  padding: 30px;
-
-  @include breakpoint($medium-up) {
-    flex-basis: 50%;
-  }
-  @include breakpoint($large-up) {
-    flex-basis: 33.33%;
-    padding: 60px;
-  }
-}
-
-.grid-item {
   background-color: $white;
 
   &:nth-child(5n + 1) {
