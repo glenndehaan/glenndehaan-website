@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import LinkedinIcon from '../../svg/LinkedinIcon';
-import GithubIcon from '../../svg/GithubIcon';
+import LinkedinIcon from './svg/LinkedinIcon';
+import GithubIcon from './svg/GithubIcon';
 
 /**
  * Presentational part of the component
