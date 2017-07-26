@@ -20,7 +20,7 @@
 .title-medium {
   @include font(bold);
   font-size: 2.5rem;
-  line-height: 1.2em;
+  line-height: 1.0em;
   letter-spacing: 0.03em;
 
   @include breakpoint($medium-up){

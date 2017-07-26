@@ -19,14 +19,14 @@
   flex-grow: 2;
   height: 60px;
   padding-top: 0.6rem;
-  color: $black;
-  @include font(bold);
+  color: $white;
+  @include font(bold, true);
 
   &.tel {
-    background-color: rgba($black, 0.1);
+    background-color: $orange;
   }
   &.mail {
-    background-color: rgba($black, 0.15);
+    background-color: $red;
   }
 }
 

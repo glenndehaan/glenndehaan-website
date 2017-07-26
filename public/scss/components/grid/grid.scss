@@ -7,6 +7,7 @@
 }
 
 .grid-item {
+  position: relative;
   display: flex;
   min-height: 35vh;
   flex-wrap: wrap;

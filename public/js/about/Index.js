@@ -44,26 +44,26 @@ export default class About extends Component {
                     </div>
                 </div>
 
-                <div className="col-item">
+                <div className="col-item col-timeline">
                     <header className="timeline-header">
-                        <h2 className="timeline-title">
-                            certification | education
+                        <h2 className="timeline-title title-regular title-white">
+                            certification & education
                         </h2>
                     </header>
                     <div className="timeline">
                         {config.certification.map((item, key) => (
                             <div className="timeline-item" key={key}>
-                                <img src={item.logo} />
-                                <span>{item.name}</span>
+                                {/*<img src={item.logo} />*/}
+                                <h3 className="item-title title-regular">{item.name}</h3>
                                 <p>Provider: {item.provider}</p>
-                                <a href={item.certificate} target="_blank">View certificate</a>
+                                <a className="item-anchor" href={item.certificate} target="_blank">View certificate</a>
                             </div>
                         ))}
 
                         {config.education.map((item, key) => (
                             <div className="timeline-item" key={key}>
-                                <img src={item.logo} />
-                                <span>{item.name}</span>
+                                {/*<img src={item.logo} />*/}
+                                <h3 className="item-title title-regular">{item.name}</h3>
                                 <p>Study: {item.study}</p>
                             </div>
                         ))}

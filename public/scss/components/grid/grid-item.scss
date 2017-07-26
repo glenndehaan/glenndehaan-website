@@ -1,24 +1,52 @@
 .grid-item {
   background-color: $white;
+  color: $black;
 
   &:nth-child(5n + 1) {
-    background-color: rgba($black, 0.1);
+    background-color: rgba($black, 0.02);
   }
   &:nth-child(5n + 2) {
-    background-color: rgba($black, 0.15);
+    background-color: rgba($black, 0.04);
   }
   &:nth-child(5n + 3) {
-    background-color: rgba($black, 0.05);
+    background-color: rgba($black, 0.06);
   }
   &:nth-child(5n + 4) {
-    background-color: rgba($black, 0.2);
+    background-color: rgba($black, 0.08);
   }
 }
 
 .item-header {}
 
-.item-title {}
+.item-title {
+  @include hyphen();
+}
 
 .item-copy {}
 
-.item-anchor {}
+.grid-item .item-anchor {
+  position: relative;
+  margin-top: 1.6em;
+  transition: color 0.25s;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 3em;
+    height: 3px;
+    margin-bottom: 0.6em;
+    background-image: linear-gradient(23deg, $orange, $red);
+    background-size: cover;
+    transform-origin: 0 50%;
+    transform: scaleX(1) translateX(-33%);
+    transition: transform 0.25s;
+  }
+
+  &:hover {
+    color: $red;
+  }
+}
+
+.grid-item:hover .item-anchor:before {
+  transform: scaleX(2) translateX(0%);
+}

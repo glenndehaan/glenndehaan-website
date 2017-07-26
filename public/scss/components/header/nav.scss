@@ -55,10 +55,10 @@ $spacing: 1.5rem;
   }
 
   &:nth-child(1) {
-    background-color: rgba($black, 0.15);
+    background-color: $red;
   }
 
   &:nth-child(2) {
-    background-color: rgba($black, 0.25);
+    background-color: $orange;
   }
 }
