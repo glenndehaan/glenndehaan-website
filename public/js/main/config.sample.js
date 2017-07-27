@@ -9,5 +9,6 @@ export default {
     },
     certification: [],
     education: [],
+    projects: [],
     programming: []
 };

@@ -54,7 +54,7 @@ export class Header extends Component {
                 <Link className={["home-anchor", this.state.homeLink ? 'is-active' : ''].join(' ')} to="/" ref={(c) => this.domElements.menuLinks.push({link: '/', element: c, name: 'homeLink'})}>
                     <h1 className="page-title">
                         <figure className="logo">
-                            <img src="images/design/glenn-de-haan.jpg" alt="logo" />
+                            <img src="/images/design/glenn-de-haan.jpg" alt="logo" />
                         </figure>
                         Glenn de Haan
                     </h1>

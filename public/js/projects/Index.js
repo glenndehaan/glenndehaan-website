@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import config from '../main/config';
 import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
 /**
@@ -52,7 +54,16 @@ export default class Projects extends Component {
     render() {
         return (
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
-                Projects index
+                <h1>Projects</h1>
+                <div>
+                    {config.projects.map((item, key) => (
+                        <Link to={`/project/${item.path}`} key={key}>
+                            <h2>{item.name}</h2>
+                            <p>{item.intro}</p>
+                            <div>Read more</div>
+                        </Link>
+                    ))}
+                </div>
             </main>
         );
     }
