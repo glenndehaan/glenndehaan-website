@@ -3,6 +3,21 @@
 // 2. colors
 
 // ============== 1. sizes
+.title-small {
+  @include font(regular);
+  font-size: 2.4vw;
+  line-height: 1.25em;
+
+  @include breakpoint($medium-up){
+    //font-size: 2.2rem;
+  }
+
+  @include breakpoint($xlarge-up){
+    //font-size: 2.4rem;
+  }
+}
+
+
 .title-regular {
   @include font(bold);
   font-size: 2.0rem;
@@ -34,15 +49,16 @@
 
 .title-large {
   @include font(bold);
-  font-size: 3.8rem;
-  line-height: 1.1em;
+  //font-size: 3.8rem;
+  font-size: 20vw;
+  line-height: 0.9em;
 
   @include breakpoint($medium-up){
-    font-size: 4.15rem;
+    //font-size: 4.15rem;
   }
 
   @include breakpoint($xlarge-up){
-    font-size: 4.5rem;
+    //font-size: 4.5rem;
   }
 }
 

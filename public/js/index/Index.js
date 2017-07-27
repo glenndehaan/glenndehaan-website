@@ -53,8 +53,34 @@ export class Index extends Component {
     render() {
         return (
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
-                <h2>Glenn de Haan</h2>
-                <h3>Jr. DevOps Engineer / Media Workflow Engineer / Backend Developer</h3>
+                <header className="landing-header">
+                    <h1 className="title-large landing-title">
+                        Glenn <br/>de Haan
+                    </h1>
+                    <h2 className="title-small landing-title-sub">
+                        Jr. DevOps Engineer / Media Workflow Engineer / Backend Developer
+                    </h2>
+                </header>
+                <div className="tag-boxes">
+                    <h3 className="tag-title title-medium">
+                        Skills lorem ipsum dolor sit
+                    </h3>
+                    <h4 className="tag-title title-medium">
+                        PHP
+                    </h4>
+                    <h4 className="tag-title title-medium">
+                        React
+                    </h4>
+                    <h4 className="tag-title title-medium">
+                        jQuery
+                    </h4>
+                    <h4 className="tag-title title-medium">
+                        javaScript
+                    </h4>
+                    <h4 className="tag-title title-medium">
+                        Node.js
+                    </h4>
+                </div>
                 <Link to="/about">About</Link>
             </main>
         );
