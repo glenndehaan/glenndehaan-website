@@ -11,6 +11,7 @@ $spacing: 1.5rem;
     left: 0;
     background-color: $white;
     box-shadow: 0 0 30px rgba($black, 0.15);
+    z-index: 20;
   }
 
   @include breakpoint($large-up) {

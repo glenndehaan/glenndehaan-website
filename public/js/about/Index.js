@@ -58,8 +58,8 @@ export default class About extends Component {
                         <img src="images/design/glenn-de-haan.jpg" alt="logo" />
                     </figure>
                     <nav className="contacts">
-                        <a className="contact-anchor tel" href="">+64123456</a>
-                        <a className="contact-anchor mail" href="">glenn.de.haan@dpdk.com</a>
+                        <a className="contact-anchor tel" href="">+646453232</a>
+                        <a className="contact-anchor mail" href="">glenn@dehaan.cloud</a>
                     </nav>
                     <div className="about-copy">
                         <p>
