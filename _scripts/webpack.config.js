@@ -30,7 +30,8 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, '../public/dist'),
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: '/'
     },
 
     resolve: {

@@ -7,6 +7,7 @@ import createHistory from 'history/createBrowserHistory';
 import {Header} from "../general/partials/Header";
 
 import Projects from "../projects/Index";
+import Project from "../projects/Deeplink";
 import Programming from "../programming/Index";
 import About from "../about/Index";
 import {Index} from "../index/Index";
@@ -33,6 +34,7 @@ export default () => {
                     <TransitionSwitch parallel={false}>
                         <Route exact path="/" component={Index}/>
                         <Route exact path="/projects" component={Projects}/>
+                        <Route exact path="/project/:path" component={Project}/>
                         <Route exact path="/programming" component={Programming}/>
                         <Route exact path="/about" component={About}/>
                         <Route path="notfound" component={NotFound}/>
