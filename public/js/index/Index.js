@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
 /**
@@ -52,7 +53,9 @@ export class Index extends Component {
     render() {
         return (
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
-                Jeeeee this is the index
+                <h2>Glenn de Haan</h2>
+                <h3>Jr. DevOps Engineer / Media Workflow Engineer / Backend Developer</h3>
+                <Link to="/about">About</Link>
             </main>
         );
     }
