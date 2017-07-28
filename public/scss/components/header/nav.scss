@@ -28,8 +28,10 @@ $spacing: 1.5rem;
   padding-right: $spacing;
   padding-left: $spacing;
   color: $black;
-  font-size: 1.8rem;
-  overflow: hidden;
+  //font-size: 1.8rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   transition: color 0.25s;
   will-change: color;
 

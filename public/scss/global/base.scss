@@ -38,6 +38,10 @@ body {
   background-attachment: fixed;
 }
 
+.container {
+  padding-top: $header-height;
+}
+
 a {
   text-decoration: none;
 }

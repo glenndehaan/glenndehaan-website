@@ -1,14 +1,56 @@
 .landing-header {
-  margin-top: 15vh;
-  padding-left: 60px;
+  position: relative;
+  padding-top: 5vw;
+  padding-left: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image:
+          linear-gradient(23deg, rgba($red, 0.8), rgba($orange, 0.8)),
+          url(/images/design/landing-bg.jpg);
+  background-size: cover;
+  background-position: center, 100% 50%;
+
+  @include breakpoint($large-down) {
+    padding-bottom: calc(5vw + #{$header-height});
+    min-height: calc(100vh - #{$header-height * 2});
+  }
+  @include breakpoint($large-up) {
+    padding-bottom: 5vw;
+    min-height: calc(100vh - #{$header-height});
+  }
+}
+
+.landing-title,
+.landing-title-sub {
+  position: relative;
+  z-index: 2;
 }
 
 .landing-title {
+  @include font(bold, true);
+  line-height: 0.9em;
   color: $white;
-  opacity: 0.1;
+
+  @include breakpoint($large-down) {
+    font-size: 20vw;
+  }
+  @include breakpoint($large-up) {
+    font-size: 12vw;
+  }
 }
 
 .landing-title-sub {
+  margin-top: 1em;
+  padding-left: 5px;
+  @include font(regular, true);
   color: $white;
-  opacity: 0.4;
+  opacity: 0.7;
+
+  @include breakpoint($large-down) {
+    font-size: 1.6rem;
+  }
+  @include breakpoint($large-up) {
+    font-size: 1.8rem;
+  }
 }

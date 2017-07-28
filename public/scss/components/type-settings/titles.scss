@@ -5,7 +5,7 @@
 // ============== 1. sizes
 .title-small {
   @include font(regular);
-  font-size: 2.4vw;
+  font-size: 2rem;
   line-height: 1.25em;
 
   @include breakpoint($medium-up){
@@ -50,8 +50,6 @@
 .title-large {
   @include font(bold);
   //font-size: 3.8rem;
-  font-size: 20vw;
-  line-height: 0.9em;
 
   @include breakpoint($medium-up){
     //font-size: 4.15rem;

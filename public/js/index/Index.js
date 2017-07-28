@@ -54,34 +54,37 @@ export class Index extends Component {
         return (
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
                 <header className="landing-header">
-                    <h1 className="title-large landing-title">
+                    <h1 className="landing-title title-regular title-white">
                         Glenn <br/>de Haan
                     </h1>
-                    <h2 className="title-small landing-title-sub">
-                        Jr. DevOps Engineer / Media Workflow Engineer / Backend Developer
+                    <h2 className="landing-title-sub title-regular title-white">
+                        Jr. DevOps Engineer <br/>Media Workflow Engineer <br/>Backend Developer
                     </h2>
+                    {/*<Link to="/about">About</Link>*/}
                 </header>
-                <div className="tag-boxes">
-                    <h3 className="tag-title title-medium">
-                        Skills lorem ipsum dolor sit
-                    </h3>
-                    <h4 className="tag-title title-medium">
+                <div className="landing-grid">
+                    <p className="tag-box tag-title">
+                        C#
+                    </p>
+                    <p className="tag-box tag-title">
+                        Phyton
+                    </p>
+                    <p className="tag-box tag-title">
                         PHP
-                    </h4>
-                    <h4 className="tag-title title-medium">
+                    </p>
+                    <p className="tag-box tag-title">
                         React
-                    </h4>
-                    <h4 className="tag-title title-medium">
-                        jQuery
-                    </h4>
-                    <h4 className="tag-title title-medium">
+                    </p>
+                    <p className="tag-box tag-title">
+                        Java
+                    </p>
+                    <p className="tag-box tag-title">
                         javaScript
-                    </h4>
-                    <h4 className="tag-title title-medium">
+                    </p>
+                    <p className="tag-box tag-title">
                         Node.js
-                    </h4>
+                    </p>
                 </div>
-                <Link to="/about">About</Link>
             </main>
         );
     }
