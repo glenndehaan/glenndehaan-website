@@ -64,25 +64,31 @@ export class Index extends Component {
                 </header>
                 <div className="landing-grid">
                     <p className="tag-box tag-title">
-                        C#
-                    </p>
-                    <p className="tag-box tag-title">
-                        Phyton
-                    </p>
-                    <p className="tag-box tag-title">
                         PHP
                     </p>
                     <p className="tag-box tag-title">
-                        React
+                        Javascript
+                    </p>
+                    <p className="tag-box tag-title">
+                        Node.js
                     </p>
                     <p className="tag-box tag-title">
                         Java
                     </p>
                     <p className="tag-box tag-title">
-                        javaScript
+                        Linux / Ubuntu / Debian
                     </p>
                     <p className="tag-box tag-title">
-                        Node.js
+                        Windows Server
+                    </p>
+                    <p className="tag-box tag-title">
+                        Networking
+                    </p>
+                    <p className="tag-box tag-title">
+                        Streaming
+                    </p>
+                    <p className="tag-box tag-title">
+                        Interactive Installations
                     </p>
                 </div>
             </main>
