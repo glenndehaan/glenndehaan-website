@@ -54,10 +54,38 @@ export default class Projects extends Component {
     render() {
         return (
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
-                <h1>Projects</h1>
-                <div>
+                {/*<h1>Projects</h1>*/}
+                <div className="mosaic">
                     {config.projects.map((item, key) => (
-                        <Link to={`/project/${item.path}`} key={key}>
+                        <Link className="mosaic-item" to={`/project/${item.path}`} key={key}>
+                            <h2>{item.name}</h2>
+                            <p>{item.intro}</p>
+                            <div>Read more</div>
+                        </Link>
+                    ))}
+                    {config.projects.map((item, key) => (
+                        <Link className="mosaic-item" to={`/project/${item.path}`} key={key}>
+                            <h2>{item.name}</h2>
+                            <p>{item.intro}</p>
+                            <div>Read more</div>
+                        </Link>
+                    ))}
+                    {config.projects.map((item, key) => (
+                        <Link className="mosaic-item" to={`/project/${item.path}`} key={key}>
+                            <h2>{item.name}</h2>
+                            <p>{item.intro}</p>
+                            <div>Read more</div>
+                        </Link>
+                    ))}
+                    {config.projects.map((item, key) => (
+                        <Link className="mosaic-item" to={`/project/${item.path}`} key={key}>
+                            <h2>{item.name}</h2>
+                            <p>{item.intro}</p>
+                            <div>Read more</div>
+                        </Link>
+                    ))}
+                    {config.projects.map((item, key) => (
+                        <Link className="mosaic-item" to={`/project/${item.path}`} key={key}>
                             <h2>{item.name}</h2>
                             <p>{item.intro}</p>
                             <div>Read more</div>

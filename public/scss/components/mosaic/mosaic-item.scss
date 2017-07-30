@@ -1,0 +1,19 @@
+.mosaic-item {
+  padding: 20px;
+  background-color: $white;
+  background-size: cover;
+  color: $black;
+
+  &:nth-child(5n + 1) {
+    background-image: linear-gradient(rgba($black, 0.02), rgba($black, 0.02));
+  }
+  &:nth-child(5n + 2) {
+    background-image: linear-gradient(rgba($black, 0.04), rgba($black, 0.04));
+  }
+  &:nth-child(5n + 3) {
+    background-image: linear-gradient(rgba($black, 0.06), rgba($black, 0.06));
+  }
+  &:nth-child(5n + 4) {
+    background-image: linear-gradient(rgba($black, 0.08), rgba($black, 0.08));
+  }
+}

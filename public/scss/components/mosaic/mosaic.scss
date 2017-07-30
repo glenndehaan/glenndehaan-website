@@ -1,0 +1,55 @@
+.mosaic {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 80vw;
+}
+
+.mosaic-item {
+
+  &:nth-child(1) {
+    width: 40vw; // woodroom
+    height: 40vw;
+  }
+  &:nth-child(2) {
+    width: 20vw; // guy
+    height: 40vw;
+  }
+  &:nth-child(3) {
+    width: 20vw; // glasses
+    height: 20vw;
+  }
+  &:nth-child(4) {
+    width: 20vw; // watch
+    height: 20vw;
+  }
+  &:nth-child(5) {
+    width: 40vw;
+    height: 20vw; // mercedes
+    margin-left: -20vw;
+  }
+  &:nth-child(6) {
+    width: 20vw; // sleeve
+    height: 20vw;
+    margin-left: -20vw;
+  }
+  &:nth-child(7) {
+    width: 40vw; // waterfall
+    height: 20vw;
+  }
+  &:nth-child(8) {
+    width: 40vw; // iphone
+    height: 40vw;
+  }
+  &:nth-child(9) {
+    width: 40vw; // infinite
+    height: 20vw;
+    margin-left: -20vw;
+  }
+  &:nth-child(10) {
+    width: 20vw; // memory
+    height: 20vw;
+    margin-top: auto;
+    margin-left: -20vw;
+  }
+}
