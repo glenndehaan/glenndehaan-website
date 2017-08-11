@@ -28,13 +28,14 @@ export const pageIntro = (callback, elements) => {
     }, {
         opacity: 1,
         z: 0,
-        ease: Power2.easeOut,
+        ease: Power3.easeOut,
         onComplete: callback
     });
     TweenMax.fromTo(document.body, 0.5, {
         '--z': -100
     }, {
-        '--z': 0
+        '--z': 0,
+        ease: Power3.easeOut
     })
 };
 
@@ -54,12 +55,13 @@ export const pageOutro = (callback, elements) => {
     }, {
         opacity: 0,
         z: 100,
-        ease: Power2.easeIn,
+        ease: Power3.easeIn,
         onComplete: callback
     });
     TweenMax.fromTo(document.body, 0.5, {
         '--z': 0
     }, {
-        '--z': 10
+        '--z': 10,
+        ease: Power3.easeIn
     })
 };

@@ -1,5 +1,5 @@
 .grid {
-  perspective: 100px;
+  perspective: 50px;
 
   @include breakpoint($medium-up) {
     display: flex;

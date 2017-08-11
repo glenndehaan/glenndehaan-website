@@ -96,34 +96,21 @@
   }
 }
 
+// for page transitions
+$transition-offsets:
+        '0.3px',
+        '0.9px',
+        '3.5px',
+        '1.0px',
+        '5.0px',
+        '1.5px',
+        '0.5px',
+        '1.0px',
+        '3.2px',
+        '1.2px';
 
-.grid-item:nth-child(10n + 1){
-  transform: translateZ( calc(var(--z) * 0.5px) );
-}
-.grid-item:nth-child(10n + 2){
-  transform: translateZ( calc(var(--z) * 0.4px) );
-}
-.grid-item:nth-child(10n + 3){
-  transform: translateZ( calc(var(--z) * 0.1px) );
-}
-.grid-item:nth-child(10n + 4){
-  transform: translateZ( calc(var(--z) * 0.8px) );
-}
-.grid-item:nth-child(10n + 5){
-  transform: translateZ( calc(var(--z) * 0.7px) );
-}
-.grid-item:nth-child(10n + 6){
-  transform: translateZ( calc(var(--z) * 0.5px) );
-}
-.grid-item:nth-child(10n + 7){
-  transform: translateZ( calc(var(--z) * 0.2px) );
-}
-.grid-item:nth-child(10n + 8){
-  transform: translateZ( calc(var(--z) * 0.6px) );
-}
-.grid-item:nth-child(10n + 9){
-  transform: translateZ( calc(var(--z) * 0.4px) );
-}
-.grid-item:nth-child(10n + 10){
-  transform: translateZ( calc(var(--z) * 0.8px) );
+@for $i from 1 through length($transition-offsets) {
+  .grid-item:nth-child(10n + #{$i}){
+    transform: translateZ( calc(var(--z) * #{nth($transition-offsets, $i)}) );
+  }
 }
