@@ -54,7 +54,7 @@ export default class Programming extends Component {
         return (
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
                 <h3 className="visually-hidden">Programming</h3>
-                <div className="grid">
+                <div className="grid grid-white">
                     {config.programming.map((item, key) => (
                         <a className="grid-item" href={item.html_url} target="_blank" key={key}>
                             <header className="item-header">

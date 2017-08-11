@@ -67,28 +67,28 @@ export class Index extends Component {
                         PHP
                     </p>
                     <p className="tag-box tag-title">
+                        Windows Server
+                    </p>
+                    <p className="tag-box tag-title">
                         Javascript
                     </p>
                     <p className="tag-box tag-title">
-                        Node.js
+                        Interactive Installations
                     </p>
                     <p className="tag-box tag-title">
                         Java
                     </p>
                     <p className="tag-box tag-title">
-                        Linux / Ubuntu / Debian
-                    </p>
-                    <p className="tag-box tag-title">
-                        Windows Server
-                    </p>
-                    <p className="tag-box tag-title">
-                        Networking
-                    </p>
-                    <p className="tag-box tag-title">
                         Streaming
                     </p>
                     <p className="tag-box tag-title">
-                        Interactive Installations
+                        Node.js
+                    </p>
+                    <p className="tag-box tag-title">
+                        Linux / Ubuntu / Debian
+                    </p>
+                    <p className="tag-box tag-title">
+                        Networking
                     </p>
                 </div>
             </main>

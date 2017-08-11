@@ -55,40 +55,14 @@ export default class Projects extends Component {
         return (
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
                 {/*<h1>Projects</h1>*/}
-                <div className="mosaic">
+                <div className="grid grid-color">
                     {config.projects.map((item, key) => (
-                        <Link className="mosaic-item" to={`/project/${item.path}`} key={key}>
-                            <h2>{item.name}</h2>
-                            <p>{item.intro}</p>
-                            <div>Read more</div>
-                        </Link>
-                    ))}
-                    {config.projects.map((item, key) => (
-                        <Link className="mosaic-item" to={`/project/${item.path}`} key={key}>
-                            <h2>{item.name}</h2>
-                            <p>{item.intro}</p>
-                            <div>Read more</div>
-                        </Link>
-                    ))}
-                    {config.projects.map((item, key) => (
-                        <Link className="mosaic-item" to={`/project/${item.path}`} key={key}>
-                            <h2>{item.name}</h2>
-                            <p>{item.intro}</p>
-                            <div>Read more</div>
-                        </Link>
-                    ))}
-                    {config.projects.map((item, key) => (
-                        <Link className="mosaic-item" to={`/project/${item.path}`} key={key}>
-                            <h2>{item.name}</h2>
-                            <p>{item.intro}</p>
-                            <div>Read more</div>
-                        </Link>
-                    ))}
-                    {config.projects.map((item, key) => (
-                        <Link className="mosaic-item" to={`/project/${item.path}`} key={key}>
-                            <h2>{item.name}</h2>
-                            <p>{item.intro}</p>
-                            <div>Read more</div>
+                        <Link className="grid-item" to={`/project/${item.path}`} key={key}>
+                            <header className="item-header">
+                                <h2 className="item-title title-regular">{item.name}</h2>
+                            </header>
+                            <p className="item-copy copy-white">{item.intro}</p>
+                            <div className="item-anchor copy-white">Read more</div>
                         </Link>
                     ))}
                 </div>

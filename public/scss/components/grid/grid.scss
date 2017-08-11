@@ -1,8 +1,10 @@
 .grid {
+  perspective: 100px;
 
   @include breakpoint($medium-up) {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
 

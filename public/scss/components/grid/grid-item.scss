@@ -1,4 +1,4 @@
-.grid-item {
+.grid-white .grid-item {
   background-color: $white;
   background-size: cover;
   color: $black;
@@ -17,6 +17,26 @@
   }
 }
 
+.grid-color .grid-item {
+  background-color: mix($white, $red, 10%);
+  background-size: cover;
+  color: $white;
+  @include font-smoothing(true);
+
+  &:nth-child(5n + 1) {
+    background-color: $orange;
+  }
+  &:nth-child(5n + 2) {
+    background-color: mix($red, $orange, 40%);
+  }
+  &:nth-child(5n + 3) {
+    background-color: $red;
+  }
+  &:nth-child(5n + 4) {
+    background-color: mix($white, $orange, 20%);
+  }
+}
+
 .item-header {}
 
 .item-title {
@@ -24,12 +44,19 @@
 }
 
 .item-copy {
+  .grid-color & {
+    opacity: 0.5;
+  }
 }
 
 .grid-item .item-anchor {
   position: relative;
   margin-top: 1.6em;
-  transition: color 0.25s;
+  transition: color 0.25s, opacity 0.25s;
+
+  .grid-color & {
+    opacity: 0.5;
+  }
 
   &:before {
     content: '';
@@ -37,18 +64,66 @@
     width: 3em;
     height: 3px;
     margin-bottom: 0.6em;
-    background-image: linear-gradient(90deg, $orange, $red);
     background-size: cover;
     transform-origin: 0 50%;
     transform: scaleX(1) translateX(-33%);
-    transition: transform 0.25s;
+    transition: transform 0.25s, background-color 0.25s;
+
+    .grid-white & {
+      background-image: linear-gradient(90deg, $orange, $red);
+    }
+    .grid-color & {
+      background-color: rgba($white, 0.0);
+      background-image: linear-gradient(90deg, rgba($white, 0.3), rgba($white, 1.0));
+    }
   }
 }
 
 .grid-item:hover .item-anchor {
-  color: $red;
+  .grid-white & {
+    color: $red;
+  }
+  .grid-color & {
+    opacity: 1;
+  }
 
   &:before {
     transform: scaleX(2.3) translateX(0%);
+
+    .grid-color & {
+      background-color: rgba($white, 1.0);
+    }
   }
+}
+
+
+.grid-item:nth-child(10n + 1){
+  transform: translateZ( calc(var(--z) * 0.5px) );
+}
+.grid-item:nth-child(10n + 2){
+  transform: translateZ( calc(var(--z) * 0.4px) );
+}
+.grid-item:nth-child(10n + 3){
+  transform: translateZ( calc(var(--z) * 0.1px) );
+}
+.grid-item:nth-child(10n + 4){
+  transform: translateZ( calc(var(--z) * 0.8px) );
+}
+.grid-item:nth-child(10n + 5){
+  transform: translateZ( calc(var(--z) * 0.7px) );
+}
+.grid-item:nth-child(10n + 6){
+  transform: translateZ( calc(var(--z) * 0.5px) );
+}
+.grid-item:nth-child(10n + 7){
+  transform: translateZ( calc(var(--z) * 0.2px) );
+}
+.grid-item:nth-child(10n + 8){
+  transform: translateZ( calc(var(--z) * 0.6px) );
+}
+.grid-item:nth-child(10n + 9){
+  transform: translateZ( calc(var(--z) * 0.4px) );
+}
+.grid-item:nth-child(10n + 10){
+  transform: translateZ( calc(var(--z) * 0.8px) );
 }
