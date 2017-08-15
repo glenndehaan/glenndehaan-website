@@ -1,0 +1,33 @@
+.landing-skills {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 90%;
+  margin-top: -40px;
+  margin-left: auto;
+  padding: 40px 40px 60px 0;
+  background-color: $white;
+  box-shadow: 16px 16px 40px rgba($black, 0.15);
+
+  @include breakpoint($medium-up) {
+    width: 75%;
+    max-width: 1300px;
+    margin-top: -60px;
+    margin-left: 25%;
+    padding: 60px 60px 100px 0;
+  }
+}
+
+.skills-list {
+  margin-left: 40px;
+  list-style-type: none;
+
+  @include breakpoint($medium-up) {
+    margin-left: 60px;
+  }
+}
+
+.skill {
+  margin-top: 0.6rem;
+  list-style-type: none;
+}

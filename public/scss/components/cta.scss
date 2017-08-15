@@ -1,0 +1,27 @@
+.cta {
+  padding: 2rem 4rem;
+  cursor: pointer;
+}
+
+.cta {
+  &.fade-red {
+    padding: 2rem 4rem;
+    @include font(regular, true);
+    color: $white;
+    background-image: linear-gradient(-123deg, $red, $orange);
+    background-size: cover;
+  }
+
+  &.shadow {
+    box-shadow: 16px 16px 40px rgba($black, 0.15);
+  }
+}
+
+
+// exceptional positioning
+
+.landing-skills .cta {
+  position: absolute;
+  bottom: -2rem;
+  left: calc(60px - 4rem);
+}

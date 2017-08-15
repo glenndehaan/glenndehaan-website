@@ -42,6 +42,7 @@ body {
   padding-top: $header-height;
   transform-style: preserve-3d;
   perspective: 400px;
+  perspective-origin: 50% 0;
 }
 
 a {

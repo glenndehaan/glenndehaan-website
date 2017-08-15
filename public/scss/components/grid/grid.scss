@@ -6,6 +6,10 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  &.grid-landing {
+    padding-top: 12vw;
+  }
 }
 
 .grid-item {
@@ -23,5 +27,11 @@
   @include breakpoint($large-up) {
     flex-basis: 33.33%;
     padding: 60px;
+  }
+
+  .grid-landing & {
+    @include breakpoint($medium-down) {
+      width: 80%;
+    }
   }
 }

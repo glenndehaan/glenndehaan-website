@@ -57,40 +57,82 @@ export class Index extends Component {
                     <h1 className="landing-title title-regular title-white">
                         Glenn <br/>de Haan
                     </h1>
-                    <h2 className="landing-title-sub title-regular title-white">
+                    <h2 className="landing-title-sub title-small title-white">
                         Jr. DevOps Engineer <br/>Media Workflow Engineer <br/>Backend Developer
                     </h2>
                     {/*<Link to="/about">About</Link>*/}
                 </header>
-                <div className="landing-grid">
-                    <p className="tag-box tag-title">
-                        PHP
-                    </p>
-                    <p className="tag-box tag-title">
-                        Windows Server
-                    </p>
-                    <p className="tag-box tag-title">
-                        Javascript
-                    </p>
-                    <p className="tag-box tag-title">
-                        Interactive Installations
-                    </p>
-                    <p className="tag-box tag-title">
-                        Java
-                    </p>
-                    <p className="tag-box tag-title">
-                        Streaming
-                    </p>
-                    <p className="tag-box tag-title">
-                        Node.js
-                    </p>
-                    <p className="tag-box tag-title">
-                        Linux / Ubuntu / Debian
-                    </p>
-                    <p className="tag-box tag-title">
-                        Networking
-                    </p>
-                </div>
+                <section className="landing-skills">
+                    <ul className="skills-list">
+                        <li className="skill">
+                            <h4 className="title-small">PHP</h4>
+                        </li>
+                        <li className="skill">
+                            <h4 className="title-small">Windows Server</h4>
+                        </li>
+                        <li className="skill">
+                            <h4 className="title-small">Javascript</h4>
+                        </li>
+                        <li className="skill">
+                            <h4 className="title-small">Interactive Installations</h4>
+                        </li>
+                        <li className="skill">
+                            <h4 className="title-small">Java</h4>
+                        </li>
+                    </ul>
+                    <ul className="skills-list">
+                        <li className="skill">
+                            <h4 className="title-small">Streaming</h4>
+                        </li>
+                        <li className="skill">
+                            <h4 className="title-small">Node.js</h4>
+                        </li>
+                        <li className="skill">
+                            <h4 className="title-small">Linux / Ubuntu / Debian</h4>
+                        </li>
+                        <li className="skill">
+                            <h4 className="title-small">Networking</h4>
+                        </li>
+                    </ul>
+                    <a href="#" className="cta fade-red shadow">More about me</a>
+                </section>
+                <section className="landing-cards">
+                    <h2 className="title-regular title-white align-center">I'm that guy with benefits ;)</h2>
+                    <div className="grid grid-landing grid-white">
+                        <a className="grid-item shadow" href="" target="_blank">
+                            <header className="item-header">
+                                <h2 className="item-title title-regular">esports-api</h2>
+                            </header>
+                            <p className="item-copy copy-grey">A public api getting you the latest stats in Esports</p>
+                            <div className="item-anchor copy-grey">View on GitHub</div>
+                        </a>
+                        <a className="grid-item shadow" href="" target="_blank">
+                            <header className="item-header">
+                                <h2 className="item-title title-regular">esports-api</h2>
+                            </header>
+                            <p className="item-copy copy-grey">A public api getting you the latest stats in Esports</p>
+                            <div className="item-anchor copy-grey">View on GitHub</div>
+                        </a>
+                        <a className="grid-item shadow" href="" target="_blank">
+                            <header className="item-header">
+                                <h2 className="item-title title-regular">esports-api</h2>
+                            </header>
+                            <p className="item-copy copy-grey">A public api getting you the latest stats in Esports</p>
+                            <div className="item-anchor copy-grey">View on GitHub</div>
+                        </a>
+                        <a className="grid-item shadow" href="" target="_blank">
+                            <header className="item-header">
+                                <h2 className="item-title title-regular">esports-api</h2>
+                            </header>
+                            <p className="item-copy copy-grey">A public api getting you the latest stats in Esports</p>
+                            <div className="item-anchor copy-grey">View on GitHub</div>
+                        </a>
+                    </div>
+                </section>
+                <footer className="footer">
+                    <a href="" className="footer-anchor title-regular">+641912345</a>
+                    <a href="" className="footer-anchor title-regular">glenn.de.haan@dpdk.com</a>
+                </footer>
             </main>
         );
     }

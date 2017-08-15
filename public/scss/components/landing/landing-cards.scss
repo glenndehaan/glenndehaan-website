@@ -1,0 +1,10 @@
+.landing-cards {
+  margin-top: 30vw;
+
+  @include breakpoint($medium-up) {
+    margin-top: 20vw;
+  }
+  @include breakpoint($large-up) {
+    margin-top: 15vw;
+  }
+}
