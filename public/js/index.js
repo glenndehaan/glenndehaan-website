@@ -5,6 +5,7 @@ import 'core-js/fn/object/assign';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
+import {BrowserRouter} from 'react-router-dom';
 import mitt from 'mitt';
 
 import config from './main/config';
@@ -19,7 +20,9 @@ const render = Component => {
 
     ReactDOM.render(
         <AppContainer>
-            <Component />
+            <BrowserRouter>
+                <Component />
+            </BrowserRouter>
         </AppContainer>,
         document.getElementById('app')
     )
