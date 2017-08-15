@@ -1,8 +1,6 @@
 import React from 'react';
-import {Router, Route, Switch} from 'react-router';
+import {Route} from 'react-router-dom';
 import {TransitionSwitch} from 'react-router-v4-transition';
-
-import createHistory from 'history/createBrowserHistory';
 
 import {Header} from "../general/partials/Header";
 
@@ -16,32 +14,23 @@ import {NotFound} from "../general/NotFound";
 /**
  * The router function returns the Router component with our defined routes and parameters
  * @see https://github.com/ReactTraining/react-router
- * @param history - The history object as defined in App.js
  * @return {XML}
  */
 export default () => {
-    const history = createHistory();
-
-    history.listen((location, action) => {
-        site.events.emit('historyChange', location.pathname);
-    });
-
     return (
-        <Router history={history}>
-            <div>
-                <Header />
-                <div className="container">
-                    <TransitionSwitch parallel={false}>
-                        <Route exact path="/" component={Index}/>
-                        <Route exact path="/projects" component={Projects}/>
-                        <Route exact path="/project/:path" component={Project}/>
-                        <Route exact path="/programming" component={Programming}/>
-                        <Route exact path="/about" component={About}/>
-                        <Route path="notfound" component={NotFound}/>
-                        <Route path="*" component={NotFound}/>
-                    </TransitionSwitch>
-                </div>
+        <div>
+            <Header />
+            <div className="container">
+                <TransitionSwitch parallel={false}>
+                    <Route exact path="/" component={Index}/>
+                    <Route exact path="/projects" component={Projects}/>
+                    <Route exact path="/project/:path" component={Project}/>
+                    <Route exact path="/programming" component={Programming}/>
+                    <Route exact path="/about" component={About}/>
+                    <Route path="notfound" component={NotFound}/>
+                    <Route path="*" component={NotFound}/>
+                </TransitionSwitch>
             </div>
-        </Router>
+        </div>
     )
 };
