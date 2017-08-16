@@ -40,7 +40,8 @@ module.exports = {
         alias: {
             "TweenLite": "gsap/src/uncompressed/TweenLite",
             "TweenMax": "gsap/src/uncompressed/TweenMax",
-            "TimelineMax": 'gsap/src/uncompressed/TimelineMax.js'
+            "TimelineMax": "gsap/src/uncompressed/TimelineMax.js",
+            "ScrollToPlugin": "gsap/src/uncompressed/plugins/ScrollToPlugin.js"
         }
     },
 
