@@ -46,7 +46,7 @@ export class NotFound extends Component {
     }
 
     componentDidMount(){
-        document.title = `Programming | ${config.siteName}`;
+        document.title = `Not Found | ${config.siteName}`;
         site.events.emit('historyChange', '');
     }
 
@@ -59,7 +59,7 @@ export class NotFound extends Component {
         return (
             <main style={{opacity: 0}} className="page not-found" ref={(c) => this.domElements.mainContainer = c}>
                 <h1 className="page-title">404</h1>
-                <div className="page-subtitle">Pagina niet gevonden!</div>
+                <div className="page-subtitle">Page not found!</div>
             </main>
         )
     }
