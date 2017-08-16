@@ -45,6 +45,11 @@ export default class Programming extends Component {
         pageOutro(callback, this.domElements);
     }
 
+    componentDidMount(){
+        document.title = `Programming | ${config.siteName}`;
+        site.events.emit('historyChange', '/programming');
+    }
+
     /**
      * React's Render function, should return a single child element
      * @see https://facebook.github.io/react/docs/react-component.html#render

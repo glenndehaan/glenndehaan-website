@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import config from '../main/config';
 import {mainIntro, pageIntro, pageOutro} from './animations/pageTransitions';
 
 /**
@@ -42,6 +43,11 @@ export class NotFound extends Component {
     componentWillLeave(callback) {
         //do something when the component will appear
         pageOutro(callback, this.domElements);
+    }
+
+    componentDidMount(){
+        document.title = `Programming | ${config.siteName}`;
+        site.events.emit('historyChange', '');
     }
 
     /**

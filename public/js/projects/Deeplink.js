@@ -48,6 +48,11 @@ export default class Deeplink extends Component {
         pageOutro(callback, this.domElements);
     }
 
+    componentDidMount(){
+        document.title = `${this.content.name} | ${config.siteName}`;
+        site.events.emit('historyChange', '/projects');
+    }
+
     /**
      * Search for path
      * @param path

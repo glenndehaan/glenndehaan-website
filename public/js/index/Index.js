@@ -47,6 +47,11 @@ export class Index extends Component {
         pageOutro(callback, this.domElements);
     }
 
+    componentDidMount(){
+        document.title = `Home | ${config.siteName}`;
+        site.events.emit('historyChange', '/');
+    }
+
     /**
      * React's Render function, should return a single child element
      * @see https://facebook.github.io/react/docs/react-component.html#render
