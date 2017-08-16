@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import config from '../main/config';
-import {compare_created_at} from '../general/Utils';
 import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
 /**
@@ -116,36 +115,34 @@ export class Index extends Component {
     }
 
     renderProgrammingBlocks() {
-        let items = config.programming.sort(compare_created_at);
-
         return (
             <div className="grid grid-landing grid-white">
-                <a className="grid-item shadow" href={items[0].html_url} target="_blank">
+                <a className="grid-item shadow" href={config.programming[0].html_url} target="_blank">
                     <header className="item-header">
-                        <h2 className="item-title title-regular">{items[0].name}</h2>
+                        <h2 className="item-title title-regular">{config.programming[0].name}</h2>
                     </header>
-                    <p className="item-copy copy-grey">{items[0].description !== null ? items[0].description : 'Still trying to find a description'}</p>
+                    <p className="item-copy copy-grey">{config.programming[0].description !== null ? config.programming[0].description : 'Still trying to find a description'}</p>
                     <div className="item-anchor copy-grey">View on GitHub</div>
                 </a>
-                <a className="grid-item shadow" href={items[1].html_url} target="_blank">
+                <a className="grid-item shadow" href={config.programming[1].html_url} target="_blank">
                     <header className="item-header">
-                        <h2 className="item-title title-regular">{items[1].name}</h2>
+                        <h2 className="item-title title-regular">{config.programming[1].name}</h2>
                     </header>
-                    <p className="item-copy copy-grey">{items[1].description !== null ? items[1].description : 'Still trying to find a description'}</p>
+                    <p className="item-copy copy-grey">{config.programming[1].description !== null ? config.programming[1].description : 'Still trying to find a description'}</p>
                     <div className="item-anchor copy-grey">View on GitHub</div>
                 </a>
-                <a className="grid-item shadow" href={items[2].html_url} target="_blank">
+                <a className="grid-item shadow" href={config.programming[2].html_url} target="_blank">
                     <header className="item-header">
-                        <h2 className="item-title title-regular">{items[2].name}</h2>
+                        <h2 className="item-title title-regular">{config.programming[2].name}</h2>
                     </header>
-                    <p className="item-copy copy-grey">{items[2].description !== null ? items[2].description : 'Still trying to find a description'}</p>
+                    <p className="item-copy copy-grey">{config.programming[2].description !== null ? config.programming[2].description : 'Still trying to find a description'}</p>
                     <div className="item-anchor copy-grey">View on GitHub</div>
                 </a>
-                <a className="grid-item shadow" href={items[3].html_url} target="_blank">
+                <a className="grid-item shadow" href={config.programming[3].html_url} target="_blank">
                     <header className="item-header">
-                        <h2 className="item-title title-regular">{items[3].name}</h2>
+                        <h2 className="item-title title-regular">{config.programming[3].name}</h2>
                     </header>
-                    <p className="item-copy copy-grey">{items[3].description !== null ? items[3].description : 'Still trying to find a description'}</p>
+                    <p className="item-copy copy-grey">{config.programming[3].description !== null ? config.programming[3].description : 'Still trying to find a description'}</p>
                     <div className="item-anchor copy-grey">View on GitHub</div>
                 </a>
             </div>

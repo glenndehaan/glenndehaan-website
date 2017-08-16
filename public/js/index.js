@@ -10,6 +10,7 @@ import mitt from 'mitt';
 
 import config from './main/config';
 import {loadState, saveState} from './main/storage';
+import {compare_created_at} from './general/Utils';
 import github from './general/utils/github';
 
 import Root from './main/Root'
@@ -34,7 +35,7 @@ const updateGithubData = () => {
             if(data.length > 0) {
                 //Save data to state
                 config.programming = data;
-                saveState({programming: config.programming});
+                saveState({programming: config.programming.sort(compare_created_at)});
             }
         });
     }
