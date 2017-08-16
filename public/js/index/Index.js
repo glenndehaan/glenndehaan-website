@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import config from '../main/config';
+import {compare_created_at} from '../general/Utils';
 import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
 /**
@@ -51,6 +53,7 @@ export class Index extends Component {
      * @return {XML}
      */
     render() {
+        this.renderProgrammingBlocks();
         return (
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
                 <header className="landing-header">
@@ -60,7 +63,6 @@ export class Index extends Component {
                     <h2 className="landing-title-sub title-small title-white">
                         Jr. DevOps Engineer <br/>Media Workflow Engineer <br/>Backend Developer
                     </h2>
-                    {/*<Link to="/about">About</Link>*/}
                 </header>
                 <section className="landing-skills">
                     <ul className="skills-list">
@@ -94,46 +96,54 @@ export class Index extends Component {
                             <h4 className="title-small">Networking</h4>
                         </li>
                     </ul>
-                    <a href="#" className="cta fade-red shadow">More about me</a>
+                    <Link to="/about" className="cta fade-red shadow">More about me</Link>
                 </section>
                 <section className="landing-cards">
                     <h2 className="title-regular title-white align-center">I'm that guy with benefits ;)</h2>
-                    <div className="grid grid-landing grid-white">
-                        <a className="grid-item shadow" href="" target="_blank">
-                            <header className="item-header">
-                                <h2 className="item-title title-regular">esports-api</h2>
-                            </header>
-                            <p className="item-copy copy-grey">A public api getting you the latest stats in Esports</p>
-                            <div className="item-anchor copy-grey">View on GitHub</div>
-                        </a>
-                        <a className="grid-item shadow" href="" target="_blank">
-                            <header className="item-header">
-                                <h2 className="item-title title-regular">esports-api</h2>
-                            </header>
-                            <p className="item-copy copy-grey">A public api getting you the latest stats in Esports</p>
-                            <div className="item-anchor copy-grey">View on GitHub</div>
-                        </a>
-                        <a className="grid-item shadow" href="" target="_blank">
-                            <header className="item-header">
-                                <h2 className="item-title title-regular">esports-api</h2>
-                            </header>
-                            <p className="item-copy copy-grey">A public api getting you the latest stats in Esports</p>
-                            <div className="item-anchor copy-grey">View on GitHub</div>
-                        </a>
-                        <a className="grid-item shadow" href="" target="_blank">
-                            <header className="item-header">
-                                <h2 className="item-title title-regular">esports-api</h2>
-                            </header>
-                            <p className="item-copy copy-grey">A public api getting you the latest stats in Esports</p>
-                            <div className="item-anchor copy-grey">View on GitHub</div>
-                        </a>
-                    </div>
+                    {this.renderProgrammingBlocks()}
                 </section>
                 <footer className="footer">
-                    <a href="" className="footer-anchor title-regular">+641912345</a>
-                    <a href="" className="footer-anchor title-regular">glenn.de.haan@dpdk.com</a>
+                    <a href="tel:+31646453232" className="footer-anchor title-regular">+316 46 45 32 32</a>
+                    <a href="mailto:glenn@dehaan.cloud" className="footer-anchor title-regular">glenn@dehaan.cloud</a>
                 </footer>
             </main>
+        );
+    }
+
+    renderProgrammingBlocks() {
+        let items = config.programming.sort(compare_created_at);
+
+        return (
+            <div className="grid grid-landing grid-white">
+                <a className="grid-item shadow" href={items[0].html_url} target="_blank">
+                    <header className="item-header">
+                        <h2 className="item-title title-regular">{items[0].name}</h2>
+                    </header>
+                    <p className="item-copy copy-grey">{items[0].description !== null ? items[0].description : 'Still trying to find a description'}</p>
+                    <div className="item-anchor copy-grey">View on GitHub</div>
+                </a>
+                <a className="grid-item shadow" href={items[1].html_url} target="_blank">
+                    <header className="item-header">
+                        <h2 className="item-title title-regular">{items[1].name}</h2>
+                    </header>
+                    <p className="item-copy copy-grey">{items[1].description !== null ? items[1].description : 'Still trying to find a description'}</p>
+                    <div className="item-anchor copy-grey">View on GitHub</div>
+                </a>
+                <a className="grid-item shadow" href={items[2].html_url} target="_blank">
+                    <header className="item-header">
+                        <h2 className="item-title title-regular">{items[2].name}</h2>
+                    </header>
+                    <p className="item-copy copy-grey">{items[2].description !== null ? items[2].description : 'Still trying to find a description'}</p>
+                    <div className="item-anchor copy-grey">View on GitHub</div>
+                </a>
+                <a className="grid-item shadow" href={items[3].html_url} target="_blank">
+                    <header className="item-header">
+                        <h2 className="item-title title-regular">{items[3].name}</h2>
+                    </header>
+                    <p className="item-copy copy-grey">{items[3].description !== null ? items[3].description : 'Still trying to find a description'}</p>
+                    <div className="item-anchor copy-grey">View on GitHub</div>
+                </a>
+            </div>
         );
     }
 }
