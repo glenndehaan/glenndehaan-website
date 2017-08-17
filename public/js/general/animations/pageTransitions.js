@@ -1,4 +1,5 @@
 import {TweenMax} from 'gsap';
+import ScrollToPlugin from 'ScrollToPlugin';
 
 /**
  * Initial intro animation
@@ -49,6 +50,9 @@ export const pageOutro = (callback, elements) => {
     //     opacity: 0,
     //     onComplete: callback
     // });
+    TweenMax.to(window, 0.3, {
+        scrollTo: 0
+    });
     TweenMax.fromTo(elements.mainContainer, 0.5, {
         opacity: 1,
         z: 0
@@ -63,5 +67,5 @@ export const pageOutro = (callback, elements) => {
     }, {
         '--z': 10,
         ease: Power3.easeIn
-    })
+    });
 };

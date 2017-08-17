@@ -46,6 +46,11 @@ export default class Projects extends Component {
         pageOutro(callback, this.domElements);
     }
 
+    componentDidMount(){
+        document.title = `Projects | ${config.siteName}`;
+        site.events.emit('historyChange', '/projects');
+    }
+
     /**
      * React's Render function, should return a single child element
      * @see https://facebook.github.io/react/docs/react-component.html#render
