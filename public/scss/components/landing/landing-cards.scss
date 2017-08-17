@@ -8,3 +8,66 @@
     margin-top: 15vw;
   }
 }
+
+// grid in landing view
+.grid-landing .grid-item {
+
+  &:nth-child(1) {
+    @include breakpoint($medium-down) {
+      transform: translateX(5%) translateY(0%) translateZ( calc(var(--z) * 0.3px) );
+    }
+    @include breakpoint($medium-up) {
+      transform: translateX(20%) translateY(15%) translateZ( calc(var(--z) * 0.3px) );
+    }
+    @include breakpoint($large-up) {
+      transform: translateX(30%) translateY(20%) translateZ( calc(var(--z) * 0.3px) );
+    }
+  }
+  &:nth-child(2) {
+    z-index: 5;
+
+    @include breakpoint($medium-down) {
+      top: -15vw;
+      margin-top: -15vw;
+      transform: translateX(20%) translateY(10%) translateZ( calc(var(--z) * 0.9px) );
+    }
+    @include breakpoint($medium-up) {
+      transform: translateX(-20%) translateY(0) translateZ( calc(var(--z) * 0.9px) );
+    }
+    @include breakpoint($large-up) {
+      transform: translateX(0) translateY(40%) translateZ( calc(var(--z) * 0.9px) );
+    }
+  }
+  &:nth-child(3) {
+    z-index: 1;
+
+    @include breakpoint($medium-down) {
+      top: -10vw;
+      margin-top: -10vw;
+      transform: translateX(5%) translateY(0%) translateZ( calc(var(--z) * 3.5px) );
+    }
+    @include breakpoint($medium-up) {
+      transform: translateX(10%) translateY(10vw) translateZ( calc(var(--z) * 3.5px) );
+    }
+    @include breakpoint($large-up) {
+      transform: translateX(-30%) translateY(0%) translateZ( calc(var(--z) * 3.5px) );
+    }
+  }
+  &:nth-child(4) {
+    z-index: 2;
+
+    @include breakpoint($medium-down) {
+      top: -30vw;
+      margin-top: -30vw;
+      transform: translateX(20%) translateY(60%) translateZ( calc(var(--z) * 1.0px) );
+    }
+    @include breakpoint($medium-up) {
+      transform: translateX(-10%) translateY(-10%) translateZ( calc(var(--z) * 1.0px) );
+      z-index: 5;
+    }
+    @include breakpoint($large-up) {
+      transform: translateX(15%) translateY(20%) translateZ( calc(var(--z) * 1.0px) );
+      z-index: 1;
+    }
+  }
+}
