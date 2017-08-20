@@ -1,0 +1,50 @@
+.cta {
+  position: relative;
+  padding: 2rem 4rem;
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 7px);
+    right: 1.8rem;
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid $white;
+    border-right: 2px solid $white;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-5px) rotate(45deg);
+    will-change: transform, opacity;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+
+  body:not(.device-mobile) &:hover:after {
+    opacity: 1;
+    transform: translateX(0px) rotate(45deg);
+  }
+}
+
+.cta {
+  &.fade-red {
+    padding: 2rem 4rem;
+    @include font(regular, true);
+    color: $white;
+    background-image: linear-gradient(-123deg, $red, $orange);
+    background-size: cover;
+  }
+
+  &.shadow {
+    box-shadow: 16px 16px 40px rgba($black, 0.15);
+  }
+}
+
+
+// exceptional positioning
+
+.landing-skills .cta {
+  position: absolute;
+  bottom: -2rem;
+  left: calc(60px - 4rem);
+  transform: translateZ( calc(var(--z) * 4px) );
+}

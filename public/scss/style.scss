@@ -19,7 +19,10 @@
 
   //============================ components
 'components/footer',
-'components/cta',
+'components/buttons/cta',
+'components/buttons/back-button',
+'components/icons',
+'components/media',
 
   // type settings
 'components/type-settings/formats',
@@ -30,16 +33,20 @@
 'components/header/header-bar',
 'components/header/nav',
 
-'components/icons',
-
 // grid
 'components/grid/grid',
 'components/grid/grid-item',
+
+'components/box',
 
 // landing
 'components/landing/landing-header',
 'components/landing/landing-skills',
 'components/landing/landing-cards',
+
+  // project
+'components/project/project-header',
+'components/project/project-body',
 
   // about
 'components/about/cols',

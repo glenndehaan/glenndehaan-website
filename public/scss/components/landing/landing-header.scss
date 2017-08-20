@@ -5,13 +5,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background-image:
-          linear-gradient(23deg, rgba($red, 0.8), rgba($orange, 0.8)),
-          url(/images/design/landing-bg.jpg);
-  background-size: cover;
-  background-position: center, 100% 50%;
+  //background-image:
+  //        linear-gradient(23deg, rgba($red, 0.8), rgba($orange, 0.8)),
+  //        url(/images/design/landing-bg.jpg);
+  //background-size: cover;
+  //background-position: center, 100% 50%;
   perspective: 80px;
-  transform: translateZ( calc(var(--z) * 2px) );
 
   @include breakpoint($large-down) {
     padding-bottom: calc(5vw + #{$header-height});
@@ -21,6 +20,22 @@
     padding-bottom: calc(5vw + #{$header-height});
     min-height: calc(100vh - #{$header-height});
   }
+}
+
+.landing-header:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image:
+          linear-gradient(23deg, rgba($red, 0.8), rgba($orange, 0.8)),
+          url(/images/design/landing-bg.jpg);
+  background-size: cover;
+  background-position: center, 100% 50%;
+  transform: translateZ( calc(var(--z) * 2px) );
+  z-index: 1;
 }
 
 .landing-title,
@@ -33,7 +48,7 @@
   @include font(bold, true);
   line-height: 0.9em;
   color: $white;
-  transform: translateZ( calc(var(--z) * 3px) );
+  transform: translateZ( calc(var(--z) * 1px) );
 
   @include breakpoint($large-down) {
     font-size: 20vw;

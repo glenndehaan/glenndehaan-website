@@ -1,0 +1,21 @@
+.box {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.box-spaced {
+  padding-top: $spacing;
+  padding-bottom: $spacing;
+}
+
+.box-cover {
+  width: 100%;
+}
+
+.medium-width {
+  max-width: 1200px;
+}
+
+.small-width {
+  max-width: 750px;
+}

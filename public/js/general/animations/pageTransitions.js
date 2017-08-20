@@ -19,25 +19,7 @@ export const mainIntro = (callback, elements) => {
  * @param elements
  */
 export const pageIntro = (callback, elements) => {
-    // TweenMax.to(elements.mainContainer, 0.5, {
-    //     opacity: 1,
-    //     onComplete: callback
-    // });
-    TweenMax.fromTo(elements.mainContainer, 0.5, {
-        opacity: 0,
-        z: -100
-    }, {
-        opacity: 1,
-        z: 0,
-        ease: Power3.easeOut,
-        onComplete: callback
-    });
-    TweenMax.fromTo(document.body, 0.5, {
-        '--z': -100
-    }, {
-        '--z': 0,
-        ease: Power3.easeOut
-    })
+    transition('intro', callback, elements);
 };
 
 /**
@@ -46,26 +28,65 @@ export const pageIntro = (callback, elements) => {
  * @param elements
  */
 export const pageOutro = (callback, elements) => {
-    // TweenMax.to(elements.mainContainer, 0.5, {
-    //     opacity: 0,
-    //     onComplete: callback
-    // });
-    TweenMax.to(window, 0.3, {
-        scrollTo: 0
-    });
-    TweenMax.fromTo(elements.mainContainer, 0.5, {
-        opacity: 1,
-        z: 0
+    transition('outro', callback, elements);
+};
+
+const setOrigin = (type) => {
+    let wh = document.body.clientHeight;
+    let so = window.scrollY;
+    let dh = document.getElementById('app').clientHeight;
+    let origin = 50;
+
+    if(type === "intro"){
+        origin = ((wh * 0.5) / dh) * 100;
+    }
+    if(type === "outro"){
+        origin = (so+wh/2) / dh * 100;
+    }
+
+    document.body.style.setProperty('--originY', origin);
+};
+
+const transition = (type, callback, elements) => {
+
+    setOrigin(type);
+
+    let opacity = [];
+    let z = [];
+    let ease = '';
+    let cp = [];
+
+    if(type === "intro"){
+        opacity = [0, 1];
+        z = [-100, 0];
+        ease = 'Power4.easeOut';
+        cp = [-100, 0];
+    }
+    if(type === "outro"){
+        opacity = [1, 0];
+        z = [0, 100];
+        ease = 'Power4.easeIn';
+        cp = [0, 10];
+    }
+
+    TweenMax.fromTo(elements.mainContainer, 0.8, {
+        opacity: opacity[0],
+        z: z[0]
     }, {
-        opacity: 0,
-        z: 100,
-        ease: Power3.easeIn,
+        opacity: opacity[1],
+        z: z[1],
+        ease: ease,
         onComplete: callback
     });
-    TweenMax.fromTo(document.body, 0.5, {
-        '--z': 0
+    TweenMax.fromTo(document.body, 0.8, {
+        '--z': cp[0]
     }, {
-        '--z': 10,
-        ease: Power3.easeIn
+        '--z': cp[1],
+        ease: ease,
+        onComplete: () => {
+            if(type === "outro"){
+                TweenMax.set(window, {scrollTo: 0})
+            }
+        }
     });
 };

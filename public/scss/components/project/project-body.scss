@@ -1,0 +1,76 @@
+.project-body {
+  padding-top: $spacing-large;
+  padding-bottom: $spacing-large * 3;
+  perspective: 80px;
+  transform: translateZ( calc(var(--z) * 2px) );
+
+  @include breakpoint($large-up) {
+    padding-bottom: $spacing-large * 3;
+  }
+}
+
+.content-unit {
+  margin-bottom: $spacing-large;
+  padding-right: $spacing;
+  padding-left: $spacing;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:nth-child(even){
+    transform: translateZ( calc(var(--z) * 3px) );
+  }
+  &:nth-child(odd){
+    transform: translateZ( calc(var(--z) * 9px) );
+  }
+
+  @include breakpoint($medium-up) {
+    margin-bottom: $spacing-large * 2;
+  }
+}
+
+.content-media {
+  display: flex;
+  flex-wrap: wrap;
+
+  .media-caption {
+    order: 2;
+
+    @include breakpoint($medium-down) {
+      margin-top: $spacing * 0.5;
+    }
+
+    @include breakpoint($medium-up) {
+      flex-basis: 35%;
+      flex-grow: 2;
+      order: 1;
+      padding-right: $spacing;
+    }
+  }
+
+  .media-item {
+    order: 1;
+
+    @include breakpoint($medium-up) {
+      flex-basis: 65%;
+      flex-grow: 2;
+      order: 2;
+    }
+  }
+}
+
+.vid-wrap {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+

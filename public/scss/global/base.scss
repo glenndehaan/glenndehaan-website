@@ -37,13 +37,27 @@ body {
   background-size: cover;
   background-attachment: fixed;
   --z: 0; // cp for transition animation
+  --originY: 0;
 }
 
 .container {
+  position: relative;
   padding-top: $header-height;
   transform-style: preserve-3d;
-  perspective: 400px;
-  perspective-origin: 50% 0;
+  perspective: 10000px;
+  perspective-origin: 50% calc(var(--originY) * 1%);
+
+  //// debug perspective origin
+  //&:after {
+  //  content: '';
+  //  position: absolute;
+  //  top: calc(var(--originY) * 1%);
+  //  right: 0;
+  //  left: 0;
+  //  height: 10px;
+  //  background-color: red;
+  //  z-index: 100;
+  //}
 }
 
 a {

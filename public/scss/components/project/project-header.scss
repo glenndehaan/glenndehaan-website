@@ -1,0 +1,78 @@
+.project {
+  position: relative;
+  background-color: $white;
+}
+
+.project-hero {
+  position: relative;
+  perspective: 80px;
+  transform: translateZ( calc(var(--z) * 2px) );
+}
+
+.hero-title {
+  position: relative;
+  max-width: 1400px;
+  min-height: 45vh;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $spacing-large $spacing ($spacing-large * 2) $spacing;
+  transform: translateZ( calc(var(--z) * 9px) );
+
+  @include breakpoint($medium-up) {
+    padding: $spacing-large $spacing-large ($spacing-large * 2) $spacing-large;
+  }
+}
+
+.project-date {}
+
+.project-name {
+  @include hyphen();
+}
+
+.project-anchor {
+  position: absolute;
+  bottom: $spacing;
+  right: $spacing;
+  text-align: right;
+  color: $orange;
+  cursor: pointer;
+  will-change: transform;
+  transition: transform 0.25s;
+
+  @include breakpoint($medium-up) {
+    right: $spacing-large;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 4px);
+    right: -15px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid $orange;
+    border-right: 2px solid $orange;
+    opacity: 0;
+    transform: translateX(-20px) rotate(45deg);
+    will-change: transform, opacity;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+
+  body:not(.device-mobile) &:hover {
+    transform: translateX(-10px);
+  }
+
+  body:not(.device-mobile) &:hover:after {
+    opacity: 1;
+    transform: translateX(0px) rotate(45deg);
+  }
+}
+
+.hero-shot {
+  height: 62vh;
+  min-height: 300px;
+  transform: translateZ( calc(var(--z) * 3px) );
+}

@@ -53,14 +53,15 @@
 
 .title-large {
   @include font(bold);
-  //font-size: 3.8rem;
+  font-size: 4rem;
+  line-height: 1.1em;
 
   @include breakpoint($medium-up){
-    //font-size: 4.15rem;
+    font-size: 6.5vw;
   }
 
-  @include breakpoint($xlarge-up){
-    //font-size: 4.5rem;
+  @include breakpoint($large-up){
+    font-size: 6rem;
   }
 }
 
@@ -68,6 +69,10 @@
 // ============== 2. colors
 .title-black {
   color: $black;
+}
+
+.title-grey {
+  color: rgba($black, 0.4);
 }
 
 .title-white {
