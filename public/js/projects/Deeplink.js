@@ -76,7 +76,7 @@ export default class Deeplink extends Component {
      */
     componentWillMount(){
         //Define deeplink
-        this.url = window.location.pathname.split('/').slice(-1)[0];
+        this.url = this.props.match.params.path;
         console.log('this.url', this.url);
 
         //Get content
