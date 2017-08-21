@@ -36,8 +36,8 @@ const updateGithubData = () => {
         new github(config.github.url, config.github.token, (data) => {
             if(data.length > 0) {
                 //Save data to state
-                config.programming = data;
-                saveState({programming: config.programming.sort(compare_created_at)});
+                config.programming = data.sort(compare_created_at);
+                saveState({projects: config.projects, programming: config.programming});
             }
         });
     }
@@ -49,7 +49,7 @@ const updateApiData = () => {
             if(data.length > 0) {
                 //Save data to state
                 config.projects = data;
-                saveState({projects: config.projects});
+                saveState({projects: config.projects, programming: config.programming});
             }
         });
     }
