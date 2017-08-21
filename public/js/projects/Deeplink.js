@@ -49,7 +49,7 @@ export default class Deeplink extends Component {
     }
 
     componentDidMount(){
-        document.title = `${this.content.name} | ${config.siteName}`;
+        document.title = `${this.content.title} | ${config.siteName}`;
         site.events.emit('historyChange', '/projects');
     }
 
@@ -76,7 +76,7 @@ export default class Deeplink extends Component {
      */
     componentWillMount(){
         //Define deeplink
-        this.url = this.props.match.params.path;
+        this.url = this.props.location.pathname;
         console.log('this.url', this.url);
 
         //Get content
@@ -98,34 +98,34 @@ export default class Deeplink extends Component {
                     </Link>
                     <figure className="project-hero box-cover">
                         <figcaption className="hero-title">
-                            {this.content.date &&
+                            {this.content.publish_date &&
                                 <p className="project-date copy-grey copy-small">
-                                    {this.content.date}
+                                    {this.content.publish_date}
                                 </p>
                             }
                             <h1 className="title-large project-name">
-                                {this.content.name}
+                                {this.content.title}
                             </h1>
                             <p className="project-intro copy-grey copy-accent">
                                 {this.content.intro}
                             </p>
-                            {this.content.link &&
-                                <a className="project-anchor" href={this.content.link} target="_blank">
-                                    {this.content.link_title}
+                            {this.content.project_link &&
+                                <a className="project-anchor" href={this.content.project_link} target="_blank">
+                                    Visit project
                                 </a>
                             }
                         </figcaption>
-                        <div className="hero-shot">
-                            <img className="media-cover" src={this.content.image_src} alt={this.content.image_alt} />
-                        </div>
+                        {this.content.image_src &&
+                            <div className="hero-shot">
+                                <img className="media-cover" src={this.content.image_src} alt={this.content.image_alt}/>
+                            </div>
+                        }
                     </figure>
                     <section className="project-body">
                         {this.content.content.map((item, key) => {
-                            if(item.type === "text"){
+                            if(item.type === "copy"){
                                 return (
-                                    <p className="box small-width content-unit" key={key}>
-                                        {item.text}
-                                    </p>
+                                    <p className="box small-width content-unit" key={key} dangerouslySetInnerHTML={{__html: item.text}} />
                                 )
                             }
 
@@ -149,7 +149,7 @@ export default class Deeplink extends Component {
                                     return (
                                         <div className="box medium-width content-unit" key={key}>
                                             <div className="vid-wrap">
-                                                <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.video_code}`} frameBorder="0" allowFullScreen />
+                                                <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.video_embed_code}`} frameBorder="0" allowFullScreen />
                                             </div>
                                         </div>
                                     )
@@ -158,7 +158,7 @@ export default class Deeplink extends Component {
                                 if(item.video_service === "vimeo") {
                                     return (
                                         <div className="box-fill" key={key}>
-                                            <iframe src={`https://player.vimeo.com/video/${item.video_code}`} width="100%" height="100%" frameBorder="0" allowFullScreen />
+                                            <iframe src={`https://player.vimeo.com/video/${item.video_embed_code}`} width="100%" height="100%" frameBorder="0" allowFullScreen />
                                         </div>
                                     )
                                 }

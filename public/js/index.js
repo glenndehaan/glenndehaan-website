@@ -12,11 +12,13 @@ import config from './main/config';
 import {loadState, saveState} from './main/storage';
 import {compare_created_at} from './general/Utils';
 import github from './general/utils/github';
+import api from './general/utils/api';
 
 import Root from './main/Root'
 
 const render = Component => {
     updateGithubData();
+    updateApiData();
     site.events = mitt();
 
     ReactDOM.render(
@@ -41,8 +43,21 @@ const updateGithubData = () => {
     }
 };
 
+const updateApiData = () => {
+    if(config.network !== false){
+        new api("https://api.glenndehaan.com/api/projects", (data) => {
+            if(data.length > 0) {
+                //Save data to state
+                config.projects = data;
+                saveState({projects: config.projects});
+            }
+        });
+    }
+};
+
 //Load states
 config.programming = loadState('programming') || [];
+config.projects = loadState('projects') || [];
 
 window.addEventListener('online', () => {
     config.network = navigator.onLine;
