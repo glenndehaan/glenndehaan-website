@@ -2,7 +2,7 @@
   padding-top: $spacing-large;
   padding-bottom: $spacing-large * 3;
   perspective: 80px;
-  transform: translateZ( calc(var(--z) * 2px) );
+  //transform: translateZ( calc(var(--z) * 2px) );
 
   @include breakpoint($large-up) {
     padding-bottom: $spacing-large * 3;
@@ -19,10 +19,10 @@
   }
 
   &:nth-child(even){
-    transform: translateZ( calc(var(--z) * 3px) );
+    //transform: translateZ( calc(var(--z) * 3px) );
   }
   &:nth-child(odd){
-    transform: translateZ( calc(var(--z) * 9px) );
+    //transform: translateZ( calc(var(--z) * 9px) );
   }
 
   @include breakpoint($medium-up) {
@@ -62,18 +62,15 @@
 
 .vid-wrap {
   position: relative;
-  //padding-bottom: 56.25%; /* 16:9 */
-  //height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
 
   iframe {
-    //position: absolute;
-    //top: 0;
-    //left: 0;
-    //width: 100%;
-    //height: 100%;
-    display: block;
-    width: 300px;
-    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
