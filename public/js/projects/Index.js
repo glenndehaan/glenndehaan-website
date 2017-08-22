@@ -59,12 +59,11 @@ export default class Projects extends Component {
     render() {
         return (
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
-                {/*<h1>Projects</h1>*/}
                 <div className="grid grid-color">
                     {config.projects.map((item, key) => (
-                        <Link className="grid-item" to={`/project/${item.path}`} key={key}>
+                        <Link className="grid-item" to={item.path} key={key}>
                             <header className="item-header">
-                                <h2 className="item-title title-regular">{item.name}</h2>
+                                <h2 className="item-title title-regular">{item.title}</h2>
                             </header>
                             <p className="item-copy copy-white">{item.intro}</p>
                             <div className="item-anchor copy-white">Read more</div>
