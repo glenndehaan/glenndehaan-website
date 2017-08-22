@@ -125,7 +125,7 @@ export default class Deeplink extends Component {
                         {this.content.content.map((item, key) => {
                             if(item.type === "copy"){
                                 return (
-                                    <p className="box small-width content-unit" key={key} dangerouslySetInnerHTML={{__html: item.text}} />
+                                    <div className="box small-width content-unit wysiwyg" key={key} dangerouslySetInnerHTML={{__html: item.text}} />
                                 )
                             }
 

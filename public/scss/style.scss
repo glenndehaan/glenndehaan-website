@@ -11,6 +11,8 @@
 'mixins/mediaqueries',
 'mixins/typography',
 'mixins/helpers',
+'mixins/lists',
+'mixins/custom-content',
 
   // global
 'global/normalize',
@@ -51,6 +53,8 @@
   // about
 'components/about/cols',
 'components/about/about',
-'components/about/timeline';
+'components/about/timeline',
+
+'components/not-found';
 
 

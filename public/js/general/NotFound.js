@@ -58,8 +58,7 @@ export class NotFound extends Component {
     render() {
         return (
             <main style={{opacity: 0}} className="page not-found" ref={(c) => this.domElements.mainContainer = c}>
-                <h1 className="page-title">404</h1>
-                <div className="page-subtitle">Page not found!</div>
+                <h1 className="landing-title not-found-title">404 Page <br/>not found!</h1>
             </main>
         )
     }

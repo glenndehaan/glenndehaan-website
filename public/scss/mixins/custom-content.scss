@@ -1,0 +1,89 @@
+// content formated with cms editor
+// <strong> || <em> || <a>
+@mixin custom-content() {
+  p {
+    @include font(regular);
+    margin-bottom: 1.5rem;
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  a {
+    color: $orange;
+    @include font(regular);
+    text-decoration: none;
+    transition: color 0.25s;
+
+    body:not(.device-mobile) &:hover {
+      color: $red;
+    }
+  }
+
+  u, s {
+    background-repeat: no-repeat;
+    text-decoration: none;
+  }
+  u {
+    background-image: linear-gradient(rgba($black, 0.3), rgba($black, 0.3));
+    background-size: 100% 1px;
+    background-position: 0 100%;
+  }
+  s {
+    background-image: linear-gradient(rgba($black, 0.9), rgba($black, 0.9));
+    background-size: 100% 3px;
+    background-position: 0 60%;
+  }
+
+  strong,
+  b {
+    @include font(bold);
+  }
+
+  em,
+  i {
+    @include font(regular);
+    text-transform: uppercase;
+    font-size: 0.8em;
+  }
+
+  strong {
+    @include font(bold);
+    font-size: 2em;
+  }
+
+  .text-align-left {
+    text-align: left;
+  }
+  .text-align-center {
+    text-align: center;
+  }
+  .text-align-right {
+    text-align: right;
+  }
+
+  blockquote {
+    position: relative;
+    display: block;
+    margin-top: $spacing-large * 2;
+    margin-bottom: $spacing-large;
+    max-width: 600px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -$spacing;
+      left: -$spacing;
+      width: 4rem;
+      height: 3px;
+      background-image: linear-gradient(90deg, $orange, $red);
+      background-size: cover;
+    }
+
+    p {
+      font-weight: normal;
+      font-size: 1.5em;
+      line-height: 1.4em;
+      color: rgba($black, 0.4);
+    }
+  }
+}
