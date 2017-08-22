@@ -3,25 +3,42 @@
   padding: 2rem 4rem;
   cursor: pointer;
 
+  &:before,
   &:after {
     content: '';
     position: absolute;
-    top: calc(50% - 7px);
-    right: 1.8rem;
-    width: 16px;
-    height: 16px;
-    border-top: 2px solid $white;
-    border-right: 2px solid $white;
+    bottom: 1.5rem;
+    right: 4rem;
+    left: 4rem;
+    height: 2px;
+    background-color: $white;
     pointer-events: none;
-    opacity: 0;
-    transform: translateX(-5px) rotate(45deg);
+    opacity: 1;
     will-change: transform, opacity;
-    transition: transform 0.25s, opacity 0.25s;
   }
 
-  body:not(.device-mobile) &:hover:after {
-    opacity: 1;
-    transform: translateX(0px) rotate(45deg);
+  &:before {
+    transform-origin: 0% 50%;
+    transform: translateX(0) scaleX(0);
+    transition: transform 0s;
+  }
+
+  &:after {
+    transform-origin: 100% 50%;
+    transform: translateX(0px) scaleX(0);
+    transition: transform 0.25s;
+  }
+
+  body:not(.device-mobile) &:hover {
+    &:before {
+      transform: translateX(0px) scaleX(1);
+      transition: transform 0.25s;
+    }
+
+    &:after {
+      transform: translateX(0px) scaleX(1);
+      transition: transform 0s 0.25s;
+    }
   }
 }
 
