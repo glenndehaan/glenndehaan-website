@@ -115,9 +115,9 @@ export default class Deeplink extends Component {
                                 </a>
                             }
                         </figcaption>
-                        {this.content.image_src &&
+                        {this.content.image.desktop.src &&
                             <div className="hero-shot">
-                                <img className="media-cover" src={this.content.image_src} alt={this.content.image_alt}/>
+                                <img className="media-cover" src={this.content.image.desktop.src} alt={this.content.image.desktop.alt}/>
                             </div>
                         }
                     </figure>
@@ -132,13 +132,13 @@ export default class Deeplink extends Component {
                             if(item.type === "image"){
                                 return (
                                     <figure className="box medium-width content-media content-unit" key={key}>
-                                        {item.image_title &&
+                                        {item.image.desktop.title &&
                                             <figcaption className="media-caption">
-                                                {<h5 className="title-small title-grey">{item.image_title}</h5>}
+                                                {<h5 className="title-small title-grey">{item.image.desktop.title}</h5>}
                                             </figcaption>
                                         }
                                         <div className="media-item">
-                                            <img className="media-scale" src={item.image_src} alt={item.image_alt} />
+                                            <img className="media-scale" src={item.image.desktop.src} alt={item.image.desktop.alt} />
                                         </div>
                                     </figure>
                                 )
