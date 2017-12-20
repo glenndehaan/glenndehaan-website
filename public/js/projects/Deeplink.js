@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import config from '../main/config';
 import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
+import hljs from "highlight.js";
 
 /**
  * Presentational part of the component
@@ -51,6 +52,11 @@ export default class Deeplink extends Component {
     componentDidMount(){
         document.title = `${this.content.title} | ${config.siteName}`;
         site.events.emit('historyChange', '/projects');
+
+        const codeElements = document.querySelectorAll("pre code");
+        for(let block = 0; block < codeElements.length; block++){
+            hljs.highlightBlock(codeElements[block]);
+        }
     }
 
     /**
