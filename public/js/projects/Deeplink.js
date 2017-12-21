@@ -117,7 +117,11 @@ export default class Deeplink extends Component {
                         </figcaption>
                         {this.content.image_src &&
                             <div className="hero-shot">
-                                <img className="media-cover" src={this.content.image_src} alt={this.content.image_alt}/>
+                                {/*<img className="media-cover" src={this.content.image_src} alt={this.content.image_alt}/>*/}
+                                <picture>
+                                    <source srcSet="http://via.placeholder.com/350x65" media="(min-width: 600px)"/>
+                                    <img src="http://via.placeholder.com/350x150" alt="MDN"/>
+                                </picture>
                             </div>
                         }
                     </figure>
