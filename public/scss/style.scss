@@ -1,6 +1,9 @@
 // imports
 @import
 
+  // node_modules
+'~highlight.js/styles/dark',
+
   // Variables
 'variables/dimensions',
 'variables/breakpoints',
@@ -56,5 +59,3 @@
 'components/about/timeline',
 
 'components/not-found';
-
-

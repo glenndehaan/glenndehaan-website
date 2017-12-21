@@ -13,9 +13,20 @@ export default class Programming extends Component {
      */
     constructor(props) {
         super(props);
+
         this.domElements = {
             mainContainer: null
         };
+
+        this.state = {
+            programming: config.programming
+        };
+
+        site.events.on('apiDataUpdate', () => {
+            this.setState({
+                programming: config.programming
+            });
+        });
     }
 
     /**
@@ -60,7 +71,7 @@ export default class Programming extends Component {
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
                 <h3 className="visually-hidden">Programming</h3>
                 <div className="grid grid-white">
-                    {config.programming.map((item, key) => (
+                    {this.state.programming.map((item, key) => (
                         <a className="grid-item" href={item.html_url} target="_blank" key={key}>
                             <header className="item-header">
                                 <h2 className="item-title title-regular">{item.name}</h2>

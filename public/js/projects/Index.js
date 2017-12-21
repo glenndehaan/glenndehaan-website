@@ -14,9 +14,20 @@ export default class Projects extends Component {
      */
     constructor(props) {
         super(props);
+
         this.domElements = {
             mainContainer: null
         };
+
+        this.state = {
+            projects: config.projects
+        };
+
+        site.events.on('apiDataUpdate', () => {
+            this.setState({
+                projects: config.projects
+            });
+        });
     }
 
     /**
@@ -60,7 +71,7 @@ export default class Projects extends Component {
         return (
             <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
                 <div className="grid grid-color">
-                    {config.projects.map((item, key) => (
+                    {this.state.projects.map((item, key) => (
                         <Link className="grid-item" to={item.path} key={key}>
                             <header className="item-header">
                                 <h2 className="item-title title-regular">{item.title}</h2>
