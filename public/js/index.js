@@ -38,6 +38,7 @@ const updateGithubData = () => {
                 //Save data to state
                 config.programming = data.sort(compare_created_at);
                 saveState({projects: config.projects, programming: config.programming});
+                site.events.emit('apiDataUpdate');
             }
         });
     }
@@ -50,6 +51,7 @@ const updateApiData = () => {
                 //Save data to state
                 config.projects = data;
                 saveState({projects: config.projects, programming: config.programming});
+                site.events.emit('apiDataUpdate');
             }
         });
     }

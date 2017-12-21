@@ -15,11 +15,22 @@ export default class Deeplink extends Component {
      */
     constructor(props) {
         super(props);
-        this.url = null;
-        this.content = null;
+
         this.domElements = {
             mainContainer: null
         };
+
+        this.state = {
+            url: this.props.location.pathname,
+            content: this.searchProject(this.props.location.pathname, config.projects)
+        };
+
+        site.events.on('apiDataUpdate', () => {
+            this.setState({
+                url: this.props.location.pathname,
+                content: this.searchProject(this.props.location.pathname, config.projects)
+            });
+        });
     }
 
     /**
@@ -50,7 +61,7 @@ export default class Deeplink extends Component {
     }
 
     componentDidMount(){
-        document.title = `${this.content.title} | ${config.siteName}`;
+        document.title = `${this.state.content.title} | ${config.siteName}`;
         site.events.emit('historyChange', '/projects');
 
         const codeElements = document.querySelectorAll("pre code");
@@ -75,19 +86,20 @@ export default class Deeplink extends Component {
                 return false;
             }
         }
+
+        return false;
     }
 
     /**
      * Function to run then the component mounts
      */
     componentWillMount(){
-        //Define deeplink
-        this.url = this.props.location.pathname;
-        console.log('this.url', this.url);
+        this.setState({
+            url: this.props.location.pathname,
+            content: this.searchProject(this.props.location.pathname, config.projects)
+        });
 
-        //Get content
-        this.content = this.searchProject(this.url, config.projects);
-        console.log('this.content', this.content);
+        console.log('this.state', this.state);
     }
 
     /**
@@ -96,7 +108,7 @@ export default class Deeplink extends Component {
      * @return {XML}
      */
     render() {
-        if(this.content){
+        if(this.state.content){
             return (
                 <main className="project" style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
                     <Link className="button-back" to="/projects">
@@ -104,31 +116,31 @@ export default class Deeplink extends Component {
                     </Link>
                     <figure className="project-hero box-cover">
                         <figcaption className="hero-title">
-                            {this.content.publish_date &&
+                            {this.state.content.publish_date &&
                                 <p className="project-date copy-grey copy-small">
-                                    {this.content.publish_date}
+                                    {this.state.content.publish_date}
                                 </p>
                             }
                             <h1 className="title-large project-name">
-                                {this.content.title}
+                                {this.state.content.title}
                             </h1>
                             <p className="project-intro copy-grey copy-accent">
-                                {this.content.intro}
+                                {this.state.content.intro}
                             </p>
-                            {this.content.project_link &&
-                                <a className="project-anchor" href={this.content.project_link} target="_blank">
+                            {this.state.content.project_link &&
+                                <a className="project-anchor" href={this.state.content.project_link} target="_blank">
                                     Visit project
                                 </a>
                             }
                         </figcaption>
-                        {this.content.image.desktop.src &&
+                        {this.state.content.image.desktop.src &&
                             <div className="hero-shot">
-                                <img className="media-cover" src={this.content.image.desktop.src} alt={this.content.image.desktop.alt}/>
+                                <img className="media-cover" src={this.state.content.image.desktop.src} alt={this.state.content.image.desktop.alt}/>
                             </div>
                         }
                     </figure>
                     <section className="project-body">
-                        {this.content.content.map((item, key) => {
+                        {this.state.content.content.map((item, key) => {
                             if(item.type === "copy"){
                                 return (
                                     <div className="box small-width content-unit wysiwyg" key={key} dangerouslySetInnerHTML={{__html: item.text}} />

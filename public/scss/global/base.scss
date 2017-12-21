@@ -30,6 +30,7 @@ body {
   color: $black;
   @include font(regular);
   box-sizing: border-box;
+  opacity: 1;
 }
 
 body {
