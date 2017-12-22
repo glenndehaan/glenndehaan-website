@@ -139,15 +139,23 @@ export default class Deeplink extends Component {
                                 </a>
                             )}
                         </figcaption>
-                        {this.state.content.image.desktop.src && (
-                            <div className="hero-shot">
-                                <img
-                                    className="media-cover"
-                                    src={this.state.content.image.desktop.src}
-                                    alt={this.state.content.image.desktop.alt}
-                                />
-                            </div>
-                        )}
+                        {console.log('this.state.content.image', this.state.content.image)}
+                        {this.state.content.image.desktop.src &&
+                            this.state.content.image.mobile.src && (
+                                <div className="hero-shot">
+                                    <picture>
+                                        <source
+                                            srcSet={this.state.content.image.mobile.src}
+                                            media="(max-width: 600px)"
+                                        />
+                                        <img
+                                            className="media-cover"
+                                            src={this.state.content.image.desktop.src}
+                                            alt={this.state.content.image.desktop.alt}
+                                        />
+                                    </picture>
+                                </div>
+                            )}
                     </figure>
                     <section className="project-body">
                         {this.state.content.content.map((item, key) => {
@@ -177,11 +185,17 @@ export default class Deeplink extends Component {
                                             </figcaption>
                                         )}
                                         <div className="media-item">
-                                            <img
-                                                className="media-scale"
-                                                src={item.image.desktop.src}
-                                                alt={item.image.desktop.alt}
-                                            />
+                                            <picture>
+                                                <source
+                                                    srcSet={item.image.mobile.src}
+                                                    media="(max-width: 600px)"
+                                                />
+                                                <img
+                                                    className="media-scale"
+                                                    src={item.image.desktop.src}
+                                                    alt={item.image.desktop.alt}
+                                                />
+                                            </picture>
                                         </div>
                                     </figure>
                                 );

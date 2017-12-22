@@ -2,7 +2,7 @@
   padding-top: $spacing-large;
   padding-bottom: $spacing-large * 3;
   perspective: 80px;
-  transform: translateZ( calc(var(--z) * 2px) );
+  transform: translateZ(calc(var(--z) * 2px));
 
   @include breakpoint($large-up) {
     padding-bottom: $spacing-large * 3;
@@ -18,11 +18,11 @@
     margin-bottom: 0;
   }
 
-  &:nth-child(even){
-    transform: translateZ( calc(var(--z) * 3px) );
+  &:nth-child(even) {
+    transform: translateZ(calc(var(--z) * 3px));
   }
-  &:nth-child(odd){
-    transform: translateZ( calc(var(--z) * 9px) );
+  &:nth-child(odd) {
+    transform: translateZ(calc(var(--z) * 9px));
   }
 
   @include breakpoint($medium-up) {
@@ -74,3 +74,8 @@
   }
 }
 
+pre {
+  margin-top: 2em;
+  padding: 15px;
+  background: #f8f8f8;
+}
