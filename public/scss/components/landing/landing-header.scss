@@ -5,11 +5,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  //background-image:
-  //        linear-gradient(23deg, rgba($red, 0.8), rgba($orange, 0.8)),
-  //        url(/images/design/landing-bg.jpg);
-  //background-size: cover;
-  //background-position: center, 100% 50%;
   perspective: 80px;
 
   @include breakpoint($large-down) {
@@ -29,12 +24,11 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-image:
-          linear-gradient(23deg, rgba($red, 0.8), rgba($orange, 0.8)),
-          url(/images/design/_W2L5455-min.jpg);
+  background-image: linear-gradient(23deg, rgba($red, 0.8), rgba($orange, 0.8)),
+    url(/images/design/test01.jpg); // _W2L5455-min
   background-size: cover;
-  background-position: center, 100% 50%;
-  transform: translateZ( calc(var(--z) * 2px) );
+  background-position: center, 100% 20%;
+  transform: translateZ(calc(var(--z) * 2px));
   z-index: 1;
 }
 
@@ -48,7 +42,7 @@
   @include font(bold, true);
   line-height: 0.9em;
   color: $white;
-  transform: translateZ( calc(var(--z) * 1px) );
+  transform: translateZ(calc(var(--z) * 1px));
 
   @include breakpoint($large-down) {
     font-size: 20vw;
@@ -62,5 +56,5 @@
   margin-top: 1em;
   padding-left: 5px;
   opacity: 0.7;
-  transform: translateZ( calc(var(--z) * 2.5px) );
+  transform: translateZ(calc(var(--z) * 2.5px));
 }
