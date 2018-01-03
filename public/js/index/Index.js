@@ -125,37 +125,41 @@ export class Index extends Component {
     }
 
     renderProgrammingBlocks() {
-        return (
-            <div className="grid grid-landing grid-white">
-                <a className="grid-item shadow" href={this.state.programming[0].html_url} target="_blank">
-                    <header className="item-header">
-                        <h2 className="item-title title-regular">{this.state.programming[0].name}</h2>
-                    </header>
-                    <p className="item-copy copy-grey">{this.state.programming[0].description !== null ? this.state.programming[0].description : 'Still trying to find a description'}</p>
-                    <div className="item-anchor copy-grey">View on GitHub</div>
-                </a>
-                <a className="grid-item shadow" href={this.state.programming[1].html_url} target="_blank">
-                    <header className="item-header">
-                        <h2 className="item-title title-regular">{this.state.programming[1].name}</h2>
-                    </header>
-                    <p className="item-copy copy-grey">{this.state.programming[1].description !== null ? this.state.programming[1].description : 'Still trying to find a description'}</p>
-                    <div className="item-anchor copy-grey">View on GitHub</div>
-                </a>
-                <a className="grid-item shadow" href={this.state.programming[2].html_url} target="_blank">
-                    <header className="item-header">
-                        <h2 className="item-title title-regular">{this.state.programming[2].name}</h2>
-                    </header>
-                    <p className="item-copy copy-grey">{this.state.programming[2].description !== null ? this.state.programming[2].description : 'Still trying to find a description'}</p>
-                    <div className="item-anchor copy-grey">View on GitHub</div>
-                </a>
-                <a className="grid-item shadow" href={this.state.programming[3].html_url} target="_blank">
-                    <header className="item-header">
-                        <h2 className="item-title title-regular">{this.state.programming[3].name}</h2>
-                    </header>
-                    <p className="item-copy copy-grey">{this.state.programming[3].description !== null ? this.state.programming[3].description : 'Still trying to find a description'}</p>
-                    <div className="item-anchor copy-grey">View on GitHub</div>
-                </a>
-            </div>
-        );
+        if(this.state.programming[0] !== "undefined") {
+            return (
+                <div className="grid grid-landing grid-white">
+                    <a className="grid-item shadow" href={this.state.programming[0].html_url} target="_blank">
+                        <header className="item-header">
+                            <h2 className="item-title title-regular">{this.state.programming[0].name}</h2>
+                        </header>
+                        <p className="item-copy copy-grey">{this.state.programming[0].description !== null ? this.state.programming[0].description : 'Still trying to find a description'}</p>
+                        <div className="item-anchor copy-grey">View on GitHub</div>
+                    </a>
+                    <a className="grid-item shadow" href={this.state.programming[1].html_url} target="_blank">
+                        <header className="item-header">
+                            <h2 className="item-title title-regular">{this.state.programming[1].name}</h2>
+                        </header>
+                        <p className="item-copy copy-grey">{this.state.programming[1].description !== null ? this.state.programming[1].description : 'Still trying to find a description'}</p>
+                        <div className="item-anchor copy-grey">View on GitHub</div>
+                    </a>
+                    <a className="grid-item shadow" href={this.state.programming[2].html_url} target="_blank">
+                        <header className="item-header">
+                            <h2 className="item-title title-regular">{this.state.programming[2].name}</h2>
+                        </header>
+                        <p className="item-copy copy-grey">{this.state.programming[2].description !== null ? this.state.programming[2].description : 'Still trying to find a description'}</p>
+                        <div className="item-anchor copy-grey">View on GitHub</div>
+                    </a>
+                    <a className="grid-item shadow" href={this.state.programming[3].html_url} target="_blank">
+                        <header className="item-header">
+                            <h2 className="item-title title-regular">{this.state.programming[3].name}</h2>
+                        </header>
+                        <p className="item-copy copy-grey">{this.state.programming[3].description !== null ? this.state.programming[3].description : 'Still trying to find a description'}</p>
+                        <div className="item-anchor copy-grey">View on GitHub</div>
+                    </a>
+                </div>
+            );
+        } else {
+            return null;
+        }
     }
 }
