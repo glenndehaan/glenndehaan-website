@@ -6,7 +6,11 @@ const autoprefixer = require('autoprefixer');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+//Environment check depending on call from
+const env = process.env.NODE_ENV || 'development';
+const isProd = env === 'production';
+
+const config = {
     devServer: {
         contentBase: path.resolve(__dirname, '../public'),
         hot: true,
@@ -92,7 +96,18 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
-            minify: {collapseWhitespace: true}
+            minify: {collapseWhitespace: true},
+            chunksSortMode: function (a, b) {  //alphabetical order
+                if (a.names[0] > b.names[0]) {
+                    return -1;
+                }
+
+                if (a.names[0] < b.names[0]) {
+                    return 1;
+                }
+
+                return 0;
+            }
         }),
 
         // Prints more readable module names in the browser console on HMR updates
@@ -103,3 +118,29 @@ module.exports = {
         colors: true
     }
 };
+
+//Extra options depending on environment
+if (isProd) {
+    Object.assign(config, {
+        plugins: config.plugins.concat([
+            new webpack.LoaderOptionsPlugin({
+                minimize: true
+            }),
+            new webpack.optimize.UglifyJsPlugin({
+                drop_console: true,
+                output: {
+                    comments: false
+                },
+                mangle: {
+                    screw_ie8: true
+                },
+                compressor: {
+                    screw_ie8: true,
+                    warnings: false
+                }
+            })
+        ])
+    });
+}
+
+module.exports = config;
