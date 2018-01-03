@@ -113,7 +113,7 @@ export class Index extends Component {
                     <Link to="/about" className="cta fade-red shadow">More about me</Link>
                 </section>
                 <section className="landing-cards">
-                    <h2 className="title-regular title-white align-center">I'm that guy with benefits ;)</h2>
+                    <h2 className="title-regular title-white align-center">Still learning...</h2>
                     {this.renderProgrammingBlocks()}
                 </section>
                 <footer className="footer">
