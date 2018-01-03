@@ -96,7 +96,11 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
-            minify: {collapseWhitespace: true},
+            minify: {
+                collapseWhitespace: true,
+                minifyCSS: true,
+                minifyJS: true
+            },
             chunksSortMode: function (a, b) {  //alphabetical order
                 if (a.names[0] > b.names[0]) {
                     return -1;
