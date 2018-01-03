@@ -108,7 +108,7 @@ export default class About extends Component {
                             <div className="timeline-item" key={key}>
                                 <h3 className="item-title title-regular title-white">{item.name}</h3>
                                 <p className="copy-white">Provider: {item.provider}</p>
-                                <a className="item-anchor copy-white" href={item.certificate} target="_blank">View certificate</a>
+                                <a className="item-anchor copy-white" href={item.certificate} target="_blank" rel="noopener">View certificate</a>
                             </div>
                         ))}
 

@@ -73,11 +73,11 @@ export class Header extends Component {
                 </nav>
 
                 <nav className="nav-social">
-                    <a className="social-anchor" href="https://github.com/glenndehaan" target="_blank">
+                    <a className="social-anchor" href="https://github.com/glenndehaan" target="_blank" rel="noopener">
                         <GithubIcon/>
                         <span>GitHub</span>
                     </a>
-                    <a className="social-anchor" href="https://www.linkedin.com/in/glenndehaan/" target="_blank">
+                    <a className="social-anchor" href="https://www.linkedin.com/in/glenndehaan/" target="_blank" rel="noopener">
                         <LinkedinIcon/>
                         <span>LinkedIn</span>
                     </a>

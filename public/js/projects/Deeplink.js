@@ -134,6 +134,7 @@ export default class Deeplink extends Component {
                                     className="project-anchor"
                                     href={this.state.content.project_link}
                                     target="_blank"
+                                    rel="noopener"
                                 >
                                     Visit project
                                 </a>

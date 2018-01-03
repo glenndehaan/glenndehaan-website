@@ -5,6 +5,7 @@ const combineLoaders = require('webpack-combine-loaders');
 const autoprefixer = require('autoprefixer');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 //Environment check depending on call from
 const env = process.env.NODE_ENV || 'development';
@@ -101,6 +102,7 @@ const config = {
                 minifyCSS: true,
                 minifyJS: true
             },
+            inject: 'head',
             chunksSortMode: function (a, b) {  //alphabetical order
                 if (a.names[0] > b.names[0]) {
                     return -1;
@@ -112,6 +114,10 @@ const config = {
 
                 return 0;
             }
+        }),
+
+        new ScriptExtHtmlWebpackPlugin({
+            defer: ['app']
         }),
 
         // Prints more readable module names in the browser console on HMR updates
