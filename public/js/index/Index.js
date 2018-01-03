@@ -125,7 +125,7 @@ export class Index extends Component {
     }
 
     renderProgrammingBlocks() {
-        if(this.state.programming[0] !== "undefined") {
+        if(this.state.programming.length > 0) {
             return (
                 <div className="grid grid-landing grid-white">
                     <a className="grid-item shadow" href={this.state.programming[0].html_url} target="_blank">
