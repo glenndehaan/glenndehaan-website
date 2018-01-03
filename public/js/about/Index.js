@@ -68,13 +68,31 @@ export default class About extends Component {
                     </nav>
                     <div className="about-copy">
                         <p>
-                            I started programming when in my first year of school. I started with basic Python, HTML, CSS and PHP.
+                            Hi, and welcome! Sounds old doesn't it. Well here we go:
                         </p>
                         <p>
-                            But after that one year I minimized the programming to a minimum. When I started working at DPDK I picked the pace up and started with Phalcon, Javascript, NodeJS, etc.
+                            I am Glenn de Haan born on 11-11-1997 in Rotterdam, The Netherlands.
                         </p>
                         <p>
-                            Below are all of my public GitHub repo's:
+                            I recently graduated on the GLR in Rotterdam as Media Workflow Manager. And in my daily life I work in the IT sector. Not only the IT sector but also the Media Sector. Stage Engineering is also something I really like to do.
+                        </p>
+                        <p>
+                            As you can hear I am someone who likes to do a lot. In my spare time i'm Coding, Gaming and practicing Bowling.
+                        </p>
+                        <p>
+                            On the subject of coding; I started programming at middle school. Back then I learned basic Python, HTML, CSS and PHP.
+                        </p>
+                        <p>
+                            When I started working at DPDK I started with Phalcon, Javascript, NodeJS and much more.
+                        </p>
+                        <p>
+                            Next to programming I like to work with servers. And creating/setting up new networks is something that makes me proud of myself.
+                        </p>
+                        <p>
+                            I also like working in teams and helping out others with their problems.
+                        </p>
+                        <p>
+                            To check out more things I did use the menu to navigate to my other pages. Also follow me on GitHub and add me to your LinkedIn network.
                         </p>
                     </div>
                 </div>
