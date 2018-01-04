@@ -99,6 +99,7 @@ const config = {
             template: path.resolve(__dirname, '../public/index.html'),
             minify: {
                 collapseWhitespace: true,
+                removeComments: true,
                 minifyCSS: true,
                 minifyJS: true
             },
@@ -117,7 +118,7 @@ const config = {
         }),
 
         new ScriptExtHtmlWebpackPlugin({
-            defer: ['app']
+            defaultAttribute: 'defer'
         }),
 
         // Prints more readable module names in the browser console on HMR updates
