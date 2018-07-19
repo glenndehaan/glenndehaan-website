@@ -4,23 +4,74 @@ import Router from 'preact-router';
 import mitt from 'mitt';
 
 import config from './main/config';
-import {loadState, saveState} from './main/storage';
-import {compare_created_at} from './general/Utils';
-import github from './general/utils/github';
-import api from './general/utils/api';
+import {loadState, saveState} from './general/utils/storage';
+import {compareCreatedAt} from './general/utils/strings';
+import fetch from './general/utils/fetch';
 
-// import Root from './main/Root'
-// import Project from "./projects/Deeplink";
+import Header from "./general/partials/Header";
+import Home from "./home";
 import Programming from "./programming";
-import About from "./about";
-import {Index} from "./index/Index";
-import {NotFound} from "./general/NotFound";
 import Projects from "./projects";
-import {Header} from "./general/partials/Header";
+import Project from "./projects/Deeplink";
+import About from "./about";
+import NotFound from "./general/NotFound";
 
-const main = () => {
+/**
+ * Function to fetch github API data
+ */
+const updateGithubData = () => {
+    if(config.network !== false){
+        new fetch(config.github.url, (data) => {
+            if(data.length > 0) {
+                //Save data to state
+                config.programming = data.sort(compareCreatedAt);
+                saveState({projects: config.projects, programming: config.programming});
+                window.site.events.emit('apiDataUpdate');
+            }
+        }, config.github.token);
+    }
+};
+
+/**
+ * Function to fetch project API data
+ */
+const updateApiData = () => {
+    if(config.network !== false){
+        new fetch("https://api.glenndehaan.com/api/projects", (data) => {
+            if(data.length > 0) {
+                //Save data to state
+                config.projects = data.projects;
+                saveState({projects: config.projects, programming: config.programming});
+                window.site.events.emit('apiDataUpdate');
+            }
+        });
+    }
+};
+
+/**
+ * Load data from local storage
+ * @type {Array}
+ */
+config.programming = loadState('programming') || [];
+config.projects = loadState('projects') || [];
+
+/**
+ * Add event listeners to check if the user is online
+ */
+window.addEventListener('online', () => {
+    config.network = navigator.onLine;
+});
+window.addEventListener('offline', () => {
+    config.network = navigator.onLine;
+});
+
+/**
+ * Main initialize function
+ */
+const initialize = () => {
     updateGithubData();
     updateApiData();
+    window.site = {};
     window.site.events = mitt();
 
     render(
@@ -29,9 +80,9 @@ const main = () => {
             <div className="container">
                 {/*<TransitionGroup>*/}
                 <Router>
-                    <Index path="/"/>
+                    <Home path="/"/>
                     <Projects path="/project"/>
-                    {/*<Project path="/project/:path"/>*/}
+                    <Project path="/project/:path"/>
                     <Programming path="/programming"/>
                     <About path="/about"/>
                     <NotFound type="404" default/>
@@ -43,42 +94,4 @@ const main = () => {
     );
 };
 
-const updateGithubData = () => {
-    if(config.network !== false){
-        new github(config.github.url, config.github.token, (data) => {
-            if(data.length > 0) {
-                //Save data to state
-                config.programming = data.sort(compare_created_at);
-                saveState({projects: config.projects, programming: config.programming});
-                window.site.events.emit('apiDataUpdate');
-            }
-        });
-    }
-};
-
-const updateApiData = () => {
-    if(config.network !== false){
-        new api("https://api.glenndehaan.com/api/projects", (data) => {
-            if(data.length > 0) {
-                //Save data to state
-                config.projects = data;
-                saveState({projects: config.projects, programming: config.programming});
-                window.site.events.emit('apiDataUpdate');
-            }
-        });
-    }
-};
-
-//Load states
-config.programming = loadState('programming') || [];
-config.projects = loadState('projects') || [];
-
-window.addEventListener('online', () => {
-    config.network = navigator.onLine;
-});
-window.addEventListener('offline', () => {
-    config.network = navigator.onLine;
-});
-window.window.site = {};
-
-main();
+initialize();

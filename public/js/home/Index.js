@@ -7,7 +7,7 @@ import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransit
  * Presentational part of the component
  * @constructor
  */
-export class Index extends Component {
+export default class Index extends Component {
     /**
      * Constructor
      * @param props

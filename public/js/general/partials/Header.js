@@ -7,7 +7,7 @@ import GithubIcon from './svg/GithubIcon';
  * Presentational part of the component
  * @constructor
  */
-export class Header extends Component {
+export default class Header extends Component {
     /**
      * Constructor
      * @param props

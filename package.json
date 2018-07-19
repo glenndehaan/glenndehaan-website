@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "webpack --mode production --config ./_scripts/webpack.config.js",
-    "start": "webpack --watch --watch-poll --mode development --config ./_scripts/webpack.config.js"
+    "start": "webpack --watch --mode development --config ./_scripts/webpack.config.js"
   },
   "engines": {
     "node": "^8.0.0"
@@ -32,7 +32,8 @@
       "indent": [
         "error",
         4
-      ]
+      ],
+      "react/prop-types": 0
     },
     "extends": [
       "eslint:recommended",

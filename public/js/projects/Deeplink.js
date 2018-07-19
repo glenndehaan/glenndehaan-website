@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import config from '../main/config';
-import { mainIntro, pageIntro, pageOutro } from '../general/animations/pageTransitions';
+import {h, Component} from 'preact';
+import {Link} from 'preact-router/match';
 import hljs from 'highlight.js';
+import config from '../main/config';
+import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
 /**
  * Presentational part of the component
@@ -17,18 +17,18 @@ export default class Deeplink extends Component {
         super(props);
 
         this.domElements = {
-            mainContainer: null,
+            mainContainer: null
         };
 
         this.state = {
-            url: this.props.location.pathname,
-            content: this.searchProject(this.props.location.pathname, config.projects),
+            url: this.props.url,
+            content: this.searchProject(this.props.url, config.projects)
         };
 
-        site.events.on('apiDataUpdate', () => {
+        window.site.events.on('apiDataUpdate', () => {
             this.setState({
-                url: this.props.location.pathname,
-                content: this.searchProject(this.props.location.pathname, config.projects),
+                url: this.props.url,
+                content: this.searchProject(this.props.url, config.projects)
             });
         });
     }
@@ -61,13 +61,21 @@ export default class Deeplink extends Component {
     }
 
     componentDidMount() {
+        this.setState({
+            url: this.props.url,
+            content: this.searchProject(this.props.url, config.projects)
+        });
+
         document.title = `${this.state.content.title} | ${config.siteName}`;
-        site.events.emit('historyChange', '/projects');
+        window.site.events.emit('historyChange', '/projects');
 
         const codeElements = document.querySelectorAll('pre code');
         for (let block = 0; block < codeElements.length; block++) {
             hljs.highlightBlock(codeElements[block]);
         }
+
+        //do something when the component will appear
+        pageIntro(() => {}, this.domElements);
     }
 
     /**
@@ -91,18 +99,6 @@ export default class Deeplink extends Component {
     }
 
     /**
-     * Function to run then the component mounts
-     */
-    componentWillMount() {
-        this.setState({
-            url: this.props.location.pathname,
-            content: this.searchProject(this.props.location.pathname, config.projects),
-        });
-
-        console.log('this.state', this.state);
-    }
-
-    /**
      * React's Render function, should return a single child element
      * @see https://facebook.github.io/react/docs/react-component.html#render
      * @return {XML}
@@ -110,12 +106,8 @@ export default class Deeplink extends Component {
     render() {
         if (this.state.content) {
             return (
-                <main
-                    className="project"
-                    style={{ opacity: 0 }}
-                    ref={c => (this.domElements.mainContainer = c)}
-                >
-                    <Link className="button-back" to="/projects">
+                <main className="project" ref={c => (this.domElements.mainContainer = c)}>
+                    <Link className="button-back" href="/project">
                         <span>Projects overview</span>
                     </Link>
                     <figure className="project-hero box-cover">
@@ -134,29 +126,28 @@ export default class Deeplink extends Component {
                                     className="project-anchor"
                                     href={this.state.content.project_link}
                                     target="_blank"
-                                    rel="noopener"
+                                    rel="noopener noreferrer"
                                 >
                                     Visit project
                                 </a>
                             )}
                         </figcaption>
-                        {console.log('this.state.content.image', this.state.content.image)}
                         {this.state.content.image.desktop.src &&
-                            this.state.content.image.mobile.src && (
-                                <div className="hero-shot">
-                                    <picture>
-                                        <source
-                                            srcSet={this.state.content.image.mobile.src}
-                                            media="(max-width: 600px)"
-                                        />
-                                        <img
-                                            className="media-cover"
-                                            src={this.state.content.image.desktop.src}
-                                            alt={this.state.content.image.desktop.alt}
-                                        />
-                                    </picture>
-                                </div>
-                            )}
+                        this.state.content.image.mobile.src && (
+                            <div className="hero-shot">
+                                <picture>
+                                    <source
+                                        srcSet={this.state.content.image.mobile.src}
+                                        media="(max-width: 600px)"
+                                    />
+                                    <img
+                                        className="media-cover"
+                                        src={this.state.content.image.desktop.src}
+                                        alt={this.state.content.image.desktop.alt}
+                                    />
+                                </picture>
+                            </div>
+                        )}
                     </figure>
                     <section className="project-body">
                         {this.state.content.content.map((item, key) => {
@@ -165,7 +156,7 @@ export default class Deeplink extends Component {
                                     <div
                                         className="box small-width content-unit wysiwyg"
                                         key={key}
-                                        dangerouslySetInnerHTML={{ __html: item.text }}
+                                        dangerouslySetInnerHTML={{__html: item.text}}
                                     />
                                 );
                             }
@@ -210,9 +201,7 @@ export default class Deeplink extends Component {
                                                 <iframe
                                                     width="100%"
                                                     height="100%"
-                                                    src={`https://www.youtube.com/embed/${
-                                                        item.video_embed_code
-                                                    }`}
+                                                    src={`https://www.youtube.com/embed/${item.video_embed_code}`}
                                                     frameBorder="0"
                                                     allowFullScreen
                                                 />
@@ -225,9 +214,7 @@ export default class Deeplink extends Component {
                                     return (
                                         <div className="box-fill" key={key}>
                                             <iframe
-                                                src={`https://player.vimeo.com/video/${
-                                                    item.video_embed_code
-                                                }`}
+                                                src={`https://player.vimeo.com/video/${item.video_embed_code}`}
                                                 width="100%"
                                                 height="100%"
                                                 frameBorder="0"

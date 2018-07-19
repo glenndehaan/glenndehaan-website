@@ -6,7 +6,7 @@ import {mainIntro, pageIntro, pageOutro} from './animations/pageTransitions';
  * Presentational part of the component
  * @constructor
  */
-export class NotFound extends Component {
+export default class NotFound extends Component {
     /**
      * Constructor
      * @param props

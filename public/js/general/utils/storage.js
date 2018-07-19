@@ -1,5 +1,8 @@
 /**
- * Load state from localStorage.
+ * Load state from localStorage
+ *
+ * @param state
+ * @return {*}
  */
 export const loadState = (state) => {
     try {
@@ -14,7 +17,7 @@ export const loadState = (state) => {
 };
 
 /**
- * Save state to localStorage.
+ * Save state to localStorage
  *
  * @param {object} stateValue
  */
