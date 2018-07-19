@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import {h, Component} from 'preact';
 import config from '../main/config';
 import {mainIntro, pageIntro, pageOutro} from './animations/pageTransitions';
 
@@ -47,7 +47,7 @@ export class NotFound extends Component {
 
     componentDidMount(){
         document.title = `Not Found | ${config.siteName}`;
-        site.events.emit('historyChange', '');
+        window.site.events.emit('historyChange', '');
     }
 
     /**

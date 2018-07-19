@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {h, Component} from 'preact';
+import {Link} from 'preact-router/match';
 import config from '../main/config';
 import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
@@ -23,7 +23,7 @@ export class Index extends Component {
             programming: config.programming
         };
 
-        site.events.on('apiDataUpdate', () => {
+        window.site.events.on('apiDataUpdate', () => {
             this.setState({
                 programming: config.programming
             });
@@ -55,11 +55,15 @@ export class Index extends Component {
     componentWillLeave(callback) {
         //do something when the component will appear
         pageOutro(callback, this.domElements);
+        console.log('here');
     }
 
     componentDidMount(){
         document.title = `Home | ${config.siteName}`;
-        site.events.emit('historyChange', '/');
+        window.site.events.emit('historyChange', '/');
+
+        //do something when the component will appear
+        pageIntro(() => {}, this.domElements);
     }
 
     /**
@@ -69,13 +73,13 @@ export class Index extends Component {
      */
     render() {
         return (
-            <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
+            <main ref={c => this.domElements.mainContainer = c}>
                 <header className="landing-header">
                     <h1 className="landing-title title-regular title-white">
                         Glenn <br/>de Haan
                     </h1>
                     <h2 className="landing-title-sub title-small title-white">
-                        Jr. DevOps Engineer <br/>Media Workflow Engineer <br/>Backend Developer
+                        DevOps Engineer <br/>Media Workflow Engineer <br/>Backend Developer
                     </h2>
                 </header>
                 <section className="landing-skills">
@@ -128,28 +132,28 @@ export class Index extends Component {
         if(this.state.programming.length > 0) {
             return (
                 <div className="grid grid-landing grid-white">
-                    <a className="grid-item shadow" href={this.state.programming[0].html_url} target="_blank" rel="noopener">
+                    <a className="grid-item shadow" href={this.state.programming[0].html_url} target="_blank" rel="noopener noreferrer">
                         <header className="item-header">
                             <h2 className="item-title title-regular">{this.state.programming[0].name}</h2>
                         </header>
                         <p className="item-copy copy-grey">{this.state.programming[0].description !== null ? this.state.programming[0].description : 'Still trying to find a description'}</p>
                         <div className="item-anchor copy-grey">View on GitHub</div>
                     </a>
-                    <a className="grid-item shadow" href={this.state.programming[1].html_url} target="_blank" rel="noopener">
+                    <a className="grid-item shadow" href={this.state.programming[1].html_url} target="_blank" rel="noopener noreferrer">
                         <header className="item-header">
                             <h2 className="item-title title-regular">{this.state.programming[1].name}</h2>
                         </header>
                         <p className="item-copy copy-grey">{this.state.programming[1].description !== null ? this.state.programming[1].description : 'Still trying to find a description'}</p>
                         <div className="item-anchor copy-grey">View on GitHub</div>
                     </a>
-                    <a className="grid-item shadow" href={this.state.programming[2].html_url} target="_blank" rel="noopener">
+                    <a className="grid-item shadow" href={this.state.programming[2].html_url} target="_blank" rel="noopener noreferrer">
                         <header className="item-header">
                             <h2 className="item-title title-regular">{this.state.programming[2].name}</h2>
                         </header>
                         <p className="item-copy copy-grey">{this.state.programming[2].description !== null ? this.state.programming[2].description : 'Still trying to find a description'}</p>
                         <div className="item-anchor copy-grey">View on GitHub</div>
                     </a>
-                    <a className="grid-item shadow" href={this.state.programming[3].html_url} target="_blank" rel="noopener">
+                    <a className="grid-item shadow" href={this.state.programming[3].html_url} target="_blank" rel="noopener noreferrer">
                         <header className="item-header">
                             <h2 className="item-title title-regular">{this.state.programming[3].name}</h2>
                         </header>

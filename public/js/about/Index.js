@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import {h, Component} from 'preact';
 import config from '../main/config';
 import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
@@ -47,7 +47,10 @@ export default class About extends Component {
 
     componentDidMount(){
         document.title = `About | ${config.siteName}`;
-        site.events.emit('historyChange', '/about');
+        window.site.events.emit('historyChange', '/about');
+
+        //do something when the component will appear
+        pageIntro(() => {}, this.domElements);
     }
 
     /**
@@ -57,7 +60,7 @@ export default class About extends Component {
      */
     render() {
         return (
-            <main style={{opacity: 0}} className="cols-two" ref={c => this.domElements.mainContainer = c}>
+            <main className="cols-two" ref={c => this.domElements.mainContainer = c}>
                 <div className="col-item col-person">
                     <figure className="portrait">
                         <img src="images/design/glenn-de-haan.jpg" alt="logo" />
@@ -68,7 +71,7 @@ export default class About extends Component {
                     </nav>
                     <div className="about-copy">
                         <p>
-                            Hi, and welcome! Sounds old doesn't it. Well here we go:
+                            Hi, and welcome! Sounds old doesn&apos;t it. Well here we go:
                         </p>
                         <p>
                             I am Glenn de Haan born on 11-11-1997 in Rotterdam, The Netherlands.
@@ -77,7 +80,7 @@ export default class About extends Component {
                             I recently graduated on the GLR in Rotterdam as Media Workflow Manager. And in my daily life I work in the IT sector. Not only the IT sector but also the Media Sector. Stage Engineering is also something I really like to do.
                         </p>
                         <p>
-                            As you can hear I am someone who likes to do a lot. In my spare time i'm Coding, Gaming and practicing Bowling.
+                            As you can hear I am someone who likes to do a lot. In my spare time i&apos;m Coding, Gaming and practicing Bowling.
                         </p>
                         <p>
                             On the subject of coding; I started programming at middle school. Back then I learned basic Python, HTML, CSS and PHP.
@@ -108,7 +111,7 @@ export default class About extends Component {
                             <div className="timeline-item" key={key}>
                                 <h3 className="item-title title-regular title-white">{item.name}</h3>
                                 <p className="copy-white">Provider: {item.provider}</p>
-                                <a className="item-anchor copy-white" href={item.certificate} target="_blank" rel="noopener">View certificate</a>
+                                <a className="item-anchor copy-white" href={item.certificate} target="_blank" rel="noopener noreferrer">View certificate</a>
                             </div>
                         ))}
 

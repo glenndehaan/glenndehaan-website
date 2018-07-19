@@ -1,5 +1,5 @@
 import {TweenMax} from 'gsap';
-import ScrollToPlugin from 'ScrollToPlugin';
+// import ScrollToPlugin from 'ScrollToPlugin';
 
 /**
  * Initial intro animation

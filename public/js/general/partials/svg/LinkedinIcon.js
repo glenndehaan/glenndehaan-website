@@ -1,6 +1,6 @@
-import React from 'react';
+import {h} from 'preact';
 
-export default () => {
+const LinkedinIcon = () => {
     return (
         <svg className="icon icon-linkedin" viewBox="0 0 42 42">
             <path d="M5.05,0A5.06,5.06,0,1,0,10.1,5.06,5.05,5.05,0,0,0,5.05,0Z" />
@@ -9,3 +9,5 @@ export default () => {
         </svg>
     );
 };
+
+export default LinkedinIcon;

@@ -1,11 +1,6 @@
-//Ensure we have Promise and Object.assign polyfilled by including the right polyfills before any other code
-import 'core-js/es6/promise';
-import 'core-js/fn/object/assign';
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {AppContainer} from 'react-hot-loader';
-import {BrowserRouter} from 'react-router-dom';
+import {h, render} from 'preact';
+import Router from 'preact-router';
+// import TransitionGroup from 'preact-transition-group';
 import mitt from 'mitt';
 
 import config from './main/config';
@@ -14,21 +9,38 @@ import {compare_created_at} from './general/Utils';
 import github from './general/utils/github';
 import api from './general/utils/api';
 
-import Root from './main/Root'
+// import Root from './main/Root'
+// import Project from "./projects/Deeplink";
+import Programming from "./programming";
+import About from "./about";
+import {Index} from "./index/Index";
+import {NotFound} from "./general/NotFound";
+import Projects from "./projects";
+import {Header} from "./general/partials/Header";
 
-const render = Component => {
+const main = () => {
     updateGithubData();
     updateApiData();
-    site.events = mitt();
+    window.site.events = mitt();
 
-    ReactDOM.render(
-        <AppContainer>
-            <BrowserRouter>
-                <Component />
-            </BrowserRouter>
-        </AppContainer>,
-        document.getElementById('app')
-    )
+    render(
+        <div>
+            <Header />
+            <div className="container">
+                {/*<TransitionGroup>*/}
+                <Router>
+                    <Index path="/"/>
+                    <Projects path="/project"/>
+                    {/*<Project path="/project/:path"/>*/}
+                    <Programming path="/programming"/>
+                    <About path="/about"/>
+                    <NotFound type="404" default/>
+                </Router>
+                {/*</TransitionGroup>*/}
+            </div>
+        </div>,
+        document.querySelector("#app")
+    );
 };
 
 const updateGithubData = () => {
@@ -38,7 +50,7 @@ const updateGithubData = () => {
                 //Save data to state
                 config.programming = data.sort(compare_created_at);
                 saveState({projects: config.projects, programming: config.programming});
-                site.events.emit('apiDataUpdate');
+                window.site.events.emit('apiDataUpdate');
             }
         });
     }
@@ -51,7 +63,7 @@ const updateApiData = () => {
                 //Save data to state
                 config.projects = data;
                 saveState({projects: config.projects, programming: config.programming});
-                site.events.emit('apiDataUpdate');
+                window.site.events.emit('apiDataUpdate');
             }
         });
     }
@@ -67,12 +79,6 @@ window.addEventListener('online', () => {
 window.addEventListener('offline', () => {
     config.network = navigator.onLine;
 });
-window.site = {};
+window.window.site = {};
 
-render(Root);
-
-if (module.hot) {
-    module.hot.accept('./main/Root', () => {
-        render(Root)
-    })
-}
+main();

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {h, Component} from 'preact';
+import {Link} from 'preact-router/match';
 import LinkedinIcon from './svg/LinkedinIcon';
 import GithubIcon from './svg/GithubIcon';
 
@@ -25,7 +25,7 @@ export class Header extends Component {
             aboutLink: false
         };
 
-        site.events.on('historyChange', e => this.updateActiveLink(e) );
+        window.site.events.on('historyChange', e => this.updateActiveLink(e) );
     }
 
     updateActiveLink(path){
@@ -50,8 +50,7 @@ export class Header extends Component {
     render() {
         return (
             <header className="header">
-
-                <Link className={["home-anchor", this.state.homeLink ? 'is-active' : ''].join(' ')} to="/" ref={(c) => this.domElements.menuLinks.push({link: '/', element: c, name: 'homeLink'})}>
+                <Link className={["home-anchor", this.state.homeLink ? 'is-active' : ''].join(' ')} href="/" ref={(c) => this.domElements.menuLinks.push({link: '/', element: c, name: 'homeLink'})}>
                     <h1 className="page-title">
                         <figure className="logo">
                             <img src="/images/design/glenn-de-haan-icon.jpg" alt="logo" />
@@ -61,28 +60,27 @@ export class Header extends Component {
                 </Link>
 
                 <nav className="nav-page">
-                    <Link className={["page-anchor", this.state.projectsLink ? 'is-active' : ''].join(' ')} to="/projects" ref={(c) => this.domElements.menuLinks.push({link: '/projects', element: c, name: 'projectsLink'})}>
+                    <Link className={["page-anchor", this.state.projectsLink ? 'is-active' : ''].join(' ')} href="/project" ref={(c) => this.domElements.menuLinks.push({link: '/projects', element: c, name: 'projectsLink'})}>
                         Projects
                     </Link>
-                    <Link className={["page-anchor", this.state.programmingLink ? 'is-active' : ''].join(' ')} to="/programming" ref={(c) => this.domElements.menuLinks.push({link: '/programming', element: c, name: 'programmingLink'})}>
+                    <Link className={["page-anchor", this.state.programmingLink ? 'is-active' : ''].join(' ')} href="/programming" ref={(c) => this.domElements.menuLinks.push({link: '/programming', element: c, name: 'programmingLink'})}>
                         Programming
                     </Link>
-                    <Link className={["page-anchor", this.state.aboutLink ? 'is-active' : ''].join(' ')} to="/about" ref={(c) => this.domElements.menuLinks.push({link: '/about', element: c, name: 'aboutLink'})}>
+                    <Link className={["page-anchor", this.state.aboutLink ? 'is-active' : ''].join(' ')} href="/about" ref={(c) => this.domElements.menuLinks.push({link: '/about', element: c, name: 'aboutLink'})}>
                         About
                     </Link>
                 </nav>
 
                 <nav className="nav-social">
-                    <a className="social-anchor" href="https://github.com/glenndehaan" target="_blank" rel="noopener">
+                    <a className="social-anchor" href="https://github.com/glenndehaan" target="_blank" rel="noopener noreferrer">
                         <GithubIcon/>
                         <span>GitHub</span>
                     </a>
-                    <a className="social-anchor" href="https://www.linkedin.com/in/glenndehaan/" target="_blank" rel="noopener">
+                    <a className="social-anchor" href="https://www.linkedin.com/in/glenndehaan/" target="_blank" rel="noopener noreferrer">
                         <LinkedinIcon/>
                         <span>LinkedIn</span>
                     </a>
                 </nav>
-
             </header>
         )
     }

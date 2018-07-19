@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {h, Component} from 'preact';
+import {Link} from 'preact-router/match';
 import config from '../main/config';
 import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
@@ -23,7 +23,7 @@ export default class Projects extends Component {
             projects: config.projects
         };
 
-        site.events.on('apiDataUpdate', () => {
+        window.site.events.on('apiDataUpdate', () => {
             this.setState({
                 projects: config.projects
             });
@@ -59,7 +59,10 @@ export default class Projects extends Component {
 
     componentDidMount(){
         document.title = `Projects | ${config.siteName}`;
-        site.events.emit('historyChange', '/projects');
+        window.site.events.emit('historyChange', '/projects');
+
+        //do something when the component will appear
+        pageIntro(() => {}, this.domElements);
     }
 
     /**
@@ -69,10 +72,10 @@ export default class Projects extends Component {
      */
     render() {
         return (
-            <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
+            <main ref={c => this.domElements.mainContainer = c}>
                 <div className="grid grid-color">
                     {this.state.projects.map((item, key) => (
-                        <Link className="grid-item" to={item.path} key={key}>
+                        <Link className="grid-item" href={item.path} key={key}>
                             <header className="item-header">
                                 <h2 className="item-title title-regular">{item.title}</h2>
                             </header>

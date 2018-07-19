@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import {h, Component} from 'preact';
 import config from '../main/config';
 import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
@@ -22,7 +22,7 @@ export default class Programming extends Component {
             programming: config.programming
         };
 
-        site.events.on('apiDataUpdate', () => {
+        window.site.events.on('apiDataUpdate', () => {
             this.setState({
                 programming: config.programming
             });
@@ -58,7 +58,10 @@ export default class Programming extends Component {
 
     componentDidMount(){
         document.title = `Programming | ${config.siteName}`;
-        site.events.emit('historyChange', '/programming');
+        window.site.events.emit('historyChange', '/programming');
+
+        //do something when the component will appear
+        pageIntro(() => {}, this.domElements);
     }
 
     /**
@@ -68,11 +71,11 @@ export default class Programming extends Component {
      */
     render() {
         return (
-            <main style={{opacity: 0}} ref={c => this.domElements.mainContainer = c}>
+            <main ref={c => this.domElements.mainContainer = c}>
                 <h3 className="visually-hidden">Programming</h3>
                 <div className="grid grid-white">
                     {this.state.programming.map((item, key) => (
-                        <a className="grid-item" href={item.html_url} target="_blank" rel="noopener" key={key}>
+                        <a className="grid-item" href={item.html_url} target="_blank" rel="noopener noreferrer" key={key}>
                             <header className="item-header">
                                 <h2 className="item-title title-regular">{item.name}</h2>
                             </header>
