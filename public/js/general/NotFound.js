@@ -48,6 +48,9 @@ export default class NotFound extends Component {
     componentDidMount(){
         document.title = `Not Found | ${config.siteName}`;
         window.site.events.emit('historyChange', '');
+
+        //do something when the component will appear
+        pageIntro(() => {}, this.domElements);
     }
 
     /**
@@ -57,7 +60,7 @@ export default class NotFound extends Component {
      */
     render() {
         return (
-            <main style={{opacity: 0}} className="page not-found" ref={(c) => this.domElements.mainContainer = c}>
+            <main className="page not-found" ref={(c) => this.domElements.mainContainer = c}>
                 <h1 className="landing-title not-found-title">404 Page <br/>not found!</h1>
             </main>
         )

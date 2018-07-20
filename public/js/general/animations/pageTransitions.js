@@ -1,5 +1,10 @@
-import {TweenMax} from 'gsap';
-// import ScrollToPlugin from 'ScrollToPlugin';
+import {TweenMax} from 'gsap/TweenMax';
+
+/**
+ * Check if er are here for the first time
+ * @type {boolean}
+ */
+let firstPageLoad = true;
 
 /**
  * Initial intro animation
@@ -7,6 +12,11 @@ import {TweenMax} from 'gsap';
  * @param elements
  */
 export const mainIntro = (callback, elements) => {
+    if(firstPageLoad) {
+        firstPageLoad = false;
+        return;
+    }
+
     TweenMax.to(elements.mainContainer, 1, {
         opacity: 1,
         onComplete: callback
@@ -19,6 +29,11 @@ export const mainIntro = (callback, elements) => {
  * @param elements
  */
 export const pageIntro = (callback, elements) => {
+    if(firstPageLoad) {
+        firstPageLoad = false;
+        return;
+    }
+
     transition('intro', callback, elements);
 };
 
@@ -28,6 +43,11 @@ export const pageIntro = (callback, elements) => {
  * @param elements
  */
 export const pageOutro = (callback, elements) => {
+    if(firstPageLoad) {
+        firstPageLoad = false;
+        return;
+    }
+
     transition('outro', callback, elements);
 };
 

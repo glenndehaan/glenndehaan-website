@@ -16,7 +16,7 @@ const routes = [
         action: 'index'
     },
     {
-        route: '/projects',
+        route: '/project',
         method: 'get',
         controller: 'Index',
         action: 'index'

@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /fonts/
-Disallow: /scss/
-Sitemap: http://glenndehaan.com/sitemap.xml

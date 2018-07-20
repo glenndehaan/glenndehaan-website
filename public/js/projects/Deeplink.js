@@ -1,6 +1,5 @@
 import {h, Component} from 'preact';
 import {Link} from 'preact-router/match';
-import hljs from 'highlight.js';
 import config from '../main/config';
 import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
@@ -61,21 +60,24 @@ export default class Deeplink extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            url: this.props.url,
-            content: this.searchProject(this.props.url, config.projects)
+        System.import('highlight.js').then(hljs => {
+            this.setState({
+                url: this.props.url,
+                content: this.searchProject(this.props.url, config.projects)
+            });
+
+            document.title = `${this.state.content.title} | ${config.siteName}`;
+            window.site.events.emit('historyChange', '/projects');
+
+            const codeElements = document.querySelectorAll('pre code');
+            for (let block = 0; block < codeElements.length; block++) {
+                hljs.highlightBlock(codeElements[block]);
+            }
+
+            //do something when the component will appear
+            pageIntro(() => {
+            }, this.domElements);
         });
-
-        document.title = `${this.state.content.title} | ${config.siteName}`;
-        window.site.events.emit('historyChange', '/projects');
-
-        const codeElements = document.querySelectorAll('pre code');
-        for (let block = 0; block < codeElements.length; block++) {
-            hljs.highlightBlock(codeElements[block]);
-        }
-
-        //do something when the component will appear
-        pageIntro(() => {}, this.domElements);
     }
 
     /**

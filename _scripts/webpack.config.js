@@ -1,11 +1,18 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const projectRoot = path.join(__dirname, '../');
 const buildDirectory = path.join(projectRoot, 'public');
 const distDirectory = path.join(projectRoot, 'public/dist');
 
-module.exports = {
+const ENV = process.env.NODE_ENV || 'development';
+
+const webpackSettings = {
+    performance: {
+        hints: false
+    },
     entry: {
         main: [
             path.join(buildDirectory, 'js/index.js'),
@@ -14,7 +21,8 @@ module.exports = {
     },
     output: {
         path: distDirectory,
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: '/dist/'
     },
     module: {
         rules: [
@@ -55,8 +63,28 @@ module.exports = {
         ]
     },
     plugins: [
+        // new BundleAnalyzerPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].css'
         })
     ]
 };
+
+if (ENV === "production") {
+    webpackSettings.optimization = {
+        minimizer: [
+            new UglifyJsPlugin({
+                sourceMap: false,
+                uglifyOptions: {
+                    warnings: false,
+                    output: {
+                        comments: false,
+                        beautify: false
+                    }
+                }
+            })
+        ]
+    };
+}
+
+module.exports = webpackSettings;

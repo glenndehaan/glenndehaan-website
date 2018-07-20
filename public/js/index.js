@@ -38,7 +38,7 @@ const updateGithubData = () => {
 const updateApiData = () => {
     if(config.network !== false){
         new fetch("https://api.glenndehaan.com/api/projects", (data) => {
-            if(data.length > 0) {
+            if(data.projects.length > 0) {
                 //Save data to state
                 config.projects = data.projects;
                 saveState({projects: config.projects, programming: config.programming});
@@ -74,6 +74,7 @@ const initialize = () => {
     window.site = {};
     window.site.events = mitt();
 
+    document.querySelector("#app").innerHTML = "";
     render(
         <div>
             <Header />
