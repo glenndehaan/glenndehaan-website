@@ -95,4 +95,7 @@ const initialize = () => {
     );
 };
 
+/**
+ * Initialize the app
+ */
 initialize();

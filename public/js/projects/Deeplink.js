@@ -1,7 +1,7 @@
 import {h, Component} from 'preact';
 import {Link} from 'preact-router/match';
 import config from '../main/config';
-import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
+import {pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
 /**
  * Presentational part of the component
@@ -33,32 +33,19 @@ export default class Deeplink extends Component {
     }
 
     /**
-     * Initial load
-     * @param callback
-     */
-    componentWillAppear(callback) {
-        //do something when the component will appear
-        mainIntro(callback, this.domElements);
-    }
-
-    /**
-     * On load
-     * @param callback
-     */
-    componentWillEnter(callback) {
-        //do something when the component will appear
-        pageIntro(callback, this.domElements);
-    }
-
-    /**
      * On leave
      * @param callback
      */
     componentWillLeave(callback) {
-        //do something when the component will appear
+        //Start outro when the component will appear
         pageOutro(callback, this.domElements);
     }
 
+    /**
+     * Invoked once after the initial rendering occurs
+     * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
+     * @return {void}
+     */
     componentDidMount() {
         System.import('highlight.js').then(hljs => {
             this.setState({
@@ -74,9 +61,8 @@ export default class Deeplink extends Component {
                 hljs.highlightBlock(codeElements[block]);
             }
 
-            //do something when the component will appear
-            pageIntro(() => {
-            }, this.domElements);
+            //Start intro when the component will appear
+            pageIntro(() => {}, this.domElements);
         });
     }
 

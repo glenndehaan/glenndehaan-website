@@ -1,5 +1,10 @@
 import {h} from 'preact';
 
+/**
+ * Export the linkedin icon
+ * @return {*}
+ * @constructor
+ */
 const LinkedinIcon = () => {
     return (
         <svg className="icon icon-linkedin" viewBox="0 0 42 42">

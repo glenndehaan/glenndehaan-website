@@ -1,7 +1,7 @@
 import {h, Component} from 'preact';
 import {Link} from 'preact-router/match';
 import config from '../main/config';
-import {mainIntro, pageIntro, pageOutro} from '../general/animations/pageTransitions';
+import {pageIntro, pageOutro} from '../general/animations/pageTransitions';
 
 /**
  * Presentational part of the component
@@ -31,38 +31,25 @@ export default class Index extends Component {
     }
 
     /**
-     * Initial load
-     * @param callback
-     */
-    componentWillAppear(callback) {
-        //do something when the component will appear
-        mainIntro(callback, this.domElements);
-    }
-
-    /**
-     * On load
-     * @param callback
-     */
-    componentWillEnter(callback) {
-        //do something when the component will appear
-        pageIntro(callback, this.domElements);
-    }
-
-    /**
      * On leave
      * @param callback
      */
     componentWillLeave(callback) {
-        //do something when the component will appear
+        //Start outro when the component will appear
         pageOutro(callback, this.domElements);
         console.log('here');
     }
 
+    /**
+     * Invoked once after the initial rendering occurs
+     * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
+     * @return {void}
+     */
     componentDidMount(){
         document.title = `Home | ${config.siteName}`;
         window.site.events.emit('historyChange', '/');
 
-        //do something when the component will appear
+        //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);
     }
 

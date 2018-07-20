@@ -1,5 +1,10 @@
 import {h} from 'preact';
 
+/**
+ * Export the github icon
+ * @return {*}
+ * @constructor
+ */
 const GithubIcon = () => {
     return (
         <svg className="icon icon-github" viewBox="0 0 42 42">

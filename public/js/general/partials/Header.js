@@ -28,6 +28,10 @@ export default class Header extends Component {
         window.site.events.on('historyChange', e => this.updateActiveLink(e) );
     }
 
+    /**
+     * Update the active link
+     * @param path
+     */
     updateActiveLink(path){
         for(let item = 0; item < this.domElements.menuLinks.length; item++){
             if(this.domElements.menuLinks[item].link === path){
@@ -38,6 +42,11 @@ export default class Header extends Component {
         }
     }
 
+    /**
+     * Invoked once after the initial rendering occurs
+     * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
+     * @return {void}
+     */
     componentDidMount(){
         this.updateActiveLink(window.location.pathname);
     }

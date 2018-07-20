@@ -7,23 +7,6 @@ import {TweenMax} from 'gsap/TweenMax';
 let firstPageLoad = true;
 
 /**
- * Initial intro animation
- * @param callback
- * @param elements
- */
-export const mainIntro = (callback, elements) => {
-    if(firstPageLoad) {
-        firstPageLoad = false;
-        return;
-    }
-
-    TweenMax.to(elements.mainContainer, 1, {
-        opacity: 1,
-        onComplete: callback
-    });
-};
-
-/**
  * Page intro animation
  * @param callback
  * @param elements
@@ -51,6 +34,10 @@ export const pageOutro = (callback, elements) => {
     transition('outro', callback, elements);
 };
 
+/**
+ * Set css origin
+ * @param type
+ */
 const setOrigin = (type) => {
     let wh = document.body.clientHeight;
     let so = window.scrollY;
@@ -67,8 +54,13 @@ const setOrigin = (type) => {
     document.body.style.setProperty('--originY', origin);
 };
 
+/**
+ * Ben's magic transition
+ * @param type
+ * @param callback
+ * @param elements
+ */
 const transition = (type, callback, elements) => {
-
     setOrigin(type);
 
     let opacity = [];
