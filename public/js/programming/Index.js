@@ -1,6 +1,6 @@
 import {h, Component} from 'preact';
 import config from '../main/config';
-import {pageIntro, pageOutro} from '../general/animations/pageTransitions';
+import {pageIntro} from '../general/animations/pageTransitions';
 
 /**
  * Presentational part of the component
@@ -30,22 +30,12 @@ export default class Programming extends Component {
     }
 
     /**
-     * On leave
-     * @param callback
-     */
-    componentWillLeave(callback) {
-        //Start outro when the component will appear
-        pageOutro(callback, this.domElements);
-    }
-
-    /**
      * Invoked once after the initial rendering occurs
      * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
      * @return {void}
      */
     componentDidMount(){
         document.title = `Programming | ${config.siteName}`;
-        window.site.events.emit('historyChange', '/programming');
 
         //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);

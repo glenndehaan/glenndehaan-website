@@ -1,7 +1,7 @@
 import {h, Component} from 'preact';
-import {Link} from 'preact-router/match';
+import Link from '../general/partials/Link';
 import config from '../main/config';
-import {pageIntro, pageOutro} from '../general/animations/pageTransitions';
+import {pageIntro} from '../general/animations/pageTransitions';
 
 /**
  * Presentational part of the component
@@ -31,23 +31,12 @@ export default class Index extends Component {
     }
 
     /**
-     * On leave
-     * @param callback
-     */
-    componentWillLeave(callback) {
-        //Start outro when the component will appear
-        pageOutro(callback, this.domElements);
-        console.log('here');
-    }
-
-    /**
      * Invoked once after the initial rendering occurs
      * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
      * @return {void}
      */
     componentDidMount(){
         document.title = `Home | ${config.siteName}`;
-        window.site.events.emit('historyChange', '/');
 
         //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);
@@ -101,7 +90,7 @@ export default class Index extends Component {
                             <h4 className="title-small">Networking</h4>
                         </li>
                     </ul>
-                    <Link to="/about" className="cta fade-red shadow">More about me</Link>
+                    <Link href="/about" className="cta fade-red shadow">More about me</Link>
                 </section>
                 <section className="landing-cards">
                     <h2 className="title-regular title-white align-center">Still learning...</h2>

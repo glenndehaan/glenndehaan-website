@@ -1,6 +1,6 @@
 import {h, Component} from 'preact';
 import config from '../main/config';
-import {pageIntro, pageOutro} from '../general/animations/pageTransitions';
+import {pageIntro} from '../general/animations/pageTransitions';
 
 /**
  * Presentational part of the component
@@ -19,22 +19,12 @@ export default class About extends Component {
     }
 
     /**
-     * On leave
-     * @param callback
-     */
-    componentWillLeave(callback) {
-        //Start outro when the component will appear
-        pageOutro(callback, this.domElements);
-    }
-
-    /**
      * Invoked once after the initial rendering occurs
      * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
      * @return {void}
      */
     componentDidMount(){
         document.title = `About | ${config.siteName}`;
-        window.site.events.emit('historyChange', '/about');
 
         //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);
@@ -104,7 +94,6 @@ export default class About extends Component {
 
                         {config.education.map((item, key) => (
                             <div className="timeline-item" key={key}>
-                                {/*<img src={item.logo} />*/}
                                 <h3 className="item-title title-regular title-white">{item.name}</h3>
                                 <p className="copy-white">Study: {item.study}</p>
                             </div>

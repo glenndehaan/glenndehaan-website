@@ -1,20 +1,11 @@
 import {h, render} from 'preact';
-import Router from 'preact-router';
-// import TransitionGroup from 'preact-transition-group';
 import mitt from 'mitt';
 
 import config from './main/config';
 import {loadState, saveState} from './general/utils/storage';
 import {compareCreatedAt} from './general/utils/strings';
 import fetch from './general/utils/fetch';
-
-import Header from "./general/partials/Header";
-import Home from "./home";
-import Programming from "./programming";
-import Projects from "./projects";
-import Project from "./projects/Deeplink";
-import About from "./about";
-import NotFound from "./general/NotFound";
+import App from './app/App';
 
 /**
  * Function to fetch github API data
@@ -76,21 +67,7 @@ const initialize = () => {
 
     document.querySelector("#app").innerHTML = "";
     render(
-        <div>
-            <Header />
-            <div className="container">
-                {/*<TransitionGroup>*/}
-                <Router>
-                    <Home path="/"/>
-                    <Projects path="/project"/>
-                    <Project path="/project/:path"/>
-                    <Programming path="/programming"/>
-                    <About path="/about"/>
-                    <NotFound type="404" default/>
-                </Router>
-                {/*</TransitionGroup>*/}
-            </div>
-        </div>,
+        <App/>,
         document.querySelector("#app")
     );
 };

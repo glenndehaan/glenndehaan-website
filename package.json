@@ -72,8 +72,6 @@
     "mitt": "^1.1.2",
     "node-sass": "^4.9.1",
     "preact": "^8.2.9",
-    "preact-router": "^2.6.1",
-    "preact-transition-group": "^1.1.1",
     "sass-loader": "^7.0.3",
     "webpack": "^4.15.1",
     "webpack-bundle-analyzer": "^2.13.1",

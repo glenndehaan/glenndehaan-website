@@ -1,5 +1,5 @@
 import {h, Component} from 'preact';
-import {Link} from 'preact-router/match';
+import Link from './Link';
 import LinkedinIcon from './svg/LinkedinIcon';
 import GithubIcon from './svg/GithubIcon';
 
@@ -69,7 +69,7 @@ export default class Header extends Component {
                 </Link>
 
                 <nav className="nav-page">
-                    <Link className={["page-anchor", this.state.projectsLink ? 'is-active' : ''].join(' ')} href="/project" ref={(c) => this.domElements.menuLinks.push({link: '/projects', element: c, name: 'projectsLink'})}>
+                    <Link className={["page-anchor", this.state.projectsLink ? 'is-active' : ''].join(' ')} href="/project" ref={(c) => this.domElements.menuLinks.push({link: '/project', element: c, name: 'projectsLink'})}>
                         Projects
                     </Link>
                     <Link className={["page-anchor", this.state.programmingLink ? 'is-active' : ''].join(' ')} href="/programming" ref={(c) => this.domElements.menuLinks.push({link: '/programming', element: c, name: 'programmingLink'})}>

@@ -1,7 +1,7 @@
 import {h, Component} from 'preact';
-import {Link} from 'preact-router/match';
+import Link from '../general/partials/Link';
 import config from '../main/config';
-import {pageIntro, pageOutro} from '../general/animations/pageTransitions';
+import {pageIntro} from '../general/animations/pageTransitions';
 
 /**
  * Presentational part of the component
@@ -33,15 +33,6 @@ export default class Deeplink extends Component {
     }
 
     /**
-     * On leave
-     * @param callback
-     */
-    componentWillLeave(callback) {
-        //Start outro when the component will appear
-        pageOutro(callback, this.domElements);
-    }
-
-    /**
      * Invoked once after the initial rendering occurs
      * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
      * @return {void}
@@ -54,7 +45,6 @@ export default class Deeplink extends Component {
             });
 
             document.title = `${this.state.content.title} | ${config.siteName}`;
-            window.site.events.emit('historyChange', '/projects');
 
             const codeElements = document.querySelectorAll('pre code');
             for (let block = 0; block < codeElements.length; block++) {

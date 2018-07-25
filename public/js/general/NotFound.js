@@ -34,7 +34,6 @@ export default class NotFound extends Component {
      */
     componentDidMount(){
         document.title = `Not Found | ${config.siteName}`;
-        window.site.events.emit('historyChange', '');
 
         //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);
