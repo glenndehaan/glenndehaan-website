@@ -44,7 +44,11 @@ export default class Deeplink extends Component {
                 content: this.searchProject(this.props.url, config.projects)
             });
 
-            document.title = `${this.state.content.title} | ${config.siteName}`;
+            if(this.state.content) {
+                document.title = `${this.state.content.title} | ${config.siteName}`;
+            } else {
+                document.title = `Not Found | ${config.siteName}`;
+            }
 
             const codeElements = document.querySelectorAll('pre code');
             for (let block = 0; block < codeElements.length; block++) {
@@ -208,9 +212,8 @@ export default class Deeplink extends Component {
             );
         } else {
             return (
-                <main className="page not-found" ref={c => (this.domElements.mainContainer = c)}>
-                    <h1 className="page-title">404</h1>
-                    <div className="page-subtitle">Pagina niet gevonden!</div>
+                <main className="page not-found" ref={(c) => this.domElements.mainContainer = c}>
+                    <h1 className="landing-title not-found-title">404 Page <br/>not found!</h1>
                 </main>
             );
         }

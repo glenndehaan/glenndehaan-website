@@ -1,6 +1,6 @@
 import {h, Component} from 'preact';
 import config from '../main/config';
-import {pageIntro, pageOutro} from './animations/pageTransitions';
+import {pageIntro} from './animations/pageTransitions';
 
 /**
  * Presentational part of the component
@@ -16,15 +16,6 @@ export default class NotFound extends Component {
         this.domElements = {
             mainContainer: null
         };
-    }
-
-    /**
-     * On leave
-     * @param callback
-     */
-    componentWillLeave(callback) {
-        //Start outro when the component will appear
-        pageOutro(callback, this.domElements);
     }
 
     /**

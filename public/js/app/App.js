@@ -6,7 +6,7 @@ import Header from "./../general/partials/Header";
 import Home from "./../home";
 import Programming from "./../programming";
 import Projects from "./../projects";
-// import Project from "./../projects/Deeplink";
+import Project from "./../projects/Deeplink";
 import About from "./../about";
 import NotFound from "./../general/NotFound";
 
@@ -83,17 +83,27 @@ export default class App extends Component {
      */
     renderMain(state) {
         const {url} = state.route;
-        switch (url) {
-        case "/":
+
+        if(url === "/") {
             return <Home/>;
-        case "/project":
-            return <Projects/>;
-        case "/programming":
-            return <Programming/>;
-        case "/about":
-            return <About/>;
-        default:
-            return <NotFound/>;
         }
+
+        if(url === "/project") {
+            return <Projects/>
+        }
+
+        if(url.includes("/project/")) {
+            return <Project url={url}/>
+        }
+
+        if(url === "/programming") {
+            return <Programming/>;
+        }
+
+        if(url === "/about") {
+            return <About/>;
+        }
+
+        return <NotFound/>;
     }
 }
