@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const baseController = require('./BaseController');
 const config = require('../../config/config');
 
-class IndexController extends baseController {
+class GithubController extends baseController {
     constructor() {
         super();
     }
@@ -20,4 +20,4 @@ class IndexController extends baseController {
     }
 }
 
-module.exports = new IndexController();
+module.exports = new GithubController();

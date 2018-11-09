@@ -4,17 +4,19 @@ My own website
 
 ## Structure
 - ES6
-- Materialize CSS & Font
+- Preact
+- Express
+- 
+- Custom CSS by @Hornebom
 - Webpack
-- Offline support
-- Add to homescreen (android)
 
 ## Usage
 - Install NodeJS 8.0 or higher.
-- Run `npm install` in the _scripts folder
-- Run `npm run dev` in the _scripts folder
+- Run `npm install` in the root folder
+- Run `node server.js` in the app folder
+- Run `npm start` in the root folder
 
-Then open up your favorite browser and go to http://localhost:4324/
+Then open up your favorite browser and go to http://localhost:3001/
 
 ## License
 
