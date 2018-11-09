@@ -3,11 +3,11 @@ import {h, Component} from 'preact';
 import {pageOutro} from '../general/animations/pageTransitions';
 import routeObserver, {getBaseRoute} from './../general/utils/routing';
 import Header from "./../general/partials/Header";
-import Home from "./../home";
-import Programming from "./../programming";
-import Projects from "./../projects";
+import Home from "./../home/Index";
+import Programming from "./../programming/Index";
+import Projects from "./../projects/Index";
 import Project from "./../projects/Deeplink";
-import About from "./../about";
+import About from "./../about/Index";
 import NotFound from "./../general/NotFound";
 
 export default class App extends Component {

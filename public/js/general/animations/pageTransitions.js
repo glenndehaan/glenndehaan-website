@@ -1,5 +1,5 @@
 import {TweenMax} from 'gsap/TweenMax';
-import {ScrollToPlugin} from 'gsap/All'; // eslint-disable-line
+import {ScrollToPlugin} from 'gsap/all'; // eslint-disable-line
 
 /**
  * Check if er are here for the first time
