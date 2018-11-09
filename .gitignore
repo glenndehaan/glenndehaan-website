@@ -13,4 +13,4 @@ node_modules/
 npm-debug.log
 
 # Configs
-config.js
+app/config/config.js

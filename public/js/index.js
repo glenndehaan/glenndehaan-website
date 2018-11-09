@@ -12,14 +12,14 @@ import App from './app/App';
  */
 const updateGithubData = () => {
     if(config.network !== false){
-        new fetch(config.github.url, (data) => {
+        new fetch("/api/github", (data) => {
             if(data.length > 0) {
                 //Save data to state
                 config.programming = data.sort(compareCreatedAt);
                 saveState({projects: config.projects, programming: config.programming});
                 window.site.events.emit('apiDataUpdate');
             }
-        }, config.github.token);
+        });
     }
 };
 

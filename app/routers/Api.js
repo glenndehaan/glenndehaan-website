@@ -14,6 +14,12 @@ const routes = [
         method: 'get',
         controller: 'Index',
         action: 'index'
+    },
+    {
+        route: '/github',
+        method: 'get',
+        controller: 'Github',
+        action: 'index'
     }
 ];
 
