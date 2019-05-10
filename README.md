@@ -30,6 +30,7 @@ Then open up your favorite browser and go to http://localhost:3001/
 - Convert build to full webpack build
 - Add WEBP images
 - Add font preload tags
+- Homepage add dynamic slogan
 
 ## Bugs
 - General - Going to same page will trigger animation
