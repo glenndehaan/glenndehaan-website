@@ -38,26 +38,45 @@ export default class Deeplink extends Component {
      * @return {void}
      */
     componentDidMount() {
-        System.import('highlight.js').then(hljs => {
-            this.setState({
-                url: this.props.url,
-                content: this.searchProject(this.props.url, config.projects)
-            });
+        // System.import('highlight.js').then(hljs => {
+        //     this.setState({
+        //         url: this.props.url,
+        //         content: this.searchProject(this.props.url, config.projects)
+        //     });
+        //
+        //     if(this.state.content) {
+        //         document.title = `${this.state.content.title} | ${config.siteName}`;
+        //     } else {
+        //         document.title = `Not Found | ${config.siteName}`;
+        //     }
+        //
+        //     const codeElements = document.querySelectorAll('pre code');
+        //     for (let block = 0; block < codeElements.length; block++) {
+        //         hljs.highlightBlock(codeElements[block]);
+        //     }
+        //
+        //     //Start intro when the component will appear
+        //     pageIntro(() => {}, this.domElements);
+        // });
 
-            if(this.state.content) {
-                document.title = `${this.state.content.title} | ${config.siteName}`;
-            } else {
-                document.title = `Not Found | ${config.siteName}`;
-            }
-
-            const codeElements = document.querySelectorAll('pre code');
-            for (let block = 0; block < codeElements.length; block++) {
-                hljs.highlightBlock(codeElements[block]);
-            }
-
-            //Start intro when the component will appear
-            pageIntro(() => {}, this.domElements);
+        this.setState({
+            url: this.props.url,
+            content: this.searchProject(this.props.url, config.projects)
         });
+
+        if(this.state.content) {
+            document.title = `${this.state.content.title} | ${config.siteName}`;
+        } else {
+            document.title = `Not Found | ${config.siteName}`;
+        }
+
+        // const codeElements = document.querySelectorAll('pre code');
+        // for (let block = 0; block < codeElements.length; block++) {
+        //     hljs.highlightBlock(codeElements[block]);
+        // }
+
+        //Start intro when the component will appear
+        pageIntro(() => {}, this.domElements);
     }
 
     /**
