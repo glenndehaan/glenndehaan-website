@@ -5,7 +5,7 @@ import {h} from 'preact';
  * @return {*}
  * @constructor
  */
-const LinkedinIcon = () => {
+const Linkedin = () => {
     return (
         <svg className="icon icon-linkedin" viewBox="0 0 42 42">
             <path d="M5.05,0A5.06,5.06,0,1,0,10.1,5.06,5.05,5.05,0,0,0,5.05,0Z" />
@@ -15,4 +15,4 @@ const LinkedinIcon = () => {
     );
 };
 
-export default LinkedinIcon;
+export default Linkedin;

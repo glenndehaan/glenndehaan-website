@@ -1,7 +1,7 @@
 import {h, Component} from 'preact';
 import Link from './Link';
-import LinkedinIcon from './svg/LinkedinIcon';
-import GithubIcon from './svg/GithubIcon';
+import LinkedinIcon from './icons/Linkedin';
+import GithubIcon from './icons/Github';
 
 /**
  * Presentational part of the component

@@ -1,6 +1,6 @@
 import {h, Component} from 'preact';
-import config from '../main/config';
-import {pageIntro} from '../general/animations/pageTransitions';
+import config from '../config';
+import {pageIntro} from '../utils/pageTransitions';
 
 /**
  * Presentational part of the component

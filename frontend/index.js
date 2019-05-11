@@ -1,11 +1,11 @@
 import {h, render} from 'preact';
 import mitt from 'mitt';
 
-import config from './main/config';
-import {loadState, saveState} from './general/utils/storage';
-import {compareCreatedAt} from './general/utils/strings';
-import fetch from './general/utils/fetch';
-import App from './app/App';
+import config from './config';
+import {loadState, saveState} from './utils/storage';
+import {compareCreatedAt} from './utils/strings';
+import fetch from './utils/fetch';
+import Router from './components/Router';
 
 /**
  * Function to fetch github API data
@@ -67,7 +67,7 @@ const initialize = () => {
 
     document.querySelector("#app").innerHTML = "";
     render(
-        <App/>,
+        <Router/>,
         document.querySelector("#app")
     );
 };

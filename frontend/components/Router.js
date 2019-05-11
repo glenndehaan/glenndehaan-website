@@ -1,16 +1,16 @@
 import {h, Component} from 'preact';
 
-import {pageOutro} from '../general/animations/pageTransitions';
-import routeObserver, {getBaseRoute} from './../general/utils/routing';
-import Header from "./../general/partials/Header";
-import Home from "./../home/Index";
-import Programming from "./../programming/Index";
-import Projects from "./../projects/Index";
-import Project from "./../projects/Deeplink";
-import About from "./../about/Index";
-import NotFound from "./../general/NotFound";
+import {pageOutro} from '../utils/pageTransitions';
+import routeObserver, {getBaseRoute} from '../utils/routing';
+import Header from "./Header";
+import Home from "../pages/Home";
+import Programming from "../pages/Programming";
+import Projects from "../pages/Projects";
+import Project from "../pages/Project";
+import About from "../pages/About";
+import NotFound from "../pages/NotFound";
 
-export default class App extends Component {
+export default class Router extends Component {
     /**
      * Constructor
      * @param props

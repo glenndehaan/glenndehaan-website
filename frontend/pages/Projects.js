@@ -1,7 +1,7 @@
 import {h, Component} from 'preact';
-import Link from '../general/partials/Link';
-import config from '../main/config';
-import {pageIntro} from '../general/animations/pageTransitions';
+import Link from '../components/Link';
+import config from '../config';
+import {pageIntro} from '../utils/pageTransitions';
 
 /**
  * Presentational part of the component
