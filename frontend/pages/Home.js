@@ -4,6 +4,7 @@ import { connect } from 'unistore/preact';
 import config from '../config';
 import Link from '../components/Link';
 import {pageIntro} from '../utils/pageTransitions';
+import {randomSlogan} from '../utils/strings';
 
 class Home extends Component {
     /**
@@ -15,6 +16,8 @@ class Home extends Component {
         this.domElements = {
             mainContainer: null
         };
+
+        this.slogan = randomSlogan();
     }
 
     /**
@@ -78,7 +81,7 @@ class Home extends Component {
                     <Link href="/about" className="cta fade-red shadow">More about me</Link>
                 </section>
                 <section className="landing-cards">
-                    <h2 className="title-regular title-white align-center">Still learning...</h2>
+                    <h2 className="title-regular title-white align-center">{this.slogan}</h2>
                     {this.renderProgrammingBlocks()}
                 </section>
                 <footer className="footer">
