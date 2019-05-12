@@ -10,7 +10,7 @@ import storage from './storage';
  */
 const createStore = () => {
     const initialState = {
-        programming: storage.get("programming")
+        programming: storage.get("programming") || []
     };
 
     return process.env.NODE_ENV === 'production' ?  createUnistore(initialState) : devtools(createUnistore(initialState));
