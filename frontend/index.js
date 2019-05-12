@@ -27,7 +27,7 @@ const updateGithubData = () => {
                     programming: sortedData
                 });
             }
-        }, config.githubToken);
+        }, config.general.githubToken);
     }
 };
 

@@ -21,7 +21,7 @@ class Home extends Component {
      * Runs then component mounts
      */
     componentDidMount(){
-        document.title = `Home | ${config.siteName}`;
+        document.title = `Home | ${config.general.siteName}`;
 
         //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);

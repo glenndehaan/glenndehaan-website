@@ -33,9 +33,9 @@ export default class Project extends Component {
         });
 
         if(this.state.content) {
-            document.title = `${this.state.content.title} | ${config.siteName}`;
+            document.title = `${this.state.content.title} | ${config.general.siteName}`;
         } else {
-            document.title = `Not Found | ${config.siteName}`;
+            document.title = `Not Found | ${config.general.siteName}`;
         }
 
         //Start intro when the component will appear

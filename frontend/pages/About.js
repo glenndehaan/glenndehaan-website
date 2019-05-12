@@ -19,7 +19,7 @@ export default class About extends Component {
      * Runs then component mounts
      */
     componentDidMount(){
-        document.title = `About | ${config.siteName}`;
+        document.title = `About | ${config.general.siteName}`;
 
         //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);

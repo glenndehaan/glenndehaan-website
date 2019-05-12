@@ -19,7 +19,7 @@ export default class NotFound extends Component {
      * Runs then component mounts
      */
     componentDidMount(){
-        document.title = `Not Found | ${config.siteName}`;
+        document.title = `Not Found | ${config.general.siteName}`;
 
         //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);

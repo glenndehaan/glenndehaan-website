@@ -20,7 +20,7 @@ export default class Projects extends Component {
      * Runs then component mounts
      */
     componentDidMount(){
-        document.title = `Projects | ${config.siteName}`;
+        document.title = `Projects | ${config.general.siteName}`;
 
         //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);

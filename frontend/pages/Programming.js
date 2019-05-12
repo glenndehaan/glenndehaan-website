@@ -20,7 +20,7 @@ class Programming extends Component {
      * Runs then component mounts
      */
     componentDidMount(){
-        document.title = `Programming | ${config.siteName}`;
+        document.title = `Programming | ${config.general.siteName}`;
 
         //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);
