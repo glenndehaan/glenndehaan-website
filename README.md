@@ -33,7 +33,7 @@ Then open up your favorite browser and go to http://localhost:3001/
 - Homepage add dynamic slogan
 
 ## Bugs
-- General - Going to same page will trigger animation
+- ~~General - Going to same page will trigger animation~~
 - Firefox - Go to / then /projects then back to / will make side scrolling possible
 - Mobile - Menu disappears when scrolling / navigating
 

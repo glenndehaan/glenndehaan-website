@@ -54,11 +54,13 @@ export default class Router extends Component {
         const route = {current, previous, url};
 
         // Start outro when the component will leave
-        pageOutro(() => {
-            this.setState({route});
-        }, {
-            mainContainer: document.querySelector("main")
-        });
+        if(url !== window.location.pathname) {
+            pageOutro(() => {
+                this.setState({route});
+            }, {
+                mainContainer: document.querySelector("main")
+            });
+        }
     }
 
     /**
