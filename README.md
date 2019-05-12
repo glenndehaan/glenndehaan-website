@@ -21,12 +21,12 @@ Then open up your favorite browser and go to http://localhost:3001/
 
 ## Todo
 - Implement ServiceWorker
-- Remove Drupal API routes
+- ~~Remove Drupal API routes~~
 - /projects -> New structure (Title, Description, Link, Screenshot, Lighthouse results, Awards)
-- Convert projects to json
-- Update Preact setup to 2019 iteration
+- ~~Convert projects to json~~
+- ~~Update Preact setup to 2019 iteration~~
 - Convert GSAP to anime.js if possible to reduce size
-- Remove backend
+- ~~Remove backend~~
 - Convert build to full webpack build
 - Add WEBP images
 - Add font preload tags
