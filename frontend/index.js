@@ -12,7 +12,7 @@ import Router from './components/Router';
  */
 const updateGithubData = () => {
     if(config.network !== false){
-        new fetch("/api/github", (data) => {
+        new fetch("https://api.github.com/user/repos", (data) => {
             if(data.length > 0) {
                 //Save data to state
                 config.programming = data.sort(compareCreatedAt);
