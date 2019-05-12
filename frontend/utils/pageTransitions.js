@@ -3,12 +3,14 @@ import {ScrollToPlugin} from 'gsap/all'; // eslint-disable-line
 
 /**
  * Check if er are here for the first time
+ *
  * @type {boolean}
  */
 let firstPageLoad = true;
 
 /**
  * Page intro animation
+ *
  * @param callback
  * @param elements
  */
@@ -18,11 +20,22 @@ export const pageIntro = (callback, elements) => {
         return;
     }
 
+    // Check if user doesn't like motion
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        if(typeof window.scrollTo === "function") {
+            window.scrollTo(0, 0);
+        }
+
+        callback();
+        return;
+    }
+
     transition('intro', callback, elements);
 };
 
 /**
  * Page outro animation
+ *
  * @param callback
  * @param elements
  */
@@ -32,11 +45,22 @@ export const pageOutro = (callback, elements) => {
         return;
     }
 
+    // Check if user doesn't like motion
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        if(typeof window.scrollTo === "function") {
+            window.scrollTo(0, 0);
+        }
+
+        callback();
+        return;
+    }
+
     transition('outro', callback, elements);
 };
 
 /**
  * Set css origin
+ *
  * @param type
  */
 const setOrigin = (type) => {
@@ -57,6 +81,7 @@ const setOrigin = (type) => {
 
 /**
  * Ben's magic transition
+ *
  * @param type
  * @param callback
  * @param elements
