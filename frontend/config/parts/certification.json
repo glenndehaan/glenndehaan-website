@@ -1,0 +1,22 @@
+[
+  {
+    "provider": "Ubiquiti",
+    "name": "Ubiquiti Enterprise Wired & Wireless specialist",
+    "certificate": "docs/ubiquiti-uewws-certificate.pdf"
+  },
+  {
+    "provider": "Microsoft",
+    "name": "MTA: Windows Server Fundamentals",
+    "certificate": "docs/mta-wsf-certificate.pdf"
+  },
+  {
+    "provider": "Microsoft",
+    "name": "MTA: Networking Fundamentals",
+    "certificate": "docs/mta-nf-certificate.pdf"
+  },
+  {
+    "provider": "edX",
+    "name": "LFS101x.2 Introduction to Linux",
+    "certificate": "docs/edx-linux-certificate.pdf"
+  }
+]

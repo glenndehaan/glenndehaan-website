@@ -1,0 +1,234 @@
+[
+  {
+    "title": "Nike React",
+    "published": true,
+    "path": "/project/7up",
+    "publish_date": "2019",
+    "intro": "Digital campaign (NFR)",
+    "image": {
+      "desktop": {
+        "src": "/images/projects/russel-co_full.png",
+        "alt": "Russell & Co.com Homepage"
+      },
+      "mobile": {
+        "src": "/images/projects/russel-co_full.png",
+        "alt": "Russell & Co.com Homepage"
+      }
+    },
+    "project_link": "http://russellandcodrinks.com/",
+    "content": []
+  },
+  {
+    "title": "7up",
+    "published": true,
+    "path": "/project/7up",
+    "publish_date": "2016",
+    "intro": "Product website (NFR)",
+    "image": {
+      "desktop": {
+        "src": "/images/projects/russel-co_full.png",
+        "alt": "Russell & Co.com Homepage"
+      },
+      "mobile": {
+        "src": "/images/projects/russel-co_full.png",
+        "alt": "Russell & Co.com Homepage"
+      }
+    },
+    "project_link": "http://russellandcodrinks.com/",
+    "content": []
+  },
+  {
+    "title": "Peugeot 3008",
+    "published": true,
+    "path": "/project/peugeot-3008",
+    "publish_date": "2016",
+    "intro": "Digital campaign (NFR)",
+    "image": {
+      "desktop": {
+        "src": "/images/projects/russel-co_full.png",
+        "alt": "Russell & Co.com Homepage"
+      },
+      "mobile": {
+        "src": "/images/projects/russel-co_full.png",
+        "alt": "Russell & Co.com Homepage"
+      }
+    },
+    "project_link": "http://russellandcodrinks.com/",
+    "content": []
+  },
+  {
+    "_id": "4",
+    "nid": "4",
+    "title": "Sourcy.nl",
+    "published": true,
+    "path": "/project/sourcynl",
+    "publish_date": "2016",
+    "intro": "My first React.js site",
+    "image": {
+      "desktop": {
+        "src": "https:/api.glenndehaan.com/cms/sites/default/files/2017-08/sourcy-home.png",
+        "alt": "Sourcy.nl Homepage"
+      },
+      "mobile": {
+        "src": "https://api.glenndehaan.com/cms/sites/default/files/2019-05/sourcy-home.png",
+        "alt": "Sourcy.nl Homepage"
+      }
+    },
+    "project_link": "http://sourcy.nl/",
+    "content": [
+      {
+        "type": "copy",
+        "text": "<p>What started as a simple onepager with some product information became a project that needed to be award winning. So it became clear that we needed to create this site in React to create a seamless site. For me that was the first time working with React.js. After experimenting with React.js, React Router and React Transition Groups I saw the potensial in these libraries and we started coding.</p>",
+        "image": {
+          "desktop": {
+            "src": false,
+            "alt": false
+          },
+          "mobile": {
+            "src": false,
+            "alt": false
+          }
+        },
+        "video_service": false,
+        "video_embed_code": false
+      },
+      {
+        "type": "video",
+        "text": false,
+        "image": {
+          "desktop": {
+            "src": false,
+            "alt": false
+          },
+          "mobile": {
+            "src": false,
+            "alt": false
+          }
+        },
+        "video_service": "youtube",
+        "video_embed_code": "_j5yDr9gMzQ"
+      },
+      {
+        "type": "copy",
+        "text": "<p><strong>Intro</strong></p><p>One of the things to do was integrating the new advertisement video of Sourcy. So we came up with the idea to use this video as a intro video that transitions in to the website.</p>",
+        "image": {
+          "desktop": {
+            "src": false,
+            "alt": false
+          },
+          "mobile": {
+            "src": false,
+            "alt": false
+          }
+        },
+        "video_service": false,
+        "video_embed_code": false
+      },
+      {
+        "type": "image",
+        "text": false,
+        "image": {
+          "desktop": {
+            "src": "https://api.glenndehaan.com/cms/sites/default/files/2017-08/sourcy-page-transition.gif",
+            "alt": "Sourcy Page Transition"
+          },
+          "mobile": {
+            "src": false,
+            "alt": false
+          }
+        },
+        "video_service": false,
+        "video_embed_code": false
+      },
+      {
+        "type": "copy",
+        "text": "<p><strong>Page transitions</strong></p><p>We first started out with just a fade in between pages. But after 2 times clicking through the site it was clear we need something spicier. So our motion department came with the idea to create it in Adobe After Effects and then export it as a bodymovin animation. This would mean the AE animations would be converted to a JSON file containing the animation path's. And the end result was great.</p>",
+        "image": {
+          "desktop": {
+            "src": false,
+            "alt": false
+          },
+          "mobile": {
+            "src": false,
+            "alt": false
+          }
+        },
+        "video_service": false,
+        "video_embed_code": false
+      },
+      {
+        "type": "copy",
+        "text": "<p><strong>Finishing Touch</strong></p><p>To make things a little bit more interactive on the site we switched some images from the site to video's to make the site really come to life. In the end this was a really fun and interresting project with lots of innovations.</p>",
+        "image": {
+          "desktop": {
+            "src": false,
+            "alt": false
+          },
+          "mobile": {
+            "src": false,
+            "alt": false
+          }
+        },
+        "video_service": false,
+        "video_embed_code": false
+      }
+    ]
+  },
+  {
+    "title": "Teeez Cosmetics",
+    "published": true,
+    "path": "/project/teeez",
+    "publish_date": "2016",
+    "intro": "Interactive installation (NFR)",
+    "image": {
+      "desktop": {
+        "src": "/images/projects/russel-co_full.png",
+        "alt": "Russell & Co.com Homepage"
+      },
+      "mobile": {
+        "src": "/images/projects/russel-co_full.png",
+        "alt": "Russell & Co.com Homepage"
+      }
+    },
+    "project_link": "http://russellandcodrinks.com/",
+    "content": []
+  },
+  {
+    "title": "Russell & Co Drinks",
+    "published": true,
+    "path": "/project/russel-co",
+    "publish_date": "2016",
+    "intro": "Product website (NFR)",
+    "image": {
+      "desktop": {
+        "src": "/images/projects/russel-co_full.png",
+        "alt": "Russell & Co.com Homepage"
+      },
+      "mobile": {
+        "src": "/images/projects/russel-co_full.png",
+        "alt": "Russell & Co.com Homepage"
+      }
+    },
+    "project_link": "http://russellandcodrinks.com/",
+    "content": []
+  },
+  {
+    "title": "DS Signature Art",
+    "published": true,
+    "path": "/project/ds-signatureart",
+    "publish_date": "2015",
+    "intro": "Digital campaign / Interactive installation (NFR)",
+    "image": {
+      "desktop": {
+        "src": "https:/api.glenndehaan.com/cms/sites/default/files/2017-08/sourcy-home.png",
+        "alt": "Sourcy.nl Homepage"
+      },
+      "mobile": {
+        "src": "https://api.glenndehaan.com/cms/sites/default/files/2019-05/sourcy-home.png",
+        "alt": "Sourcy.nl Homepage"
+      }
+    },
+    "project_link": "https://ds-signatureart.com/",
+    "content": []
+  }
+]

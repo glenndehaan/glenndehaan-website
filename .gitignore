@@ -13,4 +13,4 @@ node_modules/
 npm-debug.log
 
 # Configs
-frontend/config.js
+frontend/config/parts/general.json

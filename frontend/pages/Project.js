@@ -115,6 +115,12 @@ export default class Project extends Component {
                         )}
                     </figure>
                     <section className="project-body">
+                        <div className="box small-width content-unit wysiwyg">
+                            <strong>Awards</strong>
+                        </div>
+                        <div className="box small-width content-unit wysiwyg">
+                            <strong>Google Lighthouse Score</strong>
+                        </div>
                         {this.state.content.content.map((item, key) => {
                             if (item.type === 'copy') {
                                 return (
