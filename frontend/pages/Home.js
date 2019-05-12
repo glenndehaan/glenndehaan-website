@@ -1,39 +1,24 @@
 import {h, Component} from 'preact';
-import Link from '../components/Link';
+import { connect } from 'unistore/preact';
+
 import config from '../config';
+import Link from '../components/Link';
 import {pageIntro} from '../utils/pageTransitions';
 
-/**
- * Presentational part of the component
- * @constructor
- */
-export default class Home extends Component {
+class Home extends Component {
     /**
      * Constructor
-     * @param props
      */
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.domElements = {
             mainContainer: null
         };
-
-        this.state = {
-            programming: config.programming
-        };
-
-        window.site.events.on('apiDataUpdate', () => {
-            this.setState({
-                programming: config.programming
-            });
-        });
     }
 
     /**
-     * Invoked once after the initial rendering occurs
-     * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
-     * @return {void}
+     * Runs then component mounts
      */
     componentDidMount(){
         document.title = `Home | ${config.siteName}`;
@@ -43,9 +28,9 @@ export default class Home extends Component {
     }
 
     /**
-     * React's Render function, should return a single child element
-     * @see https://facebook.github.io/react/docs/react-component.html#render
-     * @return {XML}
+     * Preact render function
+     *
+     * @returns {*}
      */
     render() {
         return (
@@ -104,36 +89,41 @@ export default class Home extends Component {
         );
     }
 
+    /**
+     * Render's the programming blocks
+     *
+     * @return {null|*}
+     */
     renderProgrammingBlocks() {
-        if(this.state.programming.length > 0) {
+        if(this.props.programming.length > 0) {
             return (
                 <div className="grid grid-landing grid-white">
-                    <a className="grid-item shadow" href={this.state.programming[0].html_url} target="_blank" rel="noopener noreferrer">
+                    <a className="grid-item shadow" href={this.props.programming[0].html_url} target="_blank" rel="noopener noreferrer">
                         <header className="item-header">
-                            <h2 className="item-title title-regular">{this.state.programming[0].name}</h2>
+                            <h2 className="item-title title-regular">{this.props.programming[0].name}</h2>
                         </header>
-                        <p className="item-copy copy-grey">{this.state.programming[0].description !== null ? this.state.programming[0].description : 'Still trying to find a description'}</p>
+                        <p className="item-copy copy-grey">{this.props.programming[0].description !== null ? this.props.programming[0].description : 'Still trying to find a description'}</p>
                         <div className="item-anchor copy-grey">View on GitHub</div>
                     </a>
-                    <a className="grid-item shadow" href={this.state.programming[1].html_url} target="_blank" rel="noopener noreferrer">
+                    <a className="grid-item shadow" href={this.props.programming[1].html_url} target="_blank" rel="noopener noreferrer">
                         <header className="item-header">
-                            <h2 className="item-title title-regular">{this.state.programming[1].name}</h2>
+                            <h2 className="item-title title-regular">{this.props.programming[1].name}</h2>
                         </header>
-                        <p className="item-copy copy-grey">{this.state.programming[1].description !== null ? this.state.programming[1].description : 'Still trying to find a description'}</p>
+                        <p className="item-copy copy-grey">{this.props.programming[1].description !== null ? this.props.programming[1].description : 'Still trying to find a description'}</p>
                         <div className="item-anchor copy-grey">View on GitHub</div>
                     </a>
-                    <a className="grid-item shadow" href={this.state.programming[2].html_url} target="_blank" rel="noopener noreferrer">
+                    <a className="grid-item shadow" href={this.props.programming[2].html_url} target="_blank" rel="noopener noreferrer">
                         <header className="item-header">
-                            <h2 className="item-title title-regular">{this.state.programming[2].name}</h2>
+                            <h2 className="item-title title-regular">{this.props.programming[2].name}</h2>
                         </header>
-                        <p className="item-copy copy-grey">{this.state.programming[2].description !== null ? this.state.programming[2].description : 'Still trying to find a description'}</p>
+                        <p className="item-copy copy-grey">{this.props.programming[2].description !== null ? this.props.programming[2].description : 'Still trying to find a description'}</p>
                         <div className="item-anchor copy-grey">View on GitHub</div>
                     </a>
-                    <a className="grid-item shadow" href={this.state.programming[3].html_url} target="_blank" rel="noopener noreferrer">
+                    <a className="grid-item shadow" href={this.props.programming[3].html_url} target="_blank" rel="noopener noreferrer">
                         <header className="item-header">
-                            <h2 className="item-title title-regular">{this.state.programming[3].name}</h2>
+                            <h2 className="item-title title-regular">{this.props.programming[3].name}</h2>
                         </header>
-                        <p className="item-copy copy-grey">{this.state.programming[3].description !== null ? this.state.programming[3].description : 'Still trying to find a description'}</p>
+                        <p className="item-copy copy-grey">{this.props.programming[3].description !== null ? this.props.programming[3].description : 'Still trying to find a description'}</p>
                         <div className="item-anchor copy-grey">View on GitHub</div>
                     </a>
                 </div>
@@ -143,3 +133,8 @@ export default class Home extends Component {
         }
     }
 }
+
+/**
+ * Connect the store to the component
+ */
+export default connect('programming')(Home);

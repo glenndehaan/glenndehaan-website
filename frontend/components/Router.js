@@ -2,7 +2,9 @@ import {h, Component} from 'preact';
 
 import {pageOutro} from '../utils/pageTransitions';
 import routeObserver, {getBaseRoute} from '../utils/routing';
+
 import Header from "./Header";
+
 import Home from "../pages/Home";
 import Programming from "../pages/Programming";
 import Projects from "../pages/Projects";
@@ -13,10 +15,12 @@ import NotFound from "../pages/NotFound";
 export default class Router extends Component {
     /**
      * Constructor
+     *
      * @param props
      */
     constructor(props) {
         super(props);
+
         this.state = {
             route: {
                 current: getBaseRoute(),
@@ -27,9 +31,7 @@ export default class Router extends Component {
     }
 
     /**
-     * Invoked once after the initial rendering occurs
-     * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
-     * @return {void}
+     * Runs then component mounts
      */
     componentDidMount() {
         // Observe route changes with a callback
@@ -38,6 +40,7 @@ export default class Router extends Component {
 
     /**
      * Update the route
+     *
      * @param url
      */
     onRouteChange(url) {
@@ -54,7 +57,7 @@ export default class Router extends Component {
         const route = {current, previous, url};
 
         // Start outro when the component will leave
-        if(url !== window.location.pathname) {
+        if(previous !== current) {
             pageOutro(() => {
                 this.setState({route});
             }, {
@@ -64,9 +67,9 @@ export default class Router extends Component {
     }
 
     /**
-     * React's Render function, should return a single child element
-     * @see https://facebook.github.io/react/docs/react-component.html#render
-     * @return {XML}
+     * Preact render function
+     *
+     * @returns {*}
      */
     render() {
         return (
@@ -81,6 +84,7 @@ export default class Router extends Component {
 
     /**
      * Render the main content
+     *
      * @param state
      */
     renderMain(state) {

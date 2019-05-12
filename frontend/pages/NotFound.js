@@ -1,11 +1,8 @@
 import {h, Component} from 'preact';
+
 import config from '../config';
 import {pageIntro} from '../utils/pageTransitions';
 
-/**
- * Presentational part of the component
- * @constructor
- */
 export default class NotFound extends Component {
     /**
      * Constructor
@@ -19,9 +16,7 @@ export default class NotFound extends Component {
     }
 
     /**
-     * Invoked once after the initial rendering occurs
-     * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
-     * @return {void}
+     * Runs then component mounts
      */
     componentDidMount(){
         document.title = `Not Found | ${config.siteName}`;
@@ -31,9 +26,9 @@ export default class NotFound extends Component {
     }
 
     /**
-     * React's Render function, should return a single child element
-     * @see https://facebook.github.io/react/docs/react-component.html#render
-     * @return {XML}
+     * Preact render function
+     *
+     * @returns {*}
      */
     render() {
         return (

@@ -1,15 +1,13 @@
 import {h, Component} from 'preact';
-import Link from '../components/Link';
+
 import config from '../config';
+import Link from '../components/Link';
 import {pageIntro} from '../utils/pageTransitions';
 
-/**
- * Presentational part of the component
- * @constructor
- */
 export default class Project extends Component {
     /**
      * Constructor
+     *
      * @param props
      */
     constructor(props) {
@@ -23,42 +21,12 @@ export default class Project extends Component {
             url: this.props.url,
             content: this.searchProject(this.props.url, config.projects)
         };
-
-        window.site.events.on('apiDataUpdate', () => {
-            this.setState({
-                url: this.props.url,
-                content: this.searchProject(this.props.url, config.projects)
-            });
-        });
     }
 
     /**
-     * Invoked once after the initial rendering occurs
-     * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
-     * @return {void}
+     * Runs then component mounts
      */
     componentDidMount() {
-        // System.import('highlight.js').then(hljs => {
-        //     this.setState({
-        //         url: this.props.url,
-        //         content: this.searchProject(this.props.url, config.projects)
-        //     });
-        //
-        //     if(this.state.content) {
-        //         document.title = `${this.state.content.title} | ${config.siteName}`;
-        //     } else {
-        //         document.title = `Not Found | ${config.siteName}`;
-        //     }
-        //
-        //     const codeElements = document.querySelectorAll('pre code');
-        //     for (let block = 0; block < codeElements.length; block++) {
-        //         hljs.highlightBlock(codeElements[block]);
-        //     }
-        //
-        //     //Start intro when the component will appear
-        //     pageIntro(() => {}, this.domElements);
-        // });
-
         this.setState({
             url: this.props.url,
             content: this.searchProject(this.props.url, config.projects)
@@ -70,17 +38,13 @@ export default class Project extends Component {
             document.title = `Not Found | ${config.siteName}`;
         }
 
-        // const codeElements = document.querySelectorAll('pre code');
-        // for (let block = 0; block < codeElements.length; block++) {
-        //     hljs.highlightBlock(codeElements[block]);
-        // }
-
         //Start intro when the component will appear
         pageIntro(() => {}, this.domElements);
     }
 
     /**
      * Search for path
+     *
      * @param path
      * @param projects
      * @return {*}
@@ -100,9 +64,9 @@ export default class Project extends Component {
     }
 
     /**
-     * React's Render function, should return a single child element
-     * @see https://facebook.github.io/react/docs/react-component.html#render
-     * @return {XML}
+     * Preact render function
+     *
+     * @returns {*}
      */
     render() {
         if (this.state.content) {

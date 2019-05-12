@@ -1,27 +1,22 @@
 import {h, Component} from 'preact';
+
 import config from '../config';
 import {pageIntro} from '../utils/pageTransitions';
 
-/**
- * Presentational part of the component
- * @constructor
- */
 export default class About extends Component {
     /**
      * Constructor
-     * @param props
      */
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
+
         this.domElements = {
             mainContainer: null
         };
     }
 
     /**
-     * Invoked once after the initial rendering occurs
-     * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
-     * @return {void}
+     * Runs then component mounts
      */
     componentDidMount(){
         document.title = `About | ${config.siteName}`;
@@ -31,9 +26,9 @@ export default class About extends Component {
     }
 
     /**
-     * React's Render function, should return a single child element
-     * @see https://facebook.github.io/react/docs/react-component.html#render
-     * @return {XML}
+     * Preact render function
+     *
+     * @returns {*}
      */
     render() {
         return (
@@ -93,7 +88,7 @@ export default class About extends Component {
                         ))}
 
                         {config.education.map((item, key) => (
-                            <div className="timeline-item" key={key}>
+                            <div className="timeline-item" key={(key + 100)}>
                                 <h3 className="item-title title-regular title-white">{item.name}</h3>
                                 <p className="copy-white">Study: {item.study}</p>
                             </div>
