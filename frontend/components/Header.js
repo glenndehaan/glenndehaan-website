@@ -1,65 +1,20 @@
 import {h, Component} from 'preact';
+import { connect } from 'unistore/preact';
+
 import Link from './Link';
 import LinkedinIcon from './icons/Linkedin';
 import GithubIcon from './icons/Github';
 
-/**
- * Presentational part of the component
- * @constructor
- */
-export default class Header extends Component {
+class Header extends Component {
     /**
-     * Constructor
-     * @param props
-     */
-    constructor(props) {
-        super(props);
-        this.domElements = {
-            menuLinks: []
-        };
-
-        this.state = {
-            homeLink: false,
-            projectsLink: false,
-            programmingLink: false,
-            aboutLink: false
-        };
-
-        window.site.events.on('historyChange', e => this.updateActiveLink(e) );
-    }
-
-    /**
-     * Update the active link
-     * @param path
-     */
-    updateActiveLink(path){
-        for(let item = 0; item < this.domElements.menuLinks.length; item++){
-            if(this.domElements.menuLinks[item].link === path){
-                this.setState({[this.domElements.menuLinks[item].name]: true});
-            }else{
-                this.setState({[this.domElements.menuLinks[item].name]: false});
-            }
-        }
-    }
-
-    /**
-     * Invoked once after the initial rendering occurs
-     * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
-     * @return {void}
-     */
-    componentDidMount(){
-        this.updateActiveLink(window.location.pathname);
-    }
-
-    /**
-     * React's Render function, should return a single child element
-     * @see https://facebook.github.io/react/docs/react-component.html#render
-     * @return {XML}
+     * Preact render function
+     *
+     * @returns {*}
      */
     render() {
         return (
             <header className="header">
-                <Link className={["home-anchor", this.state.homeLink ? 'is-active' : ''].join(' ')} href="/" ref={(c) => this.domElements.menuLinks.push({link: '/', element: c, name: 'homeLink'})}>
+                <Link className={["home-anchor", this.props.router.url === '/' ? 'is-active' : ''].join(' ')} href="/">
                     <h1 className="page-title">
                         <figure className="logo">
                             <img src="/images/design/glenn-de-haan-icon.jpg" alt="logo" />
@@ -69,13 +24,13 @@ export default class Header extends Component {
                 </Link>
 
                 <nav className="nav-page">
-                    <Link className={["page-anchor", this.state.projectsLink ? 'is-active' : ''].join(' ')} href="/project" ref={(c) => this.domElements.menuLinks.push({link: '/project', element: c, name: 'projectsLink'})}>
+                    <Link className={["page-anchor", this.props.router.url.includes('/project') ? 'is-active' : ''].join(' ')} href="/project">
                         Projects
                     </Link>
-                    <Link className={["page-anchor", this.state.programmingLink ? 'is-active' : ''].join(' ')} href="/programming" ref={(c) => this.domElements.menuLinks.push({link: '/programming', element: c, name: 'programmingLink'})}>
+                    <Link className={["page-anchor", this.props.router.url === '/programming' ? 'is-active' : ''].join(' ')} href="/programming">
                         Programming
                     </Link>
-                    <Link className={["page-anchor", this.state.aboutLink ? 'is-active' : ''].join(' ')} href="/about" ref={(c) => this.domElements.menuLinks.push({link: '/about', element: c, name: 'aboutLink'})}>
+                    <Link className={["page-anchor", this.props.router.url === '/about' ? 'is-active' : ''].join(' ')} href="/about">
                         About
                     </Link>
                 </nav>
@@ -94,3 +49,8 @@ export default class Header extends Component {
         )
     }
 }
+
+/**
+ * Connect the store to the component
+ */
+export default connect('router')(Header);

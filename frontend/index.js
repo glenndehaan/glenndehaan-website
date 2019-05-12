@@ -1,6 +1,5 @@
 import {h, render} from 'preact';
 import {Provider} from 'unistore/preact';
-import mitt from 'mitt';
 
 import config from './config';
 
@@ -35,8 +34,6 @@ const updateGithubData = () => {
  * Initialize the app
  */
 updateGithubData();
-window.site = {};
-window.site.events = mitt();
 
 document.querySelector('#app').innerHTML = "";
 render(<Provider store={store}><Router/></Provider>, document.querySelector('#app'));

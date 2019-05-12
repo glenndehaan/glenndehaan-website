@@ -1,4 +1,6 @@
 import {h, Component} from 'preact';
+import { connect } from 'unistore/preact';
+import {actions} from '../modules/store';
 
 import {pageOutro} from '../utils/pageTransitions';
 import routeObserver, {getBaseRoute} from '../utils/routing';
@@ -12,7 +14,7 @@ import Project from "../pages/Project";
 import About from "../pages/About";
 import NotFound from "../pages/NotFound";
 
-export default class Router extends Component {
+class Router extends Component {
     /**
      * Constructor
      *
@@ -44,9 +46,6 @@ export default class Router extends Component {
      * @param url
      */
     onRouteChange(url) {
-        // Let others know we are updating
-        window.site.events.emit('historyChange', url);
-
         // Split the url in usable segments
         const current = url.split('/');
         if (current[current.length - 1] === '') current.pop();
@@ -55,6 +54,9 @@ export default class Router extends Component {
         // Update the state with route data
         const previous = this.state.route.current;
         const route = {current, previous, url};
+
+        // Let others know we are updating
+        this.props.updateRouter(route);
 
         // Start outro when the component will leave
         if(this.state.route.url !== url) {
@@ -113,3 +115,8 @@ export default class Router extends Component {
         return <NotFound/>;
     }
 }
+
+/**
+ * Connect the store to the component
+ */
+export default connect('router', actions)(Router);

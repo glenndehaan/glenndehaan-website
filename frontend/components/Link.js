@@ -1,12 +1,9 @@
 import {h, Component} from 'preact';
 
-/**
- * Presentational part of the component
- * @constructor
- */
 export default class Link extends Component {
     /**
      * Navigates to a URL
+     *
      * @param element
      * @param href
      */
@@ -16,9 +13,9 @@ export default class Link extends Component {
     }
 
     /**
-     * React's Render function, should return a single child element
-     * @see https://facebook.github.io/react/docs/react-component.html#render
-     * @return {XML}
+     * Preact render function
+     *
+     * @returns {*}
      */
     render() {
         const {href, children, className} = this.props;
