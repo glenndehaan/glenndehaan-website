@@ -57,7 +57,7 @@ export default class Router extends Component {
         const route = {current, previous, url};
 
         // Start outro when the component will leave
-        if(previous !== current) {
+        if(this.state.route.url !== url) {
             pageOutro(() => {
                 this.setState({route});
             }, {
