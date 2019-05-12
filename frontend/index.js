@@ -11,7 +11,7 @@ import Router from './components/Router';
  * Function to fetch github API data
  */
 const updateGithubData = () => {
-    if(config.network !== false){
+    if(navigator.onLine !== false){
         new fetch("https://api.github.com/user/repos", (data) => {
             if(data.length > 0) {
                 //Save data to state
@@ -19,7 +19,7 @@ const updateGithubData = () => {
                 saveState({projects: config.projects, programming: config.programming});
                 window.site.events.emit('apiDataUpdate');
             }
-        });
+        }, config.githubToken);
     }
 };
 
@@ -27,7 +27,7 @@ const updateGithubData = () => {
  * Function to fetch project API data
  */
 const updateApiData = () => {
-    if(config.network !== false){
+    if(navigator.onLine !== false){
         new fetch("https://api.glenndehaan.com/api/projects", (data) => {
             if(data.projects.length > 0) {
                 //Save data to state
@@ -45,16 +45,6 @@ const updateApiData = () => {
  */
 config.programming = loadState('programming') || [];
 config.projects = loadState('projects') || [];
-
-/**
- * Add event listeners to check if the user is online
- */
-window.addEventListener('online', () => {
-    config.network = navigator.onLine;
-});
-window.addEventListener('offline', () => {
-    config.network = navigator.onLine;
-});
 
 /**
  * Main initialize function
