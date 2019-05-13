@@ -27,7 +27,7 @@
   @include font(bold, true);
   line-height: 0.9em;
   color: $white;
-  transform: translateZ( calc(var(--z) * 2px) );
+  // transform: translateZ( calc(var(--z) * 2px) );
 
   @include breakpoint($large-down) {
     font-size: 18vw;

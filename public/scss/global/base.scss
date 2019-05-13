@@ -41,12 +41,26 @@ body {
   --originY: 0;
 }
 
+.blend {
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+
+  background-image: linear-gradient(23deg, $red, $orange);
+  background-size: cover;
+}
+
 .container {
   position: relative;
   padding-top: $header-height;
-  transform-style: preserve-3d;
-  perspective: 10000px;
-  perspective-origin: 50% calc(var(--originY) * 1%);
+  z-index: 1;
+  // transform: translateY( calc(var(--z) * -10%) ) scale(var(--z));
+  // transform-style: preserve-3d;
+  // perspective: 10000px;
+  // perspective-origin: 50% calc(var(--originY) * 1%);
 
   //// debug perspective origin
   //&:after {
@@ -72,4 +86,3 @@ a:not([class]) {
     text-decoration: none;
   }
 }
-

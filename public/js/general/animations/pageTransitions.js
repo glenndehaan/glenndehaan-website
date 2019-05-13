@@ -1,5 +1,5 @@
-import {TweenMax} from 'gsap/TweenMax';
-import {ScrollToPlugin} from 'gsap/all'; // eslint-disable-line
+import { TweenMax } from 'gsap/TweenMax';
+import { ScrollToPlugin } from 'gsap/all'; // eslint-disable-line
 
 /**
  * Check if er are here for the first time
@@ -13,7 +13,7 @@ let firstPageLoad = true;
  * @param elements
  */
 export const pageIntro = (callback, elements) => {
-    if(firstPageLoad) {
+    if (firstPageLoad) {
         firstPageLoad = false;
         return;
     }
@@ -27,7 +27,7 @@ export const pageIntro = (callback, elements) => {
  * @param elements
  */
 export const pageOutro = (callback, elements) => {
-    if(firstPageLoad) {
+    if (firstPageLoad) {
         firstPageLoad = false;
         return;
     }
@@ -39,17 +39,17 @@ export const pageOutro = (callback, elements) => {
  * Set css origin
  * @param type
  */
-const setOrigin = (type) => {
+const setOrigin = type => {
     let wh = document.body.clientHeight;
     let so = window.scrollY;
     let dh = document.getElementById('app').clientHeight;
     let origin = 50;
 
-    if(type === "intro"){
+    if (type === 'intro') {
         origin = ((wh * 0.5) / dh) * 100;
     }
-    if(type === "outro"){
-        origin = (so+wh/2) / dh * 100;
+    if (type === 'outro') {
+        origin = ((so + wh / 2) / dh) * 100;
     }
 
     document.body.style.setProperty('--originY', origin);
@@ -63,43 +63,78 @@ const setOrigin = (type) => {
  */
 const transition = (type, callback, elements) => {
     setOrigin(type);
+    const blend = document.querySelector('[data-blend]');
 
     let opacity = [];
     let z = [];
     let ease = '';
-    let cp = [];
+    // let cp = [];
+    let duration = 0.4;
 
-    if(type === "intro"){
+    if (type === 'intro') {
         opacity = [0, 1];
-        z = [-100, 0];
+        z = [-20, 0];
         ease = 'Power4.easeOut';
-        cp = [-100, 0];
+        // cp = [0, 1];
+        duration = 0.8;
     }
-    if(type === "outro"){
+    if (type === 'outro') {
         opacity = [1, 0];
-        z = [0, 100];
+        z = [0, 20];
         ease = 'Power4.easeIn';
-        cp = [0, 10];
+        // cp = [1, 0];
     }
 
-    TweenMax.fromTo(elements.mainContainer, 0.8, {
-        opacity: opacity[0],
-        z: z[0]
-    }, {
-        opacity: opacity[1],
-        z: z[1],
-        ease: ease,
-        onComplete: callback
-    });
-    TweenMax.fromTo(document.body, 0.8, {
-        '--z': cp[0]
-    }, {
-        '--z': cp[1],
-        ease: ease,
-        onComplete: () => {
-            if(type === "outro"){
-                TweenMax.set(window, {scrollTo: 0})
+    if (type === 'outro') {
+        TweenMax.fromTo(
+            blend,
+            duration * 1.1,
+            {
+                y: "0%"
+            },
+            {
+                y: "200%",
+                ease: ease
+            }
+        );
+    }
+
+    TweenMax.fromTo(
+        elements.mainContainer,
+        duration,
+        {
+            opacity: opacity[0],
+            y: z[0]
+        },
+        {
+            opacity: opacity[1],
+            y: z[1],
+            ease: ease,
+            // onComplete: callback
+            onComplete: () => {
+                callback();
+                if (type === 'outro') {
+                    TweenMax.set(window, { scrollTo: 0 });
+                }
             }
         }
-    });
+    );
+
+
+    // TweenMax.fromTo(
+    //     document.body,
+    //     duration,
+    //     {
+    //         '--z': cp[0]
+    //     },
+    //     {
+    //         '--z': cp[1],
+    //         ease: ease,
+    //         onComplete: () => {
+    //             if (type === 'outro') {
+    //                 TweenMax.set(window, { scrollTo: 0 });
+    //             }
+    //         }
+    //     }
+    // );
 };

@@ -6,7 +6,7 @@
 .project-hero {
   position: relative;
   perspective: 80px;
-  transform: translateZ(calc(var(--z) * 2px));
+  // transform: translateZ(calc(var(--z) * 2px));
 }
 
 .hero-title {
@@ -19,7 +19,7 @@
   flex-direction: column;
   justify-content: center;
   padding: $spacing-large $spacing ($spacing-large * 2) $spacing;
-  transform: translateZ(calc(var(--z) * 9px));
+  // transform: translateZ(calc(var(--z) * 9px));
 
   @include breakpoint($medium-up) {
     padding: $spacing-large $spacing-large ($spacing-large * 2) $spacing-large;
