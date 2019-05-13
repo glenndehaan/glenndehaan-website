@@ -1,5 +1,4 @@
-import { TweenMax } from 'gsap/TweenMax';
-import { ScrollToPlugin } from 'gsap/all'; // eslint-disable-line
+import animejs from 'animejs';
 
 /**
  * Check if er are here for the first time
@@ -41,57 +40,47 @@ export const pageOutro = (callback, elements) => {
  * @param elements
  */
 const transition = (type, callback, elements) => {
+    const tl = animejs.timeline({
+        complete: callback
+    });
     const blend = document.querySelector('[data-blend]');
 
     let opacity = [];
-    let z = [];
+    let y = [];
     let ease = '';
-    let duration = 0.4;
+    let duration = 300;
 
     if (type === 'intro') {
         opacity = [0, 1];
-        z = [-20, 0];
-        ease = 'Power4.easeOut';
-        duration = 0.8;
+        y = [-20, 0];
+        ease = 'easeOutQuart';
+        duration = 800;
     }
     if (type === 'outro') {
         opacity = [1, 0];
-        z = [0, 20];
-        ease = 'Power4.easeIn';
+        y = [0, 20];
+        ease = 'easeInQuart';
     }
+
+    tl.add({
+        targets: elements.mainContainer,
+        duration: duration,
+        opacity: opacity,
+        translateY: y,
+        easing: ease
+    }, 0)
 
     if (type === 'outro') {
-        TweenMax.fromTo(
-            blend,
-            duration * 1.1,
-            {
-                y: "0%"
-            },
-            {
-                y: "200%",
-                ease: ease
-            }
-        );
-    }
+        tl.add({
+            targets: blend,
+            translateY: ["0%", "200%"],
+            easing: ease,
+            duration: duration * 1.5
+        }, 0)
 
-    TweenMax.fromTo(
-        elements.mainContainer,
-        duration,
-        {
-            opacity: opacity[0],
-            y: z[0]
-        },
-        {
-            opacity: opacity[1],
-            y: z[1],
-            ease: ease,
-            // onComplete: callback
-            onComplete: () => {
-                callback();
-                if (type === 'outro') {
-                    TweenMax.set(window, { scrollTo: 0 });
-                }
-            }
-        }
-    );
+        tl.set({
+            targets: window,
+            scrollTo: 0
+        })
+    }
 };

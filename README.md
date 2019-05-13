@@ -6,7 +6,7 @@ My own website
 - ES6
 - Preact
 - Express
-- GSAP
+- anime.js
 - Custom Animations by @Hornebom
 - Custom CSS by @Hornebom
 - Webpack
