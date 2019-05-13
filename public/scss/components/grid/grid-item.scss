@@ -103,23 +103,3 @@
     }
   }
 }
-
-
-// for page transitions
-$transition-offsets:
-        '0.3px',
-        '0.9px',
-        '3.5px',
-        '1.0px',
-        '5.0px',
-        '1.5px',
-        '0.5px',
-        '1.0px',
-        '3.2px',
-        '1.2px';
-
-@for $i from 1 through length($transition-offsets) {
-  .grid-item:nth-child(10n + #{$i}){
-    // transform: translateZ( calc(var(--z) * #{nth($transition-offsets, $i)}) );
-  }
-}

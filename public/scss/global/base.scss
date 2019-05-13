@@ -37,8 +37,6 @@ body {
   background-image: linear-gradient(23deg, $red, $orange);
   background-size: cover;
   background-attachment: fixed;
-  --z: 0; // cp for transition animation
-  --originY: 0;
 }
 
 .blend {
@@ -57,22 +55,6 @@ body {
   position: relative;
   padding-top: $header-height;
   z-index: 1;
-  // transform: translateY( calc(var(--z) * -10%) ) scale(var(--z));
-  // transform-style: preserve-3d;
-  // perspective: 10000px;
-  // perspective-origin: 50% calc(var(--originY) * 1%);
-
-  //// debug perspective origin
-  //&:after {
-  //  content: '';
-  //  position: absolute;
-  //  top: calc(var(--originY) * 1%);
-  //  right: 0;
-  //  left: 0;
-  //  height: 10px;
-  //  background-color: red;
-  //  z-index: 100;
-  //}
 }
 
 a {

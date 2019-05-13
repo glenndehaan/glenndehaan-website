@@ -8,8 +8,6 @@
   padding: 40px 40px 60px 0;
   background-color: $white;
   box-shadow: 16px 16px 40px rgba($black, 0.15);
-  perspective: 80px;
-  // transform: translateZ( calc(var(--z) * 1px) );
 
   @include breakpoint($medium-up) {
     width: 63%;
@@ -26,13 +24,6 @@
 
   @include breakpoint($medium-up) {
     margin-left: 60px;
-  }
-
-  &:nth-child(1) {
-    // transform: translateZ( calc(var(--z) * 1px) );
-  }
-  &:nth-child(2) {
-    // transform: translateZ( calc(var(--z) * 2px) );
   }
 }
 

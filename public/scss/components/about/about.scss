@@ -1,6 +1,5 @@
 .col-person {
   background-color: $white;
-  // transform: translateZ( calc(var(--z) * 2px) );
 }
 
 .portrait {
@@ -14,7 +13,6 @@
 
 .contacts {
   display: flex;
-  perspective: 80px;
 }
 
 .contact-anchor {
@@ -31,11 +29,9 @@
 
   &.tel {
     background-color: rgba($black, 0.05);
-    // transform: translateZ( calc(var(--z) * 8px) );
   }
   &.mail {
     background-color: rgba($black, 0.1);
-    // transform: translateZ( calc(var(--z) * 4px) );
   }
 
   &:hover {

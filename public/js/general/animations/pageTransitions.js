@@ -36,53 +36,28 @@ export const pageOutro = (callback, elements) => {
 };
 
 /**
- * Set css origin
- * @param type
- */
-const setOrigin = type => {
-    let wh = document.body.clientHeight;
-    let so = window.scrollY;
-    let dh = document.getElementById('app').clientHeight;
-    let origin = 50;
-
-    if (type === 'intro') {
-        origin = ((wh * 0.5) / dh) * 100;
-    }
-    if (type === 'outro') {
-        origin = ((so + wh / 2) / dh) * 100;
-    }
-
-    document.body.style.setProperty('--originY', origin);
-};
-
-/**
- * Ben's magic transition
  * @param type
  * @param callback
  * @param elements
  */
 const transition = (type, callback, elements) => {
-    setOrigin(type);
     const blend = document.querySelector('[data-blend]');
 
     let opacity = [];
     let z = [];
     let ease = '';
-    // let cp = [];
     let duration = 0.4;
 
     if (type === 'intro') {
         opacity = [0, 1];
         z = [-20, 0];
         ease = 'Power4.easeOut';
-        // cp = [0, 1];
         duration = 0.8;
     }
     if (type === 'outro') {
         opacity = [1, 0];
         z = [0, 20];
         ease = 'Power4.easeIn';
-        // cp = [1, 0];
     }
 
     if (type === 'outro') {
@@ -119,22 +94,4 @@ const transition = (type, callback, elements) => {
             }
         }
     );
-
-
-    // TweenMax.fromTo(
-    //     document.body,
-    //     duration,
-    //     {
-    //         '--z': cp[0]
-    //     },
-    //     {
-    //         '--z': cp[1],
-    //         ease: ease,
-    //         onComplete: () => {
-    //             if (type === 'outro') {
-    //                 TweenMax.set(window, { scrollTo: 0 });
-    //             }
-    //         }
-    //     }
-    // );
 };

@@ -1,6 +1,4 @@
 .cols-two {
-  perspective: 80px;
-
   @include breakpoint($medium-up) {
     display: flex;
   }

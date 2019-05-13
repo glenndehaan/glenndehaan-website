@@ -5,7 +5,6 @@
   background-image: linear-gradient(rgba($white, 0.05), rgba($white, 0.05));
   background-position: right bottom;
   background-repeat: no-repeat;
-  perspective: 80px;
 
   @include breakpoint($large-down) {
     height: calc(100vh - #{$header-height * 2});
@@ -27,7 +26,6 @@
   @include font(bold, true);
   line-height: 0.9em;
   color: $white;
-  // transform: translateZ( calc(var(--z) * 2px) );
 
   @include breakpoint($large-down) {
     font-size: 18vw;
