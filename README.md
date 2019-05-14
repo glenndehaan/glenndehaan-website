@@ -31,8 +31,8 @@ Then open up your favorite browser and go to http://localhost:3001/
 - Convert GSAP to anime.js if possible to reduce size
 - ~~Remove backend~~
 - Convert build to full webpack build
-- Add WEBP images
-- Add font preload tags
+- ~~Add WEBP images~~
+- ~~Add font preload tags~~
 - ~~Homepage add dynamic slogan~~
 
 ## Bugs
