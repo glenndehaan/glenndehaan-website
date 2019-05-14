@@ -1,17 +1,20 @@
 .landing-header {
   position: relative;
+  z-index: 1;
+
   padding-top: 5vw;
   padding-left: 8vw;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  perspective: 80px;
 
-  @include breakpoint($large-down) {
+
+  @include breakpoint($down900) {
     padding-bottom: calc(5vw + #{$header-height});
     min-height: calc(100vh - #{$header-height * 2});
   }
-  @include breakpoint($large-up) {
+  @include breakpoint($up900) {
     padding-bottom: calc(5vw + #{$header-height});
     min-height: calc(100vh - #{$header-height});
   }
@@ -28,7 +31,6 @@
     url(/images/design/intro-header.jpg);
   background-size: cover;
   background-position: center, 100% 20%;
-  transform: translateZ(calc(var(--z) * 2px));
   z-index: 1;
 }
 
@@ -42,12 +44,11 @@
   @include font(bold, true);
   line-height: 0.9em;
   color: $white;
-  transform: translateZ(calc(var(--z) * 1px));
 
-  @include breakpoint($large-down) {
+  @include breakpoint($down900) {
     font-size: 20vw;
   }
-  @include breakpoint($large-up) {
+  @include breakpoint($up900) {
     font-size: 12vw;
   }
 }
@@ -56,5 +57,4 @@
   margin-top: 1em;
   padding-left: 5px;
   opacity: 0.7;
-  transform: translateZ(calc(var(--z) * 2.5px));
 }

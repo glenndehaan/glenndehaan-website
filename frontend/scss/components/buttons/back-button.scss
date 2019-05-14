@@ -54,7 +54,7 @@
     margin-left: $spacing;
     //opacity: 0.4;
 
-    @include breakpoint($medium-up) {
+    @include breakpoint($up600) {
       margin-left: $spacing-large;
     }
   }

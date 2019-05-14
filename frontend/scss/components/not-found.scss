@@ -5,16 +5,15 @@
   background-image: linear-gradient(rgba($white, 0.05), rgba($white, 0.05));
   background-position: right bottom;
   background-repeat: no-repeat;
-  perspective: 80px;
 
-  @include breakpoint($large-down) {
+  @include breakpoint($down900) {
     height: calc(100vh - #{$header-height * 2});
     justify-content: center;
     align-items: center;
     background-size: 62% 50%;
     transform: translateY(-1em);
   }
-  @include breakpoint($large-up) {
+  @include breakpoint($up900) {
     height: calc(100vh - #{$header-height});
     padding-bottom: 5vw;
     padding-left: 8vw;
@@ -27,12 +26,11 @@
   @include font(bold, true);
   line-height: 0.9em;
   color: $white;
-  transform: translateZ( calc(var(--z) * 2px) );
 
-  @include breakpoint($large-down) {
+  @include breakpoint($down900) {
     font-size: 18vw;
   }
-  @include breakpoint($large-up) {
+  @include breakpoint($up900) {
     font-size: 12vw;
   }
 }

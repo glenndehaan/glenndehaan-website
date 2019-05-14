@@ -6,7 +6,7 @@
   padding-top: 30vw;
   padding-bottom: 30vw;
 
-  @include breakpoint($large-up) {
+  @include breakpoint($up900) {
     padding-top: 15vw;
     padding-bottom: 15vw;
   }

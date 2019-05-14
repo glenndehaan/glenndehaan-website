@@ -1,14 +1,12 @@
 .cols-two {
-  perspective: 80px;
-
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     display: flex;
   }
 }
 
 .col-item {
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     flex-basis: 50%;
   }
 }

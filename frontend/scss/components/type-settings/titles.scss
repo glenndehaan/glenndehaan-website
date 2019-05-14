@@ -8,10 +8,10 @@
   font-size: 1.8rem;
   line-height: 1.25em;
 
-  @include breakpoint($large-down) {
+  @include breakpoint($down900) {
     font-size: 1.6rem;
   }
-  @include breakpoint($large-up) {
+  @include breakpoint($up900) {
     font-size: 1.8rem;
   }
 
@@ -27,11 +27,11 @@
   font-size: 2.0rem;
   line-height: 1.25em;
 
-  @include breakpoint($medium-up){
+  @include breakpoint($up600){
     font-size: 2.2rem;
   }
 
-  @include breakpoint($xlarge-up){
+  @include breakpoint($up1300){
     font-size: 2.4rem;
   }
 }
@@ -42,11 +42,11 @@
   line-height: 1.0em;
   letter-spacing: 0.03em;
 
-  @include breakpoint($medium-up){
+  @include breakpoint($up600){
     font-size: 3.0rem;
   }
 
-  @include breakpoint($xlarge-up){
+  @include breakpoint($up1300){
     font-size: 3.0rem;
   }
 }
@@ -56,11 +56,11 @@
   font-size: 4rem;
   line-height: 1.1em;
 
-  @include breakpoint($medium-up){
+  @include breakpoint($up600){
     font-size: 6.5vw;
   }
 
-  @include breakpoint($large-up){
+  @include breakpoint($up900){
     font-size: 6rem;
   }
 }

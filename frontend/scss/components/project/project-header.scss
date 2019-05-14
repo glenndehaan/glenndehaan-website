@@ -5,8 +5,6 @@
 
 .project-hero {
   position: relative;
-  perspective: 80px;
-  transform: translateZ(calc(var(--z) * 2px));
 }
 
 .hero-title {
@@ -19,9 +17,8 @@
   flex-direction: column;
   justify-content: center;
   padding: $spacing-large $spacing ($spacing-large * 2) $spacing;
-  transform: translateZ(calc(var(--z) * 9px));
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     padding: $spacing-large $spacing-large ($spacing-large * 2) $spacing-large;
   }
 }
@@ -43,7 +40,7 @@
   will-change: transform;
   transition: transform 0.25s;
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     right: $spacing-large;
   }
 
@@ -73,10 +70,6 @@
 }
 
 .hero-shot {
-  //height: 62vh;
-  //min-height: 300px;
-  //transform: translateZ( calc(var(--z) * 3px) );
-
   img {
     display: block;
     width: 100%;

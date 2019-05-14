@@ -5,7 +5,7 @@ My own website
 ## Structure
 - ES6 Javascript
 - Preact
-- GSAP
+- anime.js
 - Custom Animations by @Hornebom
 - Custom CSS by @Hornebom
 - Webpack

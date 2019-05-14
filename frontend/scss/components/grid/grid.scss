@@ -1,7 +1,5 @@
 .grid {
-  perspective: 50px;
-
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -9,6 +7,16 @@
 
   &.grid-landing {
     padding-top: 12vw;
+
+    @include breakpoint($up1000) {
+      width: 80%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @include breakpoint($up1300) {
+      width: 66%;
+    }
   }
 }
 
@@ -21,17 +29,28 @@
   justify-content: center;
   padding: 30px;
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     flex-basis: 50%;
   }
-  @include breakpoint($large-up) {
+  @include breakpoint($up900) {
     flex-basis: 33.33%;
     padding: 60px;
   }
 
   .grid-landing & {
-    @include breakpoint($medium-down) {
+    @include breakpoint($down1000) {
       width: 80%;
+      flex-basis: 80%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @include breakpoint($down400) {
+      width: calc(100% - 4rem);
+    }
+
+    @include breakpoint($up1000) {
+      flex-basis: 50%;
     }
   }
 }

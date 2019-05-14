@@ -4,7 +4,7 @@ $spacing: 1.5rem;
   display: flex;
   align-items: center;
 
-  @include breakpoint($large-down) {
+  @include breakpoint($down900) {
     position: fixed;
     right: 0;
     bottom: 0;
@@ -14,7 +14,7 @@ $spacing: 1.5rem;
     z-index: 20;
   }
 
-  @include breakpoint($large-up) {
+  @include breakpoint($up900) {
     margin-right: $spacing;
     margin-left: auto;
   }
@@ -40,7 +40,7 @@ $spacing: 1.5rem;
     color: $red;
   }
 
-  @include breakpoint($large-down) {
+  @include breakpoint($down900) {
     flex-basis: 33.33%;
     justify-content: center;
   }
@@ -51,7 +51,7 @@ $spacing: 1.5rem;
 .nav-social {
   display: flex;
 
-  @include breakpoint($large-down) {
+  @include breakpoint($down900) {
     margin-left: auto;
   }
 }

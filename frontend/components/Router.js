@@ -77,6 +77,7 @@ class Router extends Component {
         return (
             <div>
                 <Header/>
+                <span className="blend" data-blend/>
                 <div className="container">
                     {this.renderMain(this.state)}
                 </div>
