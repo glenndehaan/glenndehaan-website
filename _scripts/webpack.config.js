@@ -78,11 +78,11 @@ const webpackSettings = {
             { from: 'public/images/*.*', to: 'images/', flatten: true },
             { from: 'public/images/design/*.*', to: 'images/design/', flatten: true },
             { from: 'public/images/icon/*.*', to: 'images/icon/', flatten: true },
-            { from: 'public/images/projects/*.*', to: 'images/projects/', flatten: true },
+            { from: 'public/images/projects/*.*', to: 'images/projects/', flatten: true }
         ]),
         new HtmlWebpackPlugin({
             template: 'public/index.html',
-            inject: false,
+            inject: false
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[hash:6].css'
