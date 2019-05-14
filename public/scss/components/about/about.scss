@@ -42,7 +42,7 @@
 .about-copy {
   padding: 30px;
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     padding: 60px;
   }
 }

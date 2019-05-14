@@ -1,61 +1,61 @@
 .landing-cards {
   margin-top: 30vw;
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     margin-top: 20vw;
   }
-  @include breakpoint($large-up) {
+  @include breakpoint($up900) {
     margin-top: 15vw;
   }
 }
 
 // grid in landing view
 .grid-landing .grid-item {
+  @include breakpoint($down1000) {
+    margin-top: 3rem;
+    max-width: 600px;
+
+    &:nth-child(even) {
+      transform: translateX(-3rem) translateY(3rem);
+    }
+    &:nth-child(odd) {
+      transform: translateX(3rem) translateY(3rem);
+    }
+  }
+
+  @include breakpoint($down400) {
+    margin-top: 2rem;
+
+    &:nth-child(even),
+    &:nth-child(odd) {
+      transform: none;
+    }
+  }
 
   &:nth-child(1) {
-    @include breakpoint($medium-down) {
-    }
-    @include breakpoint($medium-up) {
-    }
-    @include breakpoint($large-up) {
+    @include breakpoint($up1000) {
+      transform: translateX(-1vw) translateY(2vw);
     }
   }
   &:nth-child(2) {
     z-index: 5;
 
-    @include breakpoint($medium-down) {
-      top: -15vw;
-      margin-top: -15vw;
-    }
-    @include breakpoint($medium-up) {
-    }
-    @include breakpoint($large-up) {
+    @include breakpoint($up1000) {
+      transform: translateX(1vw) translateY(-4vw);
     }
   }
   &:nth-child(3) {
     z-index: 1;
 
-    @include breakpoint($medium-down) {
-      top: -10vw;
-      margin-top: -10vw;
-    }
-    @include breakpoint($medium-up) {
-    }
-    @include breakpoint($large-up) {
+    @include breakpoint($up1000) {
+      transform: translateX(-1vw) translateY(4vw);
     }
   }
   &:nth-child(4) {
     z-index: 2;
 
-    @include breakpoint($medium-down) {
-      top: -30vw;
-      margin-top: -30vw;
-    }
-    @include breakpoint($medium-up) {
-      z-index: 5;
-    }
-    @include breakpoint($large-up) {
-      z-index: 1;
+    @include breakpoint($up1000) {
+      transform: translateX(1vw) translateY(-2vw);
     }
   }
 }

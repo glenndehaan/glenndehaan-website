@@ -28,7 +28,7 @@
     border-radius: 50%;
     background-color: $black;
 
-    @include breakpoint($large-up) {
+    @include breakpoint($up900) {
       top: 13px;
     }
   }

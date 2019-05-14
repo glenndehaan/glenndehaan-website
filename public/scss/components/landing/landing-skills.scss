@@ -1,15 +1,19 @@
 .landing-skills {
   position: relative;
+  max-width: 90%;
+  z-index: 2;
+
   display: flex;
   flex-wrap: wrap;
-  max-width: 90%;
+
   margin-top: -40px;
   margin-left: auto;
   padding: 40px 40px 60px 0;
+
   background-color: $white;
   box-shadow: 16px 16px 40px rgba($black, 0.15);
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     width: 63%;
     max-width: 1300px;
     margin-top: -60px;
@@ -22,7 +26,7 @@
   margin-left: 40px;
   list-style-type: none;
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     margin-left: 60px;
   }
 }

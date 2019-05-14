@@ -2,7 +2,7 @@
   padding-top: $spacing-large;
   padding-bottom: $spacing-large * 3;
 
-  @include breakpoint($large-up) {
+  @include breakpoint($up900) {
     padding-bottom: $spacing-large * 3;
   }
 }
@@ -16,7 +16,7 @@
     margin-bottom: 0;
   }
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     margin-bottom: $spacing-large * 2;
   }
 }
@@ -28,11 +28,11 @@
   .media-caption {
     order: 2;
 
-    @include breakpoint($medium-down) {
+    @include breakpoint($down600) {
       margin-top: $spacing * 0.5;
     }
 
-    @include breakpoint($medium-up) {
+    @include breakpoint($up600) {
       flex-basis: 35%;
       flex-grow: 2;
       order: 1;
@@ -43,7 +43,7 @@
   .media-item {
     order: 1;
 
-    @include breakpoint($medium-up) {
+    @include breakpoint($up600) {
       flex-basis: 65%;
       flex-grow: 2;
       order: 2;

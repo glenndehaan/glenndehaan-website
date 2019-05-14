@@ -1,22 +1,25 @@
 // Breakpoints
 
-$small: 400px;
-$medium: 600px;
-$large: 900px;
-$xlarge: 1300px;
+$bp400: 400px;
+$bp600: 600px;
+$bp900: 900px;
+$bp1000: 1000px;
+$bp1300: 1300px;
 
 // Ranges starting form a breakpoint
-$small-up: ( min:  $small );
-$medium-up: ( min:  $medium );
-$large-up: ( min: $large );
-$xlarge-up: ( min: $xlarge );
+$up400: ( min:  $bp400 );
+$up600: ( min:  $bp600 );
+$up900: ( min: $bp900 );
+$up1000: ( min: $bp1000 );
+$up1300: ( min: $bp1300 );
 
 // Ranges between breakpoints
-$small-to-medium: ( min: $small, max: #{$medium - 1} );
-$medium-to-large: ( min: $medium, max: #{$large - 1} );
+$range400-600: ( min: $bp400, max: #{$bp600 - 1} );
+$range600-900: ( min: $bp600, max: #{$bp900 - 1} );
 
 // Ranges up to a breakpoint
-$small-down: ( max: #{$small - 1} );
-$medium-down: ( max: #{$medium - 1} );
-$large-down: ( max: #{$large - 1} );
-$xlarge-down: ( min: #{$xlarge - 1} );
+$down400: ( max: #{$bp400 - 1} );
+$down600: ( max: #{$bp600 - 1} );
+$down900: ( max: #{$bp900 - 1} );
+$down1000: ( max: #{$bp1000 - 1} );
+$down1300: ( min: #{$bp1300 - 1} );

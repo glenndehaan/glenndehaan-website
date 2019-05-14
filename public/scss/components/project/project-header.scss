@@ -18,7 +18,7 @@
   justify-content: center;
   padding: $spacing-large $spacing ($spacing-large * 2) $spacing;
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     padding: $spacing-large $spacing-large ($spacing-large * 2) $spacing-large;
   }
 }
@@ -40,7 +40,7 @@
   will-change: transform;
   transition: transform 0.25s;
 
-  @include breakpoint($medium-up) {
+  @include breakpoint($up600) {
     right: $spacing-large;
   }
 
