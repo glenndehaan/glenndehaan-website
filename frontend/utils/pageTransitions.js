@@ -91,7 +91,7 @@ const transition = (type, callback, elements) => {
         opacity: opacity,
         translateY: y,
         easing: ease
-    }, 0)
+    }, 0);
 
     if (type === 'outro') {
         tl.add({
@@ -99,7 +99,7 @@ const transition = (type, callback, elements) => {
             translateY: ["0%", "200%"],
             easing: ease,
             duration: duration * 1.5
-        }, 0)
+        }, 0);
 
         tl.set({
             targets: window,
