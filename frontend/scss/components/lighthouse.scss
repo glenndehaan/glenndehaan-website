@@ -1,0 +1,55 @@
+$dim: 60px;
+
+.lighthouse {
+
+}
+
+.lighthouse-heading {}
+
+.lighthouse-scores {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.score {
+  position: relative;
+
+  &:not(:first-child) {
+    margin-left: 30px;
+  }
+}
+
+.score-graph {
+  position: relative;
+  width: $dim;
+  height: $dim;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.score-circle {
+  width: $dim;
+  height: $dim;
+
+  fill: transparent;
+  stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-dasharray: 272;
+}
+
+.score-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $dim;
+  height: $dim;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-label {
+  display: block;
+  width: 100%;
+  text-align: center;
+}

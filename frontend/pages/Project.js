@@ -3,6 +3,26 @@ import {h, Component} from 'preact';
 import config from '../config';
 import Link from '../components/Link';
 import {pageIntro} from '../utils/pageTransitions';
+import Lighthouse from '../components/lighthouse/Lighthouse';
+
+const scores = [
+    {
+        label: 'Performance',
+        value: 45
+    },
+    {
+        label: 'Accessibility',
+        value: 99
+    },
+    {
+        label: 'Best Practices',
+        value: 10
+    },
+    {
+        label: 'SEO',
+        value: 99
+    }
+]
 
 export default class Project extends Component {
     /**
@@ -118,8 +138,8 @@ export default class Project extends Component {
                         <div className="box small-width content-unit wysiwyg">
                             <strong>Awards</strong>
                         </div>
-                        <div className="box small-width content-unit wysiwyg">
-                            <strong>Google Lighthouse Score</strong>
+                        <div className="box small-width content-unit">
+                            <Lighthouse scores={scores}/>
                         </div>
                         {this.state.content.content.map((item, key) => {
                             if (item.type === 'copy') {
