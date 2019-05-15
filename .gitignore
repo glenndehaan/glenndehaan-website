@@ -6,7 +6,7 @@
 *.DS_STORE
 
 # Js & css build files
-dist/
+build/
 
 # Dependency managers
 node_modules/

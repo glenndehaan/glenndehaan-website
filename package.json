@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "prestart": "rimraf ./public/dist",
+    "prestart": "rimraf ./build",
     "start": "webpack-dev-server --open --config ./_scripts/webpack.config.js --content-base ./public/dist",
-    "prebuild": "rimraf ./public/dist",
+    "prebuild": "rimraf ./build",
     "build": "cross-env NODE_ENV=production webpack --mode production --config ./_scripts/webpack.config.js --optimize-minimize",
-    "prewebpack": "rimraf ./public/dist",
+    "prewebpack": "rimraf ./build",
     "webpack": "webpack --watch --mode development --config ./_scripts/webpack.config.js",
     "lint": "eslint -c ./package.json ./"
   },

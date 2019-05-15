@@ -7,7 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 const projectRoot = path.join(__dirname, '../');
 const buildDirectory = path.join(projectRoot, 'frontend');
-const distDirectory = path.join(projectRoot, 'public/dist');
+const distDirectory = path.join(projectRoot, 'build');
 
 const ENV = process.env.NODE_ENV || 'development';
 
@@ -29,7 +29,7 @@ const webpackSettings = {
     },
     output: {
         path: distDirectory,
-        filename: '[name].[hash:6].js',
+        filename: 'dist/[name].[hash:6].js',
         publicPath: '/'
     },
     module: {
@@ -85,7 +85,7 @@ const webpackSettings = {
             inject: false
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[hash:6].css'
+            filename: 'dist/[name].[hash:6].css'
         })
     ]
 };
