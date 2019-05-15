@@ -1,12 +1,65 @@
 [
   {
+    "title": "Waterstoring.nl",
+    "published": true,
+    "slug": "waterstoring",
+    "path": "/project/waterstoring",
+    "publish_date": "2019",
+    "intro": "Product",
+    "link": "https://waterstoring.nl/",
+    "lighthouse": [
+      {
+        "label": "Performance",
+        "value": 100
+      },
+      {
+        "label": "Accessibility",
+        "value": 91
+      },
+      {
+        "label": "Best Practices",
+        "value": 93
+      },
+      {
+        "label": "SEO",
+        "value": 100
+      },
+      {
+        "label": "PWA",
+        "value": true
+      }
+    ]
+  },
+  {
     "title": "Nike React",
     "published": true,
     "slug": "nike-react",
     "path": "/project/nike-react",
     "publish_date": "2019",
     "intro": "Digital campaign",
-    "link": "https://nike-react.com/"
+    "link": "https://nike-react.com/",
+    "lighthouse": [
+      {
+        "label": "Performance",
+        "value": 45
+      },
+      {
+        "label": "Accessibility",
+        "value": 99
+      },
+      {
+        "label": "Best Practices",
+        "value": 10
+      },
+      {
+        "label": "SEO",
+        "value": 99
+      },
+      {
+        "label": "PWA",
+        "value": false
+      }
+    ]
   },
   {
     "title": "7up",
@@ -15,7 +68,29 @@
     "path": "/project/7up",
     "publish_date": "2016",
     "intro": "Product website",
-    "link": "http://7up.nl/"
+    "link": "http://7up.nl/",
+    "lighthouse": [
+      {
+        "label": "Performance",
+        "value": 60
+      },
+      {
+        "label": "Accessibility",
+        "value": 54
+      },
+      {
+        "label": "Best Practices",
+        "value": 79
+      },
+      {
+        "label": "SEO",
+        "value": 82
+      },
+      {
+        "label": "PWA",
+        "value": false
+      }
+    ]
   },
   {
     "title": "Peugeot 3008",
@@ -31,8 +106,7 @@
     "slug": "sourcy",
     "path": "/project/sourcynl",
     "publish_date": "2016",
-    "intro": "Product website",
-    "link": "http://sourcy.nl/"
+    "intro": "Product website"
   },
   {
     "title": "Teeez Cosmetics",
@@ -49,7 +123,29 @@
     "path": "/project/russel-co",
     "publish_date": "2016",
     "intro": "Product website",
-    "link": "http://russellandcodrinks.com/"
+    "link": "http://russellandcodrinks.com/",
+    "lighthouse": [
+      {
+        "label": "Performance",
+        "value": 31
+      },
+      {
+        "label": "Accessibility",
+        "value": 70
+      },
+      {
+        "label": "Best Practices",
+        "value": 50
+      },
+      {
+        "label": "SEO",
+        "value": 91
+      },
+      {
+        "label": "PWA",
+        "value": false
+      }
+    ]
   },
   {
     "title": "DS Signature Art",

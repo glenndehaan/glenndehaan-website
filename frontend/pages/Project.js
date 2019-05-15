@@ -5,25 +5,6 @@ import Link from '../components/Link';
 import {pageIntro} from '../utils/pageTransitions';
 import Lighthouse from '../components/lighthouse/Lighthouse';
 
-const scores = [
-    {
-        label: 'Performance',
-        value: 45
-    },
-    {
-        label: 'Accessibility',
-        value: 99
-    },
-    {
-        label: 'Best Practices',
-        value: 10
-    },
-    {
-        label: 'SEO',
-        value: 99
-    }
-]
-
 export default class Project extends Component {
     /**
      * Constructor
@@ -135,9 +116,11 @@ export default class Project extends Component {
                         <div className="box small-width content-unit wysiwyg">
                             <strong>Awards</strong>
                         </div>
-                        <div className="box small-width content-unit">
-                            <Lighthouse scores={scores}/>
-                        </div>
+                        {this.state.content.lighthouse &&
+                            <div className="box small-width content-unit">
+                                <Lighthouse scores={this.state.content.lighthouse}/>
+                            </div>
+                        }
                     </section>
                 </main>
             );

@@ -1,7 +1,8 @@
 import {h} from 'preact';
 
 /**
- * Export the linkedin icon
+ * Export the LinkedIn icon
+ *
  * @return {*}
  * @constructor
  */

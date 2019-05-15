@@ -1,7 +1,8 @@
 import {h} from 'preact';
 
 /**
- * Export the github icon
+ * Export the Github icon
+ *
  * @return {*}
  * @constructor
  */

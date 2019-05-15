@@ -1,10 +1,13 @@
 import {h} from 'preact';
-
 import Score from './Score'
 
-function Lighthouse({
-    scores
-}) {
+/**
+ * Export the Lighthouse component
+ *
+ * @param scores
+ * @return {*}
+ */
+function Lighthouse({ scores }) {
     return (
         <section className="lighthouse">
             <h4 className="lighthouse-heading">Lighthouse scores</h4>
