@@ -7,18 +7,29 @@ $dim: 60px;
 .lighthouse-heading {}
 
 .lighthouse-icon {
-  display: inline-block;
   width: 5rem;
   height: 5rem;
-  margin-right: 15px;
-  vertical-align: middle;
-  transform: translateY(-15%);
+
+  @include breakpoint($down600){
+    display: block;
+    margin-bottom: 3rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include breakpoint($up600){
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+    transform: translateY(-15%);
+  }
 }
 
 // ================================
 .lighthouse-scores {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 // ================================
@@ -26,10 +37,8 @@ $dim: 60px;
   position: relative;
   width: 85px;
   margin-top: 3rem;
-
-  &:not(:last-child) {
-    margin-right: 20px;
-  }
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 // ================================
@@ -95,7 +104,6 @@ $dim: 60px;
   width: 100%;
   margin-top: 1rem;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .pwa:not(.is-pwa) + .score-label {

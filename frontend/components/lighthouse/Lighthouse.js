@@ -11,7 +11,7 @@ import Score from './Score'
 function Lighthouse({ scores }) {
     return (
         <section className="lighthouse">
-            <h4 className="lighthouse-heading title-medium">
+            <h4 className="lighthouse-heading title-medium align-center">
                 <IconLightHouse className="lighthouse-icon" />
                 Google Lighthouse audits
             </h4>

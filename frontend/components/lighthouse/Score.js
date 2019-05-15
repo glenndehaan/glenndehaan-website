@@ -91,7 +91,7 @@ export default class Score extends Component {
 
         return (
             <p className="score">
-                <figure className={cc(['score-graph', pwa && 'pwa'])}>
+                <figure className={cc(['score-graph', pwa && 'pwa', pwaValue && 'is-pwa'])}>
                     {value && !pwa &&
                         <svg className="score-circle" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="43.676"/>
@@ -115,9 +115,9 @@ export default class Score extends Component {
                             )}
                         </svg>
                     )}
-                    {value && !pwa && <span className="score-value">{value}</span>}
+                    {value && !pwa && <span className="score-value copy copy-grey">{value}</span>}
                 </figure>
-                {label && <span className="score-label copy-grey copy-small">{label}</span>}
+                {label && <span className="score-label copy-grey copy-small v-caps">{label}</span>}
             </p>
         )
     }
