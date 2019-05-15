@@ -6,37 +6,78 @@ $dim: 60px;
 
 .lighthouse-heading {}
 
+.lighthouse-icon {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 15px;
+  vertical-align: middle;
+  transform: translateY(-15%);
+}
+
+// ================================
 .lighthouse-scores {
   display: flex;
   flex-wrap: wrap;
 }
 
+// ================================
 .score {
   position: relative;
+  width: 85px;
+  margin-top: 3rem;
 
-  &:not(:first-child) {
-    margin-left: 30px;
+  &:not(:last-child) {
+    margin-right: 20px;
   }
 }
 
+// ================================
 .score-graph {
   position: relative;
   width: $dim;
   height: $dim;
   margin-right: auto;
   margin-left: auto;
+  border-radius: 50%;
 }
 
+.score-graph.pwa {
+  background-color: rgba($black, 0.05);
+}
+
+// ================================
+.score-pwalogo,
 .score-circle {
   width: $dim;
   height: $dim;
+}
 
+.score-pwalogo {
+  &.is-pwa {
+    opacity: 1;
+  }
+  &:not(.is-pwa) {
+    opacity: 0.2;
+  }
+}
+
+.score-circle,
+.score-circle circle {
   fill: transparent;
   stroke-width: 6px;
+}
+
+.score-circle {
   stroke-linecap: round;
   stroke-dasharray: 272;
 }
 
+.score-circle circle {
+  stroke: rgba($black, 0.1);
+}
+
+// ================================
 .score-value {
   position: absolute;
   top: 0;
@@ -48,8 +89,15 @@ $dim: 60px;
   align-items: center;
 }
 
+// ================================
 .score-label {
   display: block;
   width: 100%;
+  margin-top: 1rem;
   text-align: center;
+  text-transform: uppercase;
+}
+
+.pwa:not(.is-pwa) + .score-label {
+  opacity: 0.4;
 }

@@ -1,4 +1,5 @@
 import {h} from 'preact';
+import IconLightHouse from './IconLighthouse';
 import Score from './Score'
 
 /**
@@ -10,7 +11,10 @@ import Score from './Score'
 function Lighthouse({ scores }) {
     return (
         <section className="lighthouse">
-            <h4 className="lighthouse-heading">Lighthouse scores</h4>
+            <h4 className="lighthouse-heading title-medium">
+                <IconLightHouse className="lighthouse-icon" />
+                Google Lighthouse audits
+            </h4>
             <div className="lighthouse-scores">
                 {scores && scores.length > 0 && scores.map((score, i) => (
                     <Score {...score} key={i.toString()} />
