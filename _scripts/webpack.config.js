@@ -74,6 +74,8 @@ const webpackSettings = {
         // new BundleAnalyzerPlugin(),
         new CopyPlugin([
             { from: 'public/manifest.json' },
+            { from: 'public/sitemap.xml' },
+            { from: 'public/robots.txt' },
             { from: 'public/fonts/*.*', to: 'fonts/', flatten: true },
             { from: 'public/images/*.*', to: 'images/', flatten: true },
             { from: 'public/images/design/*.*', to: 'images/design/', flatten: true },
