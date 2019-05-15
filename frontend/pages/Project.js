@@ -106,10 +106,10 @@ export default class Project extends Component {
                             <p className="project-intro copy-grey copy-accent">
                                 {this.state.content.intro}
                             </p>
-                            {this.state.content.project_link && (
+                            {this.state.content.link && (
                                 <a
                                     className="project-anchor"
-                                    href={this.state.content.project_link}
+                                    href={this.state.content.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -117,22 +117,19 @@ export default class Project extends Component {
                                 </a>
                             )}
                         </figcaption>
-                        {this.state.content.image.desktop.src &&
-                        this.state.content.image.mobile.src && (
-                            <div className="hero-shot">
-                                <picture>
-                                    <source
-                                        srcSet={this.state.content.image.mobile.src}
-                                        media="(max-width: 600px)"
-                                    />
-                                    <img
-                                        className="media-cover"
-                                        src={this.state.content.image.desktop.src}
-                                        alt={this.state.content.image.desktop.alt}
-                                    />
-                                </picture>
-                            </div>
-                        )}
+                        <div className="hero-shot">
+                            <picture>
+                                <source
+                                    srcSet={`/images/projects/${this.state.content.slug}_full.jpg`}
+                                    media="(max-width: 600px)"
+                                />
+                                <img
+                                    className="media-cover"
+                                    src={`/images/projects/${this.state.content.slug}_full.jpg`}
+                                    alt="Screenshot of the project"
+                                />
+                            </picture>
+                        </div>
                     </figure>
                     <section className="project-body">
                         <div className="box small-width content-unit wysiwyg">
@@ -141,81 +138,6 @@ export default class Project extends Component {
                         <div className="box small-width content-unit">
                             <Lighthouse scores={scores}/>
                         </div>
-                        {this.state.content.content.map((item, key) => {
-                            if (item.type === 'copy') {
-                                return (
-                                    <div
-                                        className="box small-width content-unit wysiwyg"
-                                        key={key}
-                                        dangerouslySetInnerHTML={{__html: item.text}}
-                                    />
-                                );
-                            }
-
-                            if (item.type === 'image') {
-                                return (
-                                    <figure
-                                        className="box medium-width content-media content-unit"
-                                        key={key}
-                                    >
-                                        {item.image.desktop.title && (
-                                            <figcaption className="media-caption">
-                                                {
-                                                    <h5 className="title-small title-grey">
-                                                        {item.image.desktop.title}
-                                                    </h5>
-                                                }
-                                            </figcaption>
-                                        )}
-                                        <div className="media-item">
-                                            <picture>
-                                                <source
-                                                    srcSet={item.image.mobile.src}
-                                                    media="(max-width: 600px)"
-                                                />
-                                                <img
-                                                    className="media-scale"
-                                                    src={item.image.desktop.src}
-                                                    alt={item.image.desktop.alt}
-                                                />
-                                            </picture>
-                                        </div>
-                                    </figure>
-                                );
-                            }
-
-                            if (item.type === 'video') {
-                                if (item.video_service === 'youtube') {
-                                    return (
-                                        <div className="box medium-width content-unit" key={key}>
-                                            <div className="vid-wrap">
-                                                <iframe
-                                                    width="100%"
-                                                    height="100%"
-                                                    src={`https://www.youtube.com/embed/${item.video_embed_code}`}
-                                                    frameBorder="0"
-                                                    allowFullScreen
-                                                />
-                                            </div>
-                                        </div>
-                                    );
-                                }
-
-                                if (item.video_service === 'vimeo') {
-                                    return (
-                                        <div className="box-fill" key={key}>
-                                            <iframe
-                                                src={`https://player.vimeo.com/video/${item.video_embed_code}`}
-                                                width="100%"
-                                                height="100%"
-                                                frameBorder="0"
-                                                allowFullScreen
-                                            />
-                                        </div>
-                                    );
-                                }
-                            }
-                        })}
                     </section>
                 </main>
             );
