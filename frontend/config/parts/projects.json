@@ -38,6 +38,11 @@
     "publish_date": "2019",
     "intro": "Digital campaign",
     "link": "https://nike-react.com/",
+    "awards": [
+      "webby",
+      "lovie",
+      "fwa-foty"
+    ],
     "lighthouse": [
       {
         "label": "Performance",
@@ -69,6 +74,10 @@
     "publish_date": "2016",
     "intro": "Product website",
     "link": "http://7up.nl/",
+    "awards": [
+      "webby",
+      "awwwards-sotd"
+    ],
     "lighthouse": [
       {
         "label": "Performance",
@@ -98,7 +107,12 @@
     "slug": "peugeot-3008",
     "path": "/project/peugeot-3008",
     "publish_date": "2016",
-    "intro": "Digital campaign"
+    "intro": "Digital campaign",
+    "awards": [
+      "lovie",
+      "cssda-sotm",
+      "dia"
+    ]
   },
   {
     "title": "Sourcy.nl",
