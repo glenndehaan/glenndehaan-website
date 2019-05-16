@@ -1,9 +1,14 @@
 import {h, Component} from 'preact';
 
 import config from '../config';
-import Link from '../components/Link';
 import {pageIntro} from '../utils/transitions';
+
+import Link from '../components/Link';
 import Lighthouse from '../components/lighthouse/Lighthouse';
+import Processor from '../components/icons/Processor';
+import Disk from '../components/icons/Disk';
+import Loadbalancer from '../components/icons/Loadbalancer';
+import Cdn from '../components/icons/Cdn';
 
 export default class Project extends Component {
     /**
@@ -115,6 +120,15 @@ export default class Project extends Component {
                     <section className="project-body">
                         <div className="box small-width content-unit wysiwyg">
                             <strong>Awards</strong>
+                        </div>
+                        <div className="box small-width content-unit wysiwyg">
+                            <strong>Server Specifications</strong>
+                            <p>
+                                <Processor/>
+                                <Disk/>
+                                <Loadbalancer/>
+                                <Cdn/>
+                            </p>
                         </div>
                         {this.state.content.lighthouse &&
                             <div className="box small-width content-unit">
