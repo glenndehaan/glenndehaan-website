@@ -118,18 +118,22 @@ export default class Project extends Component {
                         </div>
                     </figure>
                     <section className="project-body">
-                        <div className="box small-width content-unit wysiwyg">
-                            <strong>Awards</strong>
-                        </div>
-                        <div className="box small-width content-unit wysiwyg">
-                            <strong>Server Specifications</strong>
-                            <p>
-                                <Processor/>
-                                <Disk/>
-                                <Loadbalancer/>
-                                <Cdn/>
-                            </p>
-                        </div>
+                        {this.state.content.server &&
+                            <div className="box small-width content-unit wysiwyg">
+                                <strong>Server Specifications</strong>
+                                <p>
+                                    <Processor/>
+                                    <Disk/>
+                                    <Loadbalancer/>
+                                    <Cdn/>
+                                </p>
+                            </div>
+                        }
+                        {this.state.content.awards &&
+                            <div className="box small-width content-unit wysiwyg">
+                                <strong>Awards</strong>
+                            </div>
+                        }
                         {this.state.content.lighthouse &&
                             <div className="box small-width content-unit">
                                 <Lighthouse scores={this.state.content.lighthouse}/>

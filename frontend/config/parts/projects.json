@@ -8,11 +8,11 @@
     "intro": "Product",
     "link": "https://waterstoring.nl/",
     "server": {
-      "cpu": "42 Cores",
-      "memory": "2048 MB",
-      "disk": "160 GB",
-      "loadbalancer": "3",
-      "cdn": true
+      "cpu": "18 Cores",
+      "memory": "48 GB",
+      "disk": "140 GB",
+      "loadbalancer": "1",
+      "cdn": false
     },
     "lighthouse": [
       {
@@ -45,6 +45,13 @@
     "publish_date": "2019",
     "intro": "Digital campaign",
     "link": "https://nike-react.com/",
+    "server": {
+      "cpu": "32 Cores",
+      "memory": "48 GB",
+      "disk": "500 GB",
+      "loadbalancer": "1",
+      "cdn": true
+    },
     "awards": [
       "webby",
       "lovie",
@@ -81,6 +88,13 @@
     "publish_date": "2016",
     "intro": "Product website",
     "link": "http://7up.nl/",
+    "server": {
+      "cpu": "2 Cores",
+      "memory": "4 GB",
+      "disk": "20 GB",
+      "loadbalancer": "1",
+      "cdn": false
+    },
     "awards": [
       "webby",
       "awwwards"
@@ -115,6 +129,13 @@
     "path": "/project/peugeot-3008",
     "publish_date": "2016",
     "intro": "Digital campaign",
+    "server": {
+      "cpu": "16 Cores",
+      "memory": "16 GB",
+      "disk": "60 GB",
+      "loadbalancer": "1",
+      "cdn": false
+    },
     "awards": [
       "lovie",
       "cssda",
@@ -127,7 +148,18 @@
     "slug": "sourcy",
     "path": "/project/sourcynl",
     "publish_date": "2016",
-    "intro": "Product website"
+    "intro": "Product website",
+    "server": {
+      "cpu": "2 Cores",
+      "memory": "4 GB",
+      "disk": "20 GB",
+      "loadbalancer": "1",
+      "cdn": false
+    },
+    "awards": [
+      "awwwards",
+      "cssda"
+    ]
   },
   {
     "title": "Teeez Cosmetics",
@@ -145,6 +177,20 @@
     "publish_date": "2016",
     "intro": "Product website",
     "link": "http://russellandcodrinks.com/",
+    "awards": [
+      "lovie",
+      "awwwards",
+      "cssda",
+      "fwa",
+      "webby"
+    ],
+    "server": {
+      "cpu": "2 Cores",
+      "memory": "4 GB",
+      "disk": "20 GB",
+      "loadbalancer": "1",
+      "cdn": false
+    },
     "lighthouse": [
       {
         "label": "Performance",
@@ -174,6 +220,19 @@
     "slug": "ds-signatureart",
     "path": "/project/ds-signatureart",
     "publish_date": "2015",
-    "intro": "Digital campaign / Interactive installation"
+    "intro": "Digital campaign / Interactive installation",
+    "server": {
+      "cpu": "16 Cores",
+      "memory": "16 GB",
+      "disk": "60 GB",
+      "loadbalancer": "1",
+      "cdn": false
+    },
+    "awards": [
+      "awwwards",
+      "cssda",
+      "fwa",
+      "webby"
+    ]
   }
 ]
