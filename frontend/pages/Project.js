@@ -123,11 +123,11 @@ export default class Project extends Component {
                             <div className="box small-width content-unit wysiwyg">
                                 <strong>Server Specifications</strong>
                                 <p>
-                                    <Processor/>
-                                    <Memory/>
-                                    <Disk/>
-                                    <Loadbalancer/>
-                                    <Cdn/>
+                                    <Processor/>{this.state.content.server.cpu}
+                                    <Memory/>{this.state.content.server.memory}
+                                    <Disk/>{this.state.content.server.disk}
+                                    <Loadbalancer/>{this.state.content.server.loadbalancer}
+                                    <Cdn/>{this.state.content.server.cdn}
                                 </p>
                             </div>
                         }
