@@ -7,6 +7,13 @@
     "publish_date": "2019",
     "intro": "Product",
     "link": "https://waterstoring.nl/",
+    "server": {
+      "cpu": "42 Cores",
+      "memory": "2048 MB",
+      "disk": "160 GB",
+      "loadbalancer": "3",
+      "cdn": true
+    },
     "lighthouse": [
       {
         "label": "Performance",
