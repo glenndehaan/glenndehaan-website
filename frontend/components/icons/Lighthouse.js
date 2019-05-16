@@ -1,6 +1,12 @@
 import {h} from 'preact';
 
-function IconLighthouse({ className }) {
+/**
+ * Export the Lighthouse icon
+ *
+ * @return {*}
+ * @constructor
+ */
+const Lighthouse = ({ className }) => {
     return (
         <svg className={className} viewBox="0 0 291 291">
             <circle cx="145.5" cy="145.5" fill="#f1f3f4" r="145.5"/>
@@ -46,7 +52,6 @@ function IconLighthouse({ className }) {
             <path d="m108.8 176.4c21 0 21-13.6 42-13.6h.4l-.2-15c-30 0-57 6.2-75 16 12.5 3.2 15.4 12.6 32.8 12.6z" fill="#64dd17"/>
         </svg>
     )
-}
+};
 
-export default IconLighthouse;
-
+export default Lighthouse;

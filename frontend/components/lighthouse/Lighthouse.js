@@ -1,6 +1,7 @@
 import {h} from 'preact';
-import IconLightHouse from './IconLighthouse';
+
 import Score from './Score'
+import IconLightHouse from '../icons/Lighthouse';
 
 /**
  * Export the Lighthouse component
