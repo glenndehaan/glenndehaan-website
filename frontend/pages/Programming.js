@@ -2,7 +2,7 @@ import {h, Component} from 'preact';
 import { connect } from 'unistore/preact';
 
 import config from '../config';
-import {pageIntro} from '../utils/pageTransitions';
+import {pageIntro} from '../utils/transitions';
 
 class Programming extends Component {
     /**

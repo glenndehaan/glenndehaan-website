@@ -2,7 +2,7 @@ import {h, Component} from 'preact';
 
 import config from '../config';
 import Link from '../components/Link';
-import {pageIntro} from '../utils/pageTransitions';
+import {pageIntro} from '../utils/transitions';
 import Lighthouse from '../components/lighthouse/Lighthouse';
 
 export default class Project extends Component {

@@ -2,7 +2,7 @@ import {h, Component} from 'preact';
 import { connect } from 'unistore/preact';
 import {actions} from '../modules/store';
 
-import {pageOutro} from '../utils/pageTransitions';
+import {pageOutro} from '../utils/transitions';
 import routeObserver, {getBaseRoute} from '../utils/routing';
 
 import Header from "./Header";

@@ -3,7 +3,7 @@ import { connect } from 'unistore/preact';
 
 import config from '../config';
 import Link from '../components/Link';
-import {pageIntro} from '../utils/pageTransitions';
+import {pageIntro} from '../utils/transitions';
 import {randomSlogan} from '../utils/strings';
 
 class Home extends Component {
