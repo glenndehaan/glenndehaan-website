@@ -64,7 +64,15 @@ export const pageOutro = (callback, elements) => {
  */
 const transition = (type, callback, elements) => {
     const tl = animejs.timeline({
-        complete: callback
+        complete: () => {
+            if(type === 'outro') {
+                if(typeof window.scrollTo === "function") {
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            callback();
+        }
     });
     const blend = document.querySelector('[data-blend]');
 
@@ -100,10 +108,5 @@ const transition = (type, callback, elements) => {
             easing: ease,
             duration: duration * 1.5
         }, 0);
-
-        tl.set({
-            targets: window,
-            scrollTo: 0
-        })
     }
 };
