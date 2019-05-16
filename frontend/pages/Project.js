@@ -6,6 +6,7 @@ import {pageIntro} from '../utils/transitions';
 import Link from '../components/Link';
 import Lighthouse from '../components/lighthouse/Lighthouse';
 import Processor from '../components/icons/Processor';
+import Memory from '../components/icons/Memory';
 import Disk from '../components/icons/Disk';
 import Loadbalancer from '../components/icons/Loadbalancer';
 import Cdn from '../components/icons/Cdn';
@@ -123,6 +124,7 @@ export default class Project extends Component {
                                 <strong>Server Specifications</strong>
                                 <p>
                                     <Processor/>
+                                    <Memory/>
                                     <Disk/>
                                     <Loadbalancer/>
                                     <Cdn/>
