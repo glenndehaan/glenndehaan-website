@@ -6,7 +6,7 @@ import {h} from 'preact';
  * @return {*}
  * @constructor
  */
-function Processor({...props}) {
+const Cpu = ({...props}) => {
     return (
         <svg {...props} fill="none" fillRule="evenodd" viewBox="0 0 32 32">
             <path d="M1 9h4v3H1zm0 5h4v3H1zm0 5h4v3H1zM26 9h4v3h-4zm0 5h4v3h-4zm0 5h4v3h-4zM19 1h3v4h-3zm-5 0h3v4h-3zM9 1h3v4H9zm10 25h3v4h-3zm-5 0h3v4h-3zm-5 0h3v4H9z" fill="#616161"/>
@@ -16,6 +16,6 @@ function Processor({...props}) {
             <path d="M20 20h-9l4.5-4.5z" fill="#616161"/>
         </svg>
     );
-}
+};
 
-export default Processor;
+export default Cpu;

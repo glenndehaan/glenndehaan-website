@@ -1,7 +1,7 @@
 import {h} from 'preact';
 
 import Score from './Score'
-import Icon from '../../components/icons/Icon';
+import Icon from '../../components/icons';
 
 /**
  * Export the Lighthouse component
@@ -17,8 +17,8 @@ function Lighthouse({ scores }) {
                 Google Lighthouse audits
             </h4>
             <div className="lighthouse-scores">
-                {scores && scores.length > 0 && scores.map((score, i) => (
-                    <Score {...score} key={i.toString()} />
+                {scores && scores.length > 0 && scores.map((score, key) => (
+                    <Score {...score} key={key} />
                 ))}
             </div>
         </section>

@@ -2,8 +2,7 @@ import {h, Component} from 'preact';
 import { connect } from 'unistore/preact';
 
 import Link from './Link';
-import LinkedinIcon from './icons/Linkedin';
-import GithubIcon from './icons/Github';
+import Icon from './icons';
 
 class Header extends Component {
     /**
@@ -37,11 +36,11 @@ class Header extends Component {
 
                 <nav className="nav-social">
                     <a className="social-anchor" href="https://github.com/glenndehaan" target="_blank" rel="noopener noreferrer">
-                        <GithubIcon/>
+                        <Icon type="github" />
                         <span>GitHub</span>
                     </a>
                     <a className="social-anchor" href="https://www.linkedin.com/in/glenndehaan/" target="_blank" rel="noopener noreferrer">
-                        <LinkedinIcon/>
+                        <Icon type="linkedin" />
                         <span>LinkedIn</span>
                     </a>
                 </nav>

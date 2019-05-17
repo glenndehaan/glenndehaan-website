@@ -6,7 +6,7 @@ import {h} from 'preact';
  * @return {*}
  * @constructor
  */
-function Memory({...props}) {
+const Memory = ({...props}) => {
     return (
         <svg {...props} fill="none" fillRule="evenodd" viewBox="0 0 32 32">
             <path d="M1 3h5v4H1zm0 7h5v4H1zm0 7h5v4H1zm0 7h5v4H1zM26 3h5v4h-5zm0 7h5v4h-5zm0 7h5v4h-5zm0 7h5v4h-5z" fill="#616161"/>
@@ -15,6 +15,6 @@ function Memory({...props}) {
             <path d="M15 31v-5l7-12h-5V0h9v31z" fill="#616161"/>
         </svg>
     );
-}
+};
 
 export default Memory;
