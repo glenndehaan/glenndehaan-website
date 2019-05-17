@@ -5,11 +5,12 @@ import {pageIntro} from '../utils/transitions';
 
 import Link from '../components/Link';
 import Lighthouse from '../components/lighthouse/Lighthouse';
-import Processor from '../components/icons/Processor';
-import Memory from '../components/icons/Memory';
-import Disk from '../components/icons/Disk';
-import Loadbalancer from '../components/icons/Loadbalancer';
-import Cdn from '../components/icons/Cdn';
+// import Processor from '../components/icons/Processor';
+// import Memory from '../components/icons/Memory';
+// import Disk from '../components/icons/Disk';
+// import Loadbalancer from '../components/icons/Loadbalancer';
+// import Cdn from '../components/icons/Cdn';
+import Server from '../components/server/Server';
 
 export default class Project extends Component {
     /**
@@ -77,6 +78,7 @@ export default class Project extends Component {
      */
     render() {
         if (this.state.content) {
+            console.log('this.state.content', this.state.content);
             return (
                 <main className="project" ref={c => (this.domElements.mainContainer = c)}>
                     <Link className="button-back" href="/project">
@@ -118,18 +120,9 @@ export default class Project extends Component {
                             </picture>
                         </div>
                     </figure>
-                    <section className="project-body">
+                    <article className="project-body">
                         {this.state.content.server &&
-                            <div className="box small-width content-unit wysiwyg">
-                                <strong>Server Specifications</strong>
-                                <p>
-                                    <Processor/>{this.state.content.server.cpu}
-                                    <Memory/>{this.state.content.server.memory}
-                                    <Disk/>{this.state.content.server.disk}
-                                    <Loadbalancer/>{this.state.content.server.loadbalancer}
-                                    <Cdn/>{this.state.content.server.cdn}
-                                </p>
-                            </div>
+                            <Server specs={this.state.content.server} />
                         }
                         {this.state.content.awards &&
                             <div className="box small-width content-unit wysiwyg">
@@ -137,11 +130,9 @@ export default class Project extends Component {
                             </div>
                         }
                         {this.state.content.lighthouse &&
-                            <div className="box small-width content-unit">
-                                <Lighthouse scores={this.state.content.lighthouse}/>
-                            </div>
+                            <Lighthouse scores={this.state.content.lighthouse}/>
                         }
-                    </section>
+                    </article>
                 </main>
             );
         } else {

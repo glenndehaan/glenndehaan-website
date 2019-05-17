@@ -1,0 +1,24 @@
+.server {}
+
+.server-heading {}
+
+.server-specs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.server-spec {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.server-icon {
+  display: block;
+  width: 50px;
+  height: auto;
+}
+
+.server-label {
+  text-align: center;
+}

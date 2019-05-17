@@ -1,7 +1,7 @@
 import {h} from 'preact';
 
 import Score from './Score'
-import IconLightHouse from '../icons/Lighthouse';
+import Icon from '../../components/icons/Icon';
 
 /**
  * Export the Lighthouse component
@@ -11,9 +11,9 @@ import IconLightHouse from '../icons/Lighthouse';
  */
 function Lighthouse({ scores }) {
     return (
-        <section className="lighthouse">
+        <section className="lighthouse box small-width content-unit">
             <h4 className="lighthouse-heading title-medium align-center">
-                <IconLightHouse className="lighthouse-icon" />
+                <Icon className="lighthouse-icon" type="lighthouse" />
                 Google Lighthouse audits
             </h4>
             <div className="lighthouse-scores">
