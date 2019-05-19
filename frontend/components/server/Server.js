@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import cc from 'classcat';
 
 import Icon from '../icons';
 
@@ -16,7 +17,7 @@ const Server = ({ specs }) => {
             </h4>
             <div className="server-specs">
                 {Object.entries(specs).map((spec, key) => (
-                    <p className="server-spec" key={key}>
+                    <p className={cc(['server-spec', spec[0] === 'cdn' && spec[1] === false && 'cdn-false'])} key={key}>
                         <Icon className="server-icon" type={spec[0]} />
                         <span className="server-label copy-grey copy-small v-caps">{spec[1]}</span>
                     </p>
