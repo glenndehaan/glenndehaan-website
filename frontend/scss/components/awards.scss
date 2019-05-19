@@ -1,0 +1,50 @@
+.awards {}
+
+.awards-heading {}
+
+.awards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.award {
+  width: 85px;
+  margin-top: 3rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.award-icon {
+  display: block;
+  width: 85px;
+  height: 85px;
+  margin-right: auto;
+  margin-left: auto;
+  fill: $black;
+  opacity: 0.9;
+}
+
+.icon-webby .award-icon {
+  transform: scale(0.8);
+}
+
+.icon-awwwards .award-icon {
+  transform: scale(0.7);
+}
+
+.icon-cssda .award-icon {
+  transform: scale(0.55);
+}
+
+.icon-dia .award-icon {
+  transform: scale(0.8);
+}
+
+.icon-fwa .award-icon {
+  transform: scale(0.9);
+}
+
+.icon-lovie .award-icon {
+  transform: scale(0.6);
+}

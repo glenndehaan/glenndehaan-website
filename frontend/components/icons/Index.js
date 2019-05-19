@@ -13,6 +13,13 @@ import Lighthouse from './svg/Lighthouse';
 import Github from './svg/Github';
 import Linkedin from './svg/Linkedin';
 
+import Awwwards from './svg/Awwwards';
+import Cssda from './svg/Cssda';
+import Fwa from './svg/Fwa';
+import Webby from './svg/Webby';
+import Lovie from './svg/Lovie';
+import Dia from './svg/Dia';
+
 /**
  * Create icon type's
  */
@@ -24,7 +31,13 @@ const types = {
     linkedin: Linkedin,
     loadbalancer: Loadbalancer,
     memory: Memory,
-    cpu: Cpu
+    cpu: Cpu,
+    awwwards: Awwwards,
+    cssda: Cssda,
+    fwa: Fwa,
+    webby: Webby,
+    lovie: Lovie,
+    dia: Dia
 };
 
 /**

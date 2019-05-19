@@ -5,12 +5,8 @@ import {pageIntro} from '../utils/transitions';
 
 import Link from '../components/Link';
 import Lighthouse from '../components/lighthouse/Lighthouse';
-// import Processor from '../components/icons/Processor';
-// import Memory from '../components/icons/Memory';
-// import Disk from '../components/icons/Disk';
-// import Loadbalancer from '../components/icons/Loadbalancer';
-// import Cdn from '../components/icons/Cdn';
 import Server from '../components/server/Server';
+import Awards from '../components/awards/Awards';
 
 export default class Project extends Component {
     /**
@@ -124,13 +120,11 @@ export default class Project extends Component {
                         {this.state.content.server &&
                             <Server specs={this.state.content.server} />
                         }
-                        {this.state.content.awards &&
-                            <div className="box small-width content-unit wysiwyg">
-                                <strong>Awards</strong>
-                            </div>
-                        }
                         {this.state.content.lighthouse &&
-                            <Lighthouse scores={this.state.content.lighthouse}/>
+                            <Lighthouse scores={this.state.content.lighthouse} />
+                        }
+                        {this.state.content.awards &&
+                            <Awards items={this.state.content.awards} />
                         }
                     </article>
                 </main>
