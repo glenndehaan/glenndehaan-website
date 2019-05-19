@@ -4,9 +4,9 @@ import cc from 'classcat';
 import Icon from '../icons';
 
 /**
- * Render the server component
+ * Render the awards component
  *
- * @param specs
+ * @param items
  * @return {*}
  */
 const Awards = ({ items }) => {
