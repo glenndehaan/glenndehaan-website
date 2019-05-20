@@ -1,7 +1,7 @@
 import {h} from 'preact';
 
 import Score from './Score'
-import Icon from '../../components/icons';
+import Icon from '../icons';
 
 /**
  * Export the Lighthouse component
