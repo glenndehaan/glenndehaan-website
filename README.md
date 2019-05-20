@@ -2,7 +2,7 @@
 
 My own website
 
-[![Build Status](https://img.shields.io/docker/cloud/build/glenndehaan/glenndehaan-website.svg)](https://cloud.docker.com/u/glenndehaan/repository/docker/glenndehaan/glenndehaan-website) [![Build Status](https://img.shields.io/docker/cloud/automated/glenndehaan/glenndehaan-website.svg)](https://cloud.docker.com/u/glenndehaan/repository/docker/glenndehaan/glenndehaan-website)
+[![Build Status](https://img.shields.io/docker/cloud/build/glenndehaan/glenndehaan-website.svg)](https://hub.docker.com/r/glenndehaan/glenndehaan-website) [![Build Status](https://img.shields.io/docker/cloud/automated/glenndehaan/glenndehaan-website.svg)](https://hub.docker.com/r/glenndehaan/glenndehaan-website)
 
 ## Structure
 - ES6 Javascript
