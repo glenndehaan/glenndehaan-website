@@ -24,6 +24,10 @@ Then open up your favorite browser and go to http://localhost:3001/
 - Run `npm ci` in the root folder
 - Run `npm run build` in the root folder
 
+## Docker
+- Build from master are build by Docker Hub
+- Builds can be pulled by using this command: `docker pull glenndehaan/glenndehaan-website`
+
 ## License
 
 MIT
