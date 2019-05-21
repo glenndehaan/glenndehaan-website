@@ -118,6 +118,9 @@ module.exports = (env) => {
                         output: {
                             comments: false,
                             beautify: false
+                        },
+                        compress: {
+                            drop_console: true
                         }
                     }
                 })
