@@ -86,6 +86,7 @@ module.exports = (env) => {
                 {from: 'public/manifest.json'},
                 {from: 'public/sitemap.xml'},
                 {from: 'public/robots.txt'},
+                {from: 'public/docs/*.*', to: 'docs/', flatten: true},
                 {from: 'public/fonts/*.*', to: 'fonts/', flatten: true},
                 {from: 'public/images/*.*', to: 'images/', flatten: true},
                 {from: 'public/images/design/*.*', to: 'images/design/', flatten: true},
