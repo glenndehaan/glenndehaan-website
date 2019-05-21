@@ -74,14 +74,6 @@ module.exports = (env) => {
         },
         plugins: [
             // new BundleAnalyzerPlugin(),
-            new ReplaceInFileWebpackPlugin([{
-                dir: 'build',
-                test: /\.js$/,
-                rules: [{
-                    search: '__GITHUB_TOKEN__',
-                    replace: env ? env.GITHUB_TOKEN : '__NO_TOKEN__'
-                }]
-            }]),
             new CopyPlugin([
                 {from: 'public/manifest.json'},
                 {from: 'public/sitemap.xml'},
@@ -102,6 +94,19 @@ module.exports = (env) => {
             })
         ]
     };
+
+    if(ENV === "production") {
+        webpackSettings.plugins.push(
+            new ReplaceInFileWebpackPlugin([{
+                dir: 'build',
+                test: /\.js$/,
+                rules: [{
+                    search: '__GITHUB_TOKEN__',
+                    replace: env ? env.GITHUB_TOKEN : '__NO_TOKEN__'
+                }]
+            }]),
+        );
+    }
 
     if (ENV === "production") {
         webpackSettings.optimization = {
