@@ -1,3 +1,4 @@
+import './utils/polyfills';
 import {h, render} from 'preact';
 import {Provider} from 'unistore/preact';
 
