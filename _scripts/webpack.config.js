@@ -5,6 +5,8 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin');
+const CreateFileWebpack = require('create-file-webpack');
+const uuid = require('uuid/v4');
 
 const projectRoot = path.join(__dirname, '../');
 const buildDirectory = path.join(projectRoot, 'frontend');
@@ -75,9 +77,11 @@ module.exports = (env) => {
         plugins: [
             // new BundleAnalyzerPlugin(),
             new CopyPlugin([
+                {from: 'public/kill-switch.txt'},
                 {from: 'public/manifest.json'},
                 {from: 'public/sitemap.xml'},
                 {from: 'public/robots.txt'},
+                {from: 'public/sw.js'},
                 {from: 'public/docs/*.*', to: 'docs/', flatten: true},
                 {from: 'public/fonts/*.*', to: 'fonts/', flatten: true},
                 {from: 'public/images/*.*', to: 'images/', flatten: true},
@@ -97,14 +101,29 @@ module.exports = (env) => {
 
     if(ENV === "production") {
         webpackSettings.plugins.push(
-            new ReplaceInFileWebpackPlugin([{
-                dir: 'build',
-                test: /\.js$/,
-                rules: [{
-                    search: '__GITHUB_TOKEN__',
-                    replace: env ? env.GITHUB_TOKEN : '__NO_TOKEN__'
-                }]
-            }]),
+            new ReplaceInFileWebpackPlugin([
+                {
+                    dir: 'build',
+                    test: /\.js$/,
+                    rules: [{
+                        search: '__GITHUB_TOKEN__',
+                        replace: env ? env.GITHUB_TOKEN : '__NO_TOKEN__'
+                    }]
+                },
+                {
+                    dir: 'build',
+                    test: /\.js$/,
+                    rules: [{
+                        search: /__SW_VERSION__/g,
+                        replace: `glenndehaan.com_${uuid()}`
+                    }]
+                }
+            ]),
+            new CreateFileWebpack({
+                path: distDirectory,
+                fileName: 'kill-switch.txt',
+                content: env ? env.SW_KILL : 'false'
+            })
         );
     }
 

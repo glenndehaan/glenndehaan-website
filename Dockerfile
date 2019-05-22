@@ -7,6 +7,8 @@ RUN apk add --no-cache nginx nodejs npm
 WORKDIR /usr/src/app
 
 # Create variables
+ARG SW_KILL=false
+ENV SW_KILL="${SW_KILL}"
 ARG GITHUB_TOKEN=__NO_TOKEN__
 ENV GITHUB_TOKEN="${GITHUB_TOKEN}"
 
@@ -21,7 +23,7 @@ COPY ./_scripts/docker/nginx.conf /etc/nginx/nginx.conf
 COPY ./_scripts/docker/default.conf /etc/nginx/conf.d/default.conf
 
 # Create production build
-RUN npm ci --only=production && npm run build -- --env.GITHUB_TOKEN=${GITHUB_TOKEN} && rm -rf ./node_modules
+RUN npm ci --only=production && npm run build -- --env.GITHUB_TOKEN=${GITHUB_TOKEN} --env.SW_KILL=${SW_KILL} && rm -rf ./node_modules
 
 # Forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log

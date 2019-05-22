@@ -1,54 +1,90 @@
-const CACHE_NAME = 'GLENNDEHAAN-v2';
-const expectedCaches = [CACHE_NAME];
-const staticFiles = [
-    './',
-    './css/main.css',
-    './build/bundle.js',
-    './css/materialize.min.css',
-    './fonts/MaterialIcons-Regular.eot',
-    './fonts/MaterialIcons-Regular.ijmap',
-    './fonts/MaterialIcons-Regular.svg',
-    './fonts/MaterialIcons-Regular.ttf',
-    './fonts/MaterialIcons-Regular.woff',
-    './fonts/MaterialIcons-Regular.woff2',
-    './images/icon/logo_144x144.png',
-    './favicon.ico'
-];
+const RUNTIME = '__SW_VERSION__';
+const PRECACHE = '__SW_VERSION__';
+const PRECACHE_URLS = ['./'];
 
-/**
- * Performs install steps.
- */
-self.addEventListener('install', (event) => {
-    self.skipWaiting();
+const sameOrigin = true;
+const exceptions = ['/kill-switch.txt'];
+const networkFirst = ['/', '/api'];
+
+self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => cache.addAll(staticFiles))
+        caches
+            .open(PRECACHE)
+            .then(cache => cache.addAll(PRECACHE_URLS))
+            .then(self.skipWaiting())
     );
 });
 
-/**
- * Handles requests: responds with cache or else network.
- */
-self.addEventListener('fetch', (event) => {
-    const url = new URL(event.request.url);
-    event.respondWith(
-        caches.match(event.request).then(response => response || fetch(event.request))
-    );
-});
-
-/**
- * Cleans up static cache and activates the Service Worker.
- */
-self.addEventListener('activate', (event) => {
+self.addEventListener('activate', event => {
+    const currentCaches = [PRECACHE, RUNTIME];
     event.waitUntil(
-        caches.keys().then(keys => Promise.all(
-            keys.map((key) => {
-                if (!expectedCaches.includes(key)) {
-                    return caches.delete(key);
-                }
+        caches
+            .keys()
+            .then(cacheNames => {
+                return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
             })
-        )).then(() => {
-            console.log(`${CACHE_NAME} now ready to handle fetches!`);
-            return clients.claim();
-        })
+            .then(cachesToDelete => {
+                return Promise.all(
+                    cachesToDelete.map(cacheToDelete => {
+                        return caches.delete(cacheToDelete);
+                    })
+                );
+            })
+            .then(() => {
+                console.log(`${RUNTIME} now ready to handle fetches!`);
+                return self.clients.claim();
+            })
     );
+});
+
+self.addEventListener('fetch', event => {
+    const {url} = event.request;
+
+    const isException = exceptions.filter(exception => url.indexOf(exception) !== -1).length;
+    const isRightOrigin = sameOrigin ? url.startsWith(self.location.origin) : true;
+    const isNetworkFirst = networkFirst.filter(n => url.indexOf(n) !== -1).length;
+
+    if (!isException && isRightOrigin && event.request.method === 'GET') {
+        if (isNetworkFirst) {
+            event.respondWith(
+                caches.open(RUNTIME).then(cache => {
+                    return fetch(event.request)
+                        .then(response => {
+                            return cache.put(event.request, response.clone()).then(() => {
+                                return response;
+                            });
+                        })
+                        .catch(() => {
+                            return caches.match(event.request).then(
+                                response =>
+                                    response
+                                        ? response
+                                        : caches.open(PRECACHE).then(cache => {
+                                            return cache.match('offline');
+                                        })
+                            );
+                        });
+                })
+            );
+            return;
+        }
+        event.respondWith(
+            caches.match(event.request).then(cachedResponse => {
+                if (cachedResponse) return cachedResponse;
+                return caches.open(RUNTIME).then(cache => {
+                    return fetch(event.request)
+                        .then(response => {
+                            return cache.put(event.request, response.clone()).then(() => {
+                                return response;
+                            });
+                        })
+                        .catch(() => {
+                            return caches.open(PRECACHE).then(cache => {
+                                return cache.match('offline');
+                            });
+                        });
+                });
+            })
+        );
+    }
 });

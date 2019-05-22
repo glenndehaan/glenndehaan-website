@@ -9,6 +9,7 @@ import storage from './modules/storage';
 
 import {compareCreatedAt} from './utils/strings';
 import fetch from './utils/fetch';
+import {validateServiceWorkerInstance} from './utils/sw';
 
 import Router from './components/Router';
 
@@ -35,6 +36,7 @@ const updateGithubData = () => {
  * Initialize the app
  */
 updateGithubData();
+validateServiceWorkerInstance("/kill-switch.txt");
 
 document.querySelector('#app').innerHTML = "";
 render(<Provider store={store}><Router/></Provider>, document.querySelector('#app'));
