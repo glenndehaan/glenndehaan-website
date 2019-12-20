@@ -18,7 +18,7 @@ import Router from './components/Router';
  */
 const updateGithubData = () => {
     if(navigator.onLine !== false){
-        new fetch("https://api.github.com/user/repos?affiliation=owner&visibility=public", (data) => {
+        new fetch("https://api.github.com/user/repos?affiliation=owner&visibility=public&per_page=100", (data) => {
             if(data.length > 0) {
                 // Save data to state
                 const sortedData = data.sort(compareCreatedAt).filter(item => !item.fork);
