@@ -18,8 +18,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "rotation": "portrait",
   "background_color": "#F03A00",
