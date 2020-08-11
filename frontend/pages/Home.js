@@ -49,33 +49,33 @@ class Home extends Component {
                 <section className="landing-skills">
                     <ul className="skills-list">
                         <li className="skill">
-                            <h4 className="title-small">PHP</h4>
+                            <h3 className="title-small">PHP</h3>
                         </li>
                         <li className="skill">
-                            <h4 className="title-small">Windows Server</h4>
+                            <h3 className="title-small">Windows Server</h3>
                         </li>
                         <li className="skill">
-                            <h4 className="title-small">Javascript</h4>
+                            <h3 className="title-small">Javascript</h3>
                         </li>
                         <li className="skill">
-                            <h4 className="title-small">Interactive Installations</h4>
+                            <h3 className="title-small">Interactive Installations</h3>
                         </li>
                         <li className="skill">
-                            <h4 className="title-small">Java</h4>
+                            <h3 className="title-small">Java</h3>
                         </li>
                     </ul>
                     <ul className="skills-list">
                         <li className="skill">
-                            <h4 className="title-small">Streaming</h4>
+                            <h3 className="title-small">Streaming</h3>
                         </li>
                         <li className="skill">
-                            <h4 className="title-small">Node.js</h4>
+                            <h3 className="title-small">Node.js</h3>
                         </li>
                         <li className="skill">
-                            <h4 className="title-small">Linux / Ubuntu / Debian</h4>
+                            <h3 className="title-small">Linux / Ubuntu / Debian</h3>
                         </li>
                         <li className="skill">
-                            <h4 className="title-small">Networking</h4>
+                            <h3 className="title-small">Networking</h3>
                         </li>
                     </ul>
                     <Link href="/about" className="cta fade-red shadow">More about me</Link>

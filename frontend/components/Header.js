@@ -14,12 +14,12 @@ class Header extends Component {
         return (
             <header className="header">
                 <Link className={["home-anchor", this.props.router.url === '/' ? 'is-active' : ''].join(' ')} href="/">
-                    <h1 className="page-title">
+                    <span className="page-title">
                         <figure className="logo">
                             <img src="/images/design/glenn-de-haan-icon.jpg" alt="logo" />
                         </figure>
                         Glenn de Haan
-                    </h1>
+                    </span>
                 </Link>
 
                 <nav className="nav-page">
