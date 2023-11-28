@@ -23,7 +23,7 @@ Then open up your favorite browser and go to http://localhost:3001/
 - Run `npm run build` in the root folder
 
 ## Docker
-- Code from master is build by Docker Hub
+- Code from master is build by GitHub actions
 - Builds can be pulled by using this command: `docker pull glenndehaan/glenndehaan-website`
 
 ## License
