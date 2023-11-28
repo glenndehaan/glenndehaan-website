@@ -1,12 +1,10 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin');
 const CreateFileWebpack = require('create-file-webpack');
-const uuid = require('uuid/v4');
+const { v4: uuid } = require('uuid');
 
 const projectRoot = path.join(__dirname, '../');
 const buildDirectory = path.join(projectRoot, 'frontend');
@@ -14,7 +12,7 @@ const distDirectory = path.join(projectRoot, 'build');
 
 const ENV = process.env.NODE_ENV || 'development';
 
-module.exports = (env) => {
+module.exports = () => {
     const webpackSettings = {
         performance: {
             hints: false
@@ -22,7 +20,6 @@ module.exports = (env) => {
         devServer: {
             host: '0.0.0.0',
             port: 3001,
-            index: 'index.html',
             historyApiFallback: true
         },
         entry: {
@@ -33,7 +30,7 @@ module.exports = (env) => {
         },
         output: {
             path: distDirectory,
-            filename: 'dist/[name].[hash:6].js',
+            filename: 'dist/[name].[fullhash:6].js',
             publicPath: '/'
         },
         module: {
@@ -53,13 +50,12 @@ module.exports = (env) => {
                     exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader',
-                        query: {
+                        options: {
                             presets: [
-                                require.resolve('@babel/preset-env'),
                                 require.resolve('@babel/preset-react')
                             ],
                             plugins: [
-                                [require.resolve('@babel/plugin-transform-react-jsx'), {pragma: 'h'}]
+                                [require.resolve('@babel/plugin-transform-react-jsx'), {pragma: 'h', pragmaFrag: 'Fragment'}]
                             ]
                         }
                     }
@@ -68,33 +64,39 @@ module.exports = (env) => {
                     test: /\.scss$/,
                     use: [
                         MiniCssExtractPlugin.loader,
-                        'css-loader?url=false',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                url: false
+                            }
+                        },
                         'sass-loader'
                     ]
                 }
             ]
         },
         plugins: [
-            // new BundleAnalyzerPlugin(),
-            new CopyPlugin([
-                {from: 'public/kill-switch.txt'},
-                {from: 'public/manifest.json'},
-                {from: 'public/sitemap.xml'},
-                {from: 'public/robots.txt'},
-                {from: 'public/sw.js'},
-                {from: 'public/docs/*.*', to: 'docs/', flatten: true},
-                {from: 'public/fonts/*.*', to: 'fonts/', flatten: true},
-                {from: 'public/images/*.*', to: 'images/', flatten: true},
-                {from: 'public/images/design/*.*', to: 'images/design/', flatten: true},
-                {from: 'public/images/icon/*.*', to: 'images/icon/', flatten: true},
-                {from: 'public/images/projects/*.*', to: 'images/projects/', flatten: true}
-            ]),
+            new CopyPlugin({
+                patterns:[
+                    {from: 'public/kill-switch.txt'},
+                    {from: 'public/manifest.json'},
+                    {from: 'public/sitemap.xml'},
+                    {from: 'public/robots.txt'},
+                    {from: 'public/sw.js'},
+                    {from: 'public/docs/*.*', to: 'docs/[name][ext]'},
+                    {from: 'public/fonts/*.*', to: 'fonts/[name][ext]'},
+                    {from: 'public/images/*.*', to: 'images/[name][ext]'},
+                    {from: 'public/images/design/*.*', to: 'images/design/[name][ext]'},
+                    {from: 'public/images/icon/*.*', to: 'images/icon/[name][ext]'},
+                    {from: 'public/images/projects/*.*', to: 'images/projects/[name][ext]'}
+                ]
+            }),
             new HtmlWebpackPlugin({
                 template: 'public/index.html',
                 inject: false
             }),
             new MiniCssExtractPlugin({
-                filename: 'dist/[name].[hash:6].css'
+                filename: 'dist/[name].[fullhash:6].css'
             })
         ]
     };
@@ -107,7 +109,7 @@ module.exports = (env) => {
                     test: /\.js$/,
                     rules: [{
                         search: '__GITHUB_TOKEN__',
-                        replace: env ? env.GITHUB_TOKEN : '__NO_TOKEN__'
+                        replace: process.env.APP_GITHUB_TOKEN ? process.env.APP_GITHUB_TOKEN : '__NO_TOKEN__'
                     }]
                 },
                 {
@@ -122,30 +124,10 @@ module.exports = (env) => {
             new CreateFileWebpack({
                 path: distDirectory,
                 fileName: 'kill-switch.txt',
-                content: env ? env.SW_KILL : 'false'
+                content: process.env.SW_KILL ? process.env.SW_KILL : 'false'
             })
         );
     }
 
-    if (ENV === "production") {
-        webpackSettings.optimization = {
-            minimizer: [
-                new UglifyJsPlugin({
-                    sourceMap: false,
-                    uglifyOptions: {
-                        warnings: false,
-                        output: {
-                            comments: false,
-                            beautify: false
-                        },
-                        compress: {
-                            drop_console: true
-                        }
-                    }
-                })
-            ]
-        };
-    }
-    
     return webpackSettings;
 };

@@ -34,7 +34,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="theme-color" content="#F03A00">
 
-        <link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.files.chunks.main.css %>" />
+        <link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.files.css %>" />
     </head>
     <body>
         <div id="app">
@@ -71,6 +71,6 @@
             </div>
         </div>
         <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js', { scope: '/' });</script>
-        <script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+        <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js %>"></script>
     </body>
 </html>

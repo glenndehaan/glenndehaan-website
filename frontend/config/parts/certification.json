@@ -1,5 +1,10 @@
 [
   {
+    "provider": "Vanta",
+    "name": "Verified Vanta Admin Certification",
+    "certificate": "docs/verified-vanta-admin.pdf"
+  },
+  {
     "provider": "Ubiquiti",
     "name": "Ubiquiti Enterprise Wired & Wireless specialist",
     "certificate": "docs/ubiquiti-uewws-certificate.pdf"
