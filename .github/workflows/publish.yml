@@ -30,6 +30,8 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: glenndehaan/glenndehaan-website:latest
+          build-args: |
+            APP_GITHUB_TOKEN=${{ secrets.APP_GITHUB_TOKEN }}
 
   deploy:
     runs-on: ubuntu-latest
